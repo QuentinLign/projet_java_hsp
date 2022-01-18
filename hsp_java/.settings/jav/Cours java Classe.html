@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//FR" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title>Cours java : Classe</title>
+  <link href="Cours%20java%20Classe_fichiers/base.css" rel="stylesheet" type="text/css" media="screen">
+  <link href="Cours%20java%20Classe_fichiers/basePrintPaysage.css" rel="stylesheet" type="text/css" media="print"> 
+  <link rel="icon" href="https://miashs-www.u-ga.fr/prevert/Prog/Java/CoursJava/duke.gif" type="image/gif">
+  <meta name="author" content="B. Caylux">
+ </head>
+
+
+<body class="vsc-initialized">
+<a name="haut"></a>
+<table style="width: 100%;" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td class="enTete">
+<a href="https://miashs-www.u-ga.fr/prevert/Prog/Java/CoursJava/ChainesDeCaracteres.html"><i>précédent</i></a> |
+<a href="https://miashs-www.u-ga.fr/prevert/Prog/Java/CoursJava/classes2.html"><i>suivant</i></a> | 
+<a href="https://miashs-www.u-ga.fr/prevert/Prog/Java/CoursJava/tabledesMatieres.html"><i>table des matières</i></a></td>
+<td class="enTete" style="width: 70px;align: right"><a href="https://miashs-www.u-ga.fr/prevert/Prog/Java/Applis/QCM/autoEvaluationChap5.jnlp"><i>s'évaluer</i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Classe</h1>  
+
+<!------------------------------------------------------------------------------>
+<!--                                SOMMAIRE                                  -->
+<!------------------------------------------------------------------------------>
+<table class="sommaire" cellspacing="0" cellpadding="3">
+<tbody><tr>
+<td>
+<center><b>Sommaire</b></center>
+<ol>
+<li><a href="#def">Définition</a></li>
+<li><a href="#creer">Création d'instance</a></li>
+<li><a href="#attrMeth">Attribut et méthode d'instance</a>
+   <ol start="31">
+      <li><a href="#attr">Attribut</a>
+	  </li><li><a href="#meth">Méthode</a>
+   </li></ol></li>
+<li><a href="#const">Constructeurs, <i>finalize</i></a></li>
+<li><a href="#attrC">Attribut et méthode de classe</a>
+   <ol start="51">
+	  <li><a href="#bstat">Bloc statique</a>
+   </li></ol></li>
+<li><a href="#object">classe <i>Object</i></a>
+</li></ol>
+</td>
+</tr>
+</tbody></table>
+
+<p>Une classe est la description de données appelées <b>attributs</b>, et d’opérations appelées <b>méthodes</b>.</p>
+
+<p>Une classe est un modèle de définition pour des objets ayant le même ensemble d’attributs, et le même ensemble d’opérations.</p>
+
+<p>A partir d’une classe on peut créer un ou plusieurs objets par <b>instanciation</b>&nbsp;; chaque objet est une <b>instance</b> d’une seule classe.</p>
+
+<p>Les caractéristiques de la programmation objet
+sont&nbsp;:&nbsp;</p>
+<ul>
+  <li>Encapsulation des données (attributs) et des comportements(
+    méthodes)&nbsp;:&nbsp;les attributs et les méthodes sont définies dans le même
+    environnement (capsule).</li>
+  <li>Masquage de l’information&nbsp;: l’utilisateur de la classe peut ne pas
+    avoir accès directement aux attributs.</li>
+  <li>Héritage&nbsp;:&nbsp;on peut définir une classe à partir d’une autre classe.</li>
+  <li>Polymorphisme&nbsp;:&nbsp;une même méthode peut avoir un comportement différent
+    en fonction de l’instance à la quelle est appliquée.</li>
+</ul>
+
+<!------------------------------------------------------------------------------>
+<!--                                DEFINITION                                -->
+<!------------------------------------------------------------------------------>
+<a name="def"></a>
+<p><span class="t1"><big>1</big> Définition d’une classe&nbsp;:&nbsp;</span></p>
+
+
+<pre class="programmation"><b>class</b> X <b>extends</b> Y{
+   <span class="progComment">// liste des attributs</span>
+   <span class="progComment">// liste des méthodes</span>
+}</pre>
+
+
+<p>Si <i>Y</i> est la classe de base de la hiérarchie des objets Java <i>Object</i> , alors la partie <i>extends</i> est facultative.</p>
+
+<p>exemple&nbsp;:&nbsp;</p>
+
+<table>
+<tbody>
+<tr>
+<td>
+<pre class="programmation"><b>class</b> A <b>extends</b>&nbsp; Object{
+   <b>int</b> a&nbsp;;
+   <b>void</b> f(){ 
+      ... 
+   }
+}</pre>
+</td><td>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;est équivalent à&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td>
+<pre class="programmation"><b>class</b> A {
+   <b>int</b> a&nbsp;;
+   <b>void</b> f(){ 
+      ... 
+   }
+}</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>Une classe a une visibilité :</p>
+<ul>
+  <li><b>public</b>&nbsp;le mot <i>class</i> est alors
+    précédé de <i>public</i>, tout utilisateur qui importe le paquetage peut
+    utiliser la classe. Dans ce cas elle doit être définie dans un fichier
+    qui a pour nom le nom de la classe.</li>
+  <li><b>privé</b> le mot <i>class</i> est alors précédé de
+    <i>private</i>,&nbsp; seules des classes définies dans
+    le même fichier peuvent utiliser cette classe.</li>
+  <li><b>paquetage</b> le mot <i>class</i> n’est pas précédé de mot
+    particulier, toutes les classes du paquetage peuvent utiliser la
+    classe.</li>
+</ul>
+
+<!------------------------------------------------------------------------------>
+<!--                                CREATION D'INSTANCE                       -->
+<!------------------------------------------------------------------------------>
+<a name="creer"></a>
+<p><span class="t1"><big>2</big> Création d’instances</span></p>
+
+<p>Pour créer une instance de la classe <i>A</i>, on écrira&nbsp;:&nbsp;</p>
+
+<pre class="programmation">A a&nbsp;;&nbsp;&nbsp;       <span class="progComment">// définition de la variable référence</span>
+a = <b>new</b> A()&nbsp;; <span class="progComment">// création de l’instance</span>
+</pre>
+
+<p>La création d’une instance par l’opérateur <b>new</b> se déroule en trois temps&nbsp;:</p>
+<ul>
+  <li>Réservation de l’espace mémoire suffisamment grand pour représenter l’objet.</li>
+  <li>Appel du constructeur de l’objet. Initialisation des attributs,
+    et d’une référence à l’objet représentant la classe de l’instance en
+    train d’être créée.</li>
+  <li>Renvoi d’une référence sur l’objet nouvellement  créé</li>
+</ul>
+
+<br class="sp">
+<table style="text-align: left; width: 701px; height: 231px;" cellspacing="2" cellpadding="2" border="0">
+  <tbody>
+    <tr>
+<td><pre class="programmation"><b>class</b> Point{
+   <b>int</b> x&nbsp;;
+   <b>int</b> y&nbsp;;
+      . . . 
+}<p></p>
+
+Point a,  b&nbsp;;
+a = <b>new</b> Point(…)&nbsp;;
+b = a;</pre></td>
+<td><img style="width: 387px; height: 219px; float: left;" alt="représentation de l'instance de Point" src="Cours%20java%20Classe_fichiers/image001.gif"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p>La destruction des instances se fait automatiquement par
+un «&nbsp;<i>thread</i>&nbsp;» le <i>garbage collector</i> qui cherche tous les objets qui ne
+sont plus référencés et les supprime. Le <i>garbage</i> <i>collector</i> peut
+être appelé directement par <i>System.gc()</i>.</p>
+
+
+<!------------------------------------------------------------------------------>
+<!--                            ATTRIBUT et METHODE                           -->
+<!------------------------------------------------------------------------------>
+<a name="attrMeth"></a>
+<p><span class="t1"><big>3</big> Attributs et méthodes</span></p>
+
+
+<!------------------------------------------------------------------------------>
+<!--                            ATTRIBUT                                      -->
+<!------------------------------------------------------------------------------>
+<a name="attr"></a>
+<p><span class="t2"><big>3.1</big> Attribut&nbsp;:&nbsp;</span></p>
+
+
+<p>Un attribut se définit en donnant son type, puis son
+nom, ( [] pour un tableau ), et éventuellement une partie initialisation.</p>
+
+<p>Un attribut a une visibilité&nbsp;:&nbsp;</p>
+<ul>
+  <li><b>public </b>&nbsp;sa définition est précédée de
+    <i>public</i>, et il peut être utilisé par tout utilisateur de la
+  classe.</li>
+  <li><b>privé </b>sa définition est précédée de <i>private</i>, et il ne
+    peut être utilisé qu’à l’intérieur de la classe</li>
+  <li><b>protégé </b>sa définition est précédée de <i>protected</i>, et il ne
+    peut être utilisé qu’à l’intérieur de la classe, ou des classes
+  dérivées.</li>
+  <li><b>paquetage</b> l’attribut peut être utilisé dans toute classe du
+    même paquetage.</li>
+</ul>
+
+<p>A l’intérieur de la définition d’une méthode, l’accès à un attribut  se fait soit directement, soit en préfixant l'attribut par <b>this</b> qui est une référence à l’objet pour lequel est
+appelé la méthode.</p>
+
+<p>A l’extérieur de la définition de la classe, l’accès se
+fait en écrivant le nom de l’instance, un point le nom de l’attribut ou de la
+méthode.</p>
+
+<table>
+<tbody>
+<tr>
+<td valign="top"><pre class="programmation"><b>class</b> Point{
+   <b>private</b> <b>int</b> x&nbsp;;                
+   <b>public</b> <b>int</b> y&nbsp;;
+   <b>void</b> f(){
+      x = 0;
+      <b>this</b>.y = 1;
+   }     
+}</pre>
+</td>
+<td valign="top">En dehors de la définition de la classe :
+<pre class="programmation">Point p = <b>new</b> Point();
+p.x = 0; <span class="progComment">// Erreur de compilation : la visibilité de x est privée !</span>
+p.y = 1;</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<!------------------------------------------------------------------------------>
+<!--                            METHODE                                       -->
+<!------------------------------------------------------------------------------>
+<a name="meth"></a>
+<p><span class="t2"><big>3.2</big> Méthode&nbsp;:&nbsp;</span></p>
+
+
+
+<p>Une méthode est définie par&nbsp;:</p>
+<ul>
+  <li>Son type de retour&nbsp;:&nbsp;type de la valeur retournée par la méthode. Si la
+    méthode ne retourne pas de valeur le type spécifié est alors <b>void</b>.
+    Le type retourné peut être tableau.</li>
+  <li>Son nom</li>
+  <li>Ses paramètres&nbsp;:&nbsp;les paramètres sont spécifiés par leur type et leur
+    nom (&nbsp;éventuellement [] ) et sont séparés par des virgules. Tous les
+    paramètres sont des paramètres transmis par valeur. La plupart des
+    paramètres ( sauf ceux de type primitif&nbsp;) étant des références, la
+    transmission de paramètre est en fait une transmission par référence&nbsp;:&nbsp;la
+    valeur référencée peut être modifié, mais pas la référence elle même. On peut avoir un paramètre <i>ellipse</i>,
+ et dans ce cas ce paramètre doit être le dernier de la liste des 
+paramètres. Ce paramètre est en fait un tableau. L'appel de la méthode 
+peut alors se faire avec un nombre variable de paramètres effectifs.<br>
+   Exemple :
+   <pre class="programmation"><b>void</b> m(X ... e){
+       <span class="progComment">e est un tableau à une dimension d'éléments de type X</span>
+}</pre>Un appel de la méthode <i>m</i> se fait alors de la façon suivante :
+   <pre class="programmation">   m(<b>null</b>);
+   m();
+   m(x1);
+   m(x1, x2);
+   m(x1, x2, x3)
+   ...
+   <span class="progComment">ce dernier appel est équivalent à :</span>
+   X[] t={x1, x2, x3};
+   m(t);
+   <span class="progComment">ou</span>
+   m(<b>new</b> X[]{x1, x2, x3});
+}</pre></li>
+</ul>
+<p>Une méthode est caractérisée par sa <i><b>signature</b></i> :
+</p><ol>
+<li>son nom.</li>
+<li>la liste des types des paramètres, dans l'ordre.</li>
+</ol>
+Dans une classe deux méthodes différentes ne peuvent pas avoir la même 
+signature. Deux méthodes ayant le même nom, mais des liste de types de 
+paramètres différentes sont des surcharges l'une de l'autre.
+<p></p>
+<p>
+&nbsp;Dans le corps d’une méthode, on peut utiliser la référence
+<b>this</b>, qui référence l’objet pour lequel la méthode est appelée, cet
+usage étant facultatif.<br><b>this</b> ne peut pas être modifié. </p>
+
+<p>Une méthode a une visibilité&nbsp;:&nbsp;</p>
+<ul>
+  <li><b>public </b>&nbsp;sa définition est précédée de
+    <i>public</i>, et elle peut être utilisée par tout utilisateur de la
+  classe.</li>
+  <li><b>privé </b>sa définition est précédée de <i>private</i>, et elle ne
+    peut être utilisée qu’à l’intérieur de la classe</li>
+  <li><b>protégé </b>sa définition est précédée de <i>protected</i>, et elle ne
+    peut être utilisée qu’à l’intérieur de la classe, ou des classes
+  dérivées.</li>
+  <li><b>paquetage</b> la méthode  peut être utilisée dans toute classe du
+    même paquetage.</li>
+</ul>
+
+<p>A l’extérieur de la définition de la classe, l’accès se
+fait en écrivant le nom de l’instance, un point le nom de l’attribut ou de la
+méthode.</p>
+
+<!------------------------------------------------------------------------------>
+<!--                            CONSTRUCTEURS, FINALIZE                       -->
+<!------------------------------------------------------------------------------>
+<a name="const"></a>
+<p><span class="t1"><big>4</big> Constructeurs, finalize</span></p>
+
+
+<p>Certaines méthodes sont des <b>constructeurs</b>&nbsp;: ils
+ont pour nom le nom de la classe, &nbsp;ils ne retournent pas de valeur, et sont
+appelés au moment de la création d’une instance de la classe. </p>
+
+<p>Si aucun constructeur n’est défini, Java fournit un
+constructeur sans paramètre appelé constructeur implicite ou par défaut,
+ qui appelle le constructeur implicite de la super classe, les attributs
+ ne sont pas initialisés.</p>
+
+<p>Une classe peut être munie de la méthode
+<b>finalize()</b>. Cette méthode est appelée par le ramasse miettes (
+<i>garbage collector</i> ) qui permet de récupérer l’espace occupé par les
+différents instances d’un programme qui ne sont plus utilisées. </p>
+
+
+<!------------------------------------------------------------------------------>
+<!--                            ATTRIBUT METHODE DE CLASSE                    -->
+<!------------------------------------------------------------------------------>
+<a name="attrC"></a>
+<p><span class="t1"><big>5</big> Attributs et méthodes de classe.</span></p>
+
+
+<p>Les attributs ou les méthodes d’une classe peuvent être
+<b>static</b>, et on parle de méthode ou d’attribut de classes,
+alors que pour les méthodes et attributs non statiques, on parle d’attribut
+et de méthode d’instances.</p>
+
+<p>Pour les attributs, il n’y a qu’une seule représentation
+des attributs <b>static</b> et non pas une représentation par instance.</p>
+
+<p>Un attribut, ou une méthode <i>static</i> peut être
+utilisé indépendamment de l’existence d’instances, en le préfixant par le nom
+de la classe. Une méthode <i>static</i> ne peut donc accéder qu’à des
+attributs ou méthodes <i>static</i>.</p>
+
+
+<p>Exemples : </p>
+<ul>
+  <li>La classe <i>Math</i> ne&nbsp;contient que des
+    attributs statiques ( <i>PI</i>, <i>E</i> ) et des méthodes statiques( <i>sqrt</i>,
+    <i>exp</i>, <i>sin</i>, <i>cos</i>, <i>log</i>, …)</li>
+  <li>La classe <i>BigInteger</i> contient deux attributs <i>static</i>
+    (<i>ONE</i> et <i>ZERO</i>) et une méthode statique <i>BigInteger
+    valueOf(long)</i></li>
+  <li>La classe <i>Font</i> contient plusieurs attributs <i>static</i> parmi
+    lesquels&nbsp; <i>BOLD</i>, <i>ITALIC</i>, et
+    <i>PLAIN</i> &nbsp;&nbsp;et des méthodes statiques parmi lesquelles <i>Font
+    decode(String&nbsp;str)</i> qui fabrique une fonte à partie de son nom.</li>
+    <li>La classe <i>Color</i> contient des couleurs prédéfinies <i>WHITE</i>, <i>RED</i>, <i>BLACK</i>, <i>BLUE</i>, ... </li>
+</ul>
+
+<!------------------------------------------------------------------------------>
+<!--                            BLOC STATIQUE                                 -->
+<!------------------------------------------------------------------------------>
+<br class="sp"><a name="bstat"></a>
+<p><span class="t2"><big>5.1</big> Bloc Static.</span></p>
+
+<p>Une classe ( non imbriquée ) peut être munie de un ou plusieurs blocs <i>static</i> qui sont exécutés au chargement de la classe.</p>
+
+<p>Un bloc <i>static</i> est défini par&nbsp;:&nbsp;</p>
+
+
+<pre class="programmation"><b>static</b>{
+   . . .
+}</pre>
+
+<p>Un bloc statique peut servir à l’initialisation des attributs <i>static</i>, ou au chargement de librairies.</p>
+
+<!------------------------------------------------------------------------------>
+<!--                            Classe OBJECT                                 -->
+<!------------------------------------------------------------------------------>
+<a name="object"></a>
+<p><span class="t1"><big>6</big> La classe <i>Object</i></span></p>
+
+<p>La classe <i>Object</i> est la classe racine de toute la hiérarchie des objets Java, y compris les tableaux.</p>
+
+
+
+<table cellspacing="0" cellpadding="0" border="1">
+  <tbody>
+    <tr>
+      <td><pre class="programmation"><b>protected</b> &nbsp;Object clone()</pre></td>
+      <td>Création d’une copie de l’objet.
+        <ul>
+          <li>Si l’objet n’implémente pas l’interface <i>Cloneable</i>, alors
+            une exception&nbsp; <i>CloneNotSupportedException</i> est levée. Tous les
+            tableaux implémentent l’interface <i>Cloneable</i>. </li>
+          <li>Sinon la méthode crée une nouvelle instance de la classe et
+            initialise tous ses attributs avec&nbsp;les
+            valeur des attributs de l’objet&nbsp;: si l’attribut est une référence
+            c’est la référence qui est copiée&nbsp;:&nbsp;il n’y a pas <b>copie en
+            profondeur</b>.</li>
+        </ul>
+       </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>boolean</b> equals(Object&nbsp;obj)</pre></td>
+      <td>Retourne <i>true</i> si un objet est égal à  un autre. La méthode doit être&nbsp;:<p></p>
+        <ul>
+          <li>Réflexive</li>
+          <li>Transitive </li>
+          <li>Symétrique</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>protected &nbsp;void</b> finalize()</pre></td>
+      <td>Appelée par le ramasse-miettes, quand il n’y a plus de référence à l’objet. </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> Class getClass()</pre></td>
+      <td>Retourne la classe de l’objet. </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>int<b> hashCode</b>()</b></pre></td>
+      <td>Retourne une valeur de <i>hash-code</i> pour l’objet.</td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>void</b> notify()</pre></td>
+      <td>Réveille un seul <i>thread</i> en attente  sur le moniteur de l’objet.</td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>void</b> notifyAll()</pre></td>
+      <td>Réveille tous les <i>threads</i> en attente
+        sur le moniteur de l’objet.&nbsp;</td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> String toString()</pre></td>
+      <td>Retourne une représentation en chaîne de    l’objet&nbsp;:&nbsp;la définition pour <i>Object</i> est <span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">getClass().getName()
+        + '@' + Integer.toHexString(hashCode())</span>.<p></p>
+      </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>void</b> wait()</pre></td>
+      <td>Met le <i>thread</i> courant en attente jusqu’à ce qu’il soit réveillé par un <i>notify()</i> ou un <i>notifyAll()</i> </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>void</b> wait(long&nbsp;timeout)</pre></td>
+      <td>&nbsp; </td>
+    </tr>
+    <tr>
+      <td><pre class="programmation"><b>public</b> <b>void</b> wait(long&nbsp;timeout, int&nbsp;nanos)</pre></td>
+      <td>&nbsp; </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<p class="enTete"><i><a href="#haut">haut de la page</a></i></p>
+
+
+</body></html>

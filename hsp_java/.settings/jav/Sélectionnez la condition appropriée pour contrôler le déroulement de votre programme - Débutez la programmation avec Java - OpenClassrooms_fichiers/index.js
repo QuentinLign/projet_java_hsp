@@ -1,0 +1,2 @@
+(self.webpackChunkopenclassrooms=self.webpackChunkopenclassrooms||[]).push([[1933],{12169:function(e,n,s){Promise.all([s.e(1216),s.e(7865),s.e(179)]).then(s.bind(s,3618)).then((function(e){return(0,e.default)()}))}},function(e){"use strict";var n;n=12169,e(e.s=n)}]);
+//# sourceMappingURL=index.a2665b95db17f1992504.js.map

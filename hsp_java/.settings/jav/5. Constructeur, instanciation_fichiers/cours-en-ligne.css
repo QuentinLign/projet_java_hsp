@@ -1,0 +1,492 @@
+* {
+	font-family : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+}
+
+a {
+	color           : #404040;
+	text-decoration : none;
+}
+
+.sect1 .titlepage h2.title a {
+	color           : #FF4500;
+}
+
+#toc-3 a:hover {
+	color           : Green;
+	text-decoration : underline;
+}
+
+a:active {
+	color           : Red;
+	text-decoration : none;
+}
+
+a p {
+	color           : black;
+}
+
+h3 a:active {
+	color           : #2F4F4F;;
+}
+
+.ulink {
+	color: black;
+	text-decoration: underline;
+}
+
+.ulink:hover {
+	color           : Green;
+	text-decoration : underline;
+}
+
+.ulink:active {
+	color           : Red;
+	text-decoration : none;
+}
+
+.ulink:visited {
+	color: black;
+	text-decoration: underline;
+}
+
+/* corps de page */ 
+body {
+	color                 : #404040;
+	background-color      : #000000;
+	background-image      :url(fond/IMG_4946gdc.jpg);
+	background-attachment :fixed;
+	background-repeat     :no-repeat;
+	background-position   :top center;
+	font-size             : 12px; 
+}
+
+/* div pour la page de texte */
+#page {
+	width            : 960px;
+	margin-top       :  10px;
+	margin-left      :  auto;
+	margin-right     :  auto;
+	margin-bottom    :  10px;
+	padding-bottom   :  10px;
+
+	border-top       : solid 1px black;
+	border-left      : solid 1px black;
+	border-right     : solid 1px black;
+	border-bottom    : solid 1px black;
+	color: 				#404040;
+	background-color : rgb(240, 240, 240);
+	background-color : rgba(240, 240, 240, 0.9);
+	text-align       : justify;
+	letter-spacing   : 0.02ex;
+	line-height      :  1.5em;
+}
+
+#page hr {
+	width : 900px;
+}
+
+/* div pour le contenu textuel de la page de texte */
+#page_content {
+	margin-left    :   0px;
+	margin-right   :   0px;
+	margin-top     :   0px;
+	margin-bottom  :   0px;
+	min-height     : 800px;
+}
+
+/*  
+ * Page de texte tête de chapitre 
+ */
+div.chapter {
+	width        :660px;
+	margin-left  : 30px;
+	margin-right : 20px;
+}
+
+div.chapter div.sect1 {
+	width        :660px;
+	margin-left  : 0px;
+	margin-right : 0px;
+}
+
+div.sect1 {
+	width        :660px;
+	margin-left  : 30px;
+	margin-right : 20px;
+}
+
+/* 
+ * div pour le bloc de sommaire 
+ */
+/* position du bloc */
+div.toc {
+	position    : fixed;
+	top         : 315px;
+	width       : 240px;
+	margin      :  10px;
+	margin-left : 680px;
+	text-align  :  left;
+	overflow    : hidden;
+}
+
+div.chapter div.toc {
+	height      : 460px;
+}
+
+div.toc dl dt {
+	font-weight: bold;
+}
+
+div.toc dl dd dl dt {
+	font-weight: normal;
+}
+
+div.toc dl dd dd dl dt {
+	margin-left: 15px;
+}
+
+
+/* style de texte pour les têtes de chapitre */
+div.chapter div.toc dl dt .section a {
+	font-size       : 12px;
+	font-weight     : bold;
+	line-height     : 1.8em;
+}
+/* style de texte pour le bloc des sous-section */
+div.chapter div.toc dl dd dl {
+	margin-top : 2px;
+}
+div.chapter div.toc dl dd {
+	margin-left : 0px;
+}
+/* style de texte pour les sous-section */
+div.chapter div.toc dl dd dl dt .section a {
+	font-size       : 12px;
+	font-weight     : normal;
+}
+
+/* Titre de chapitre dans les pages de texte */
+div.chapter div.titlepage h2.title {
+	margin-bottom  :  100px;
+	margin-top     :   80px;
+	margin-right   : -240px;
+	color          :  black;
+	font-size      :   48px;
+	font-weight    :   bold;
+	font-variant   : small-caps;
+	letter-spacing :  0.2ex;
+	text-align     :   left;
+	line-height    :  48px;
+}
+
+/* Titre de partie pour les pages de texte de début de chapitre */
+div.chapter div.sect1 div.titlepage h2 {
+	margin-top     : 60px;
+	margin-bottom  : 20px;	
+	margin-right   :  0px;
+	color          : #FF4500;
+	font-size      :  26px;
+	font-variant   : small-caps;
+	font-weight    : bold;
+	letter-spacing : 0.2ex;	
+
+	line-height:		1.4em;
+	border-bottom:	solid 1px black;
+}
+
+div.sect1 div.titlepage h2 {
+	margin-top     : 60px;
+	margin-bottom  : 20px;	
+	margin-right   :  0px;
+	color          : #FF4500;
+	font-size      :  26px;
+	font-variant   : small-caps;
+	font-weight    : bold;
+	letter-spacing : 0.2ex;	
+
+	line-height:		1.4em;
+	border-bottom:	solid 1px black;
+}
+
+div.titlepage h3 {
+	margin-top     :  30px;
+	margin-bottom  :  20px;
+
+	font-size      :  18px;
+	
+	letter-spacing : 0.1ex;
+	color          : #2F4F4F;
+}
+
+/* 
+ * Blocs de retour sommaire / next / previous
+ */
+#loc {
+	font-weight : bold;
+	top:180px;
+	position:fixed;
+	width:220px;
+	margin:10px ;
+	margin-left:710px;
+	letter-spacing: 0.1em ;
+}
+
+#cours {
+	font-weight : bold;
+	top:210px;
+	position:fixed;
+	width:220px;
+	margin:10px ;
+	margin-left:710px;
+	letter-spacing: 0.1em ;
+}
+
+#blog {
+	font-weight : bold;
+	top:240px;
+	position:fixed;
+	width:220px;
+	margin:10px ;
+	margin-left:710px;
+	letter-spacing: 0.1em ;
+}
+
+#retour_toc {
+	font-weight : bold;
+	top:270px;
+	position:fixed;
+	width:@20px;
+	margin:10px ;
+	margin-left:710px;
+	letter-spacing: 0.1em ;
+}
+
+#next {
+	font-weight : bold;
+	position : fixed ;
+	top:290px;
+	width:120px;
+	margin:10px ;
+	margin-left:710px;
+	letter-spacing: 0.1em ;
+}
+
+#previous {
+	font-size : 12px;
+	font-weight : bold;
+	position : fixed ;
+	top:290px;
+	width:120px;
+	margin:10px ;
+	margin-left:830px;
+	letter-spacing: 0.1em ;
+}
+
+.screen {
+	font-family      : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	color : black ;
+
+	margin-top       : 10px;
+	margin-bottom    : 10px;
+	
+	padding-bottom   :  5px;
+	padding-top      :  5px;
+	padding-left     :  5px;
+	padding-right    :  5px;
+
+	border-top       : solid 1px grey;
+	border-left      : solid 1px grey;
+	border-right     : solid 1px grey;
+	border-bottom    : solid 1px grey;
+	background-color : white;
+		
+}
+
+/*
+ * Style des listing
+ */
+
+.code {
+	font-size   : inherit;
+	font-family : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+.programlisting {
+	font-family      : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	color            : black ;
+	
+	padding-bottom   :  5px;
+	padding-top      :  5px;
+	padding-left     : 10px;
+	padding-right    :  5px;
+
+	border-top       : solid 1px grey;
+	border-left      : solid 1px grey;
+	border-right     : solid 1px grey;
+	border-bottom    : solid 1px grey;
+	background-color : white ;
+}
+/* couleur des mots-clés */
+.hl-keyword {
+	color : #7F0055 ;
+	font-family      : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+/* couleur des chaînes de caractères */
+.hl-string {
+	color : #2A00FF ;
+	font-family      : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+/* couleur des commentaires */
+.hl-comment {
+	color : green;
+	font-family      : "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+/* style des annotations Java */
+.hl-annotation {
+	color : blue;
+	font-style: normal;
+}
+
+
+/*
+ * Style des tables
+ */
+table {
+	width   : 100%;
+	border  :  0px;
+	padding :  0px;
+}
+
+table {
+	padding        : 0px; 
+  	border-spacing : 0pt;
+}
+
+td {
+	padding : 6px; 
+}
+
+th {
+	padding : 6px; 
+}
+
+.oddrow {
+	background-color : #D0D0D0;	
+}
+
+.evenrow {
+	background-color : #E4E4E4;
+}
+
+table thead tr.evenrow {
+	background-color : silver;
+}
+
+tr th p {
+	font-size : 12px ;
+}
+
+tr td p {
+	font-size : 12px ;
+}
+
+#copyright {
+	text-align : center;
+	font-style : italic;
+}
+
+/*
+ * Page de sommaire
+ */
+div.book {
+	width        :660px;
+	margin-left  : 30px;
+	margin-right : 20px;
+}
+/* Titre */
+h1 {
+	font-family   : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	
+	color          :  black;
+	font-size      :   48px;
+	font-weight    :   bold;
+	font-variant   : small-caps;
+	letter-spacing :  0.2ex;
+	text-align     :   left;
+	line-height    :  48px;
+	margin-top     :  80px;
+	width          : 960px;
+}
+
+div.book div.toc {
+	position    : relative;
+	top         :   0px;
+	width       : 660px;
+	margin      :  10px;
+	margin-left :   0px;
+	text-align  :  left;
+}
+
+div.book div.toc p {
+	font-family    : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	font-size      : 26px;
+	font-variant   : small-caps; 
+	font-weight    : bold;
+	letter-spacing : 0.1ex;
+}
+
+
+div.book div.list-of-figures p {
+	font-family    : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	font-size      : 26px;
+	font-variant   : small-caps; 
+	font-weight    : bold;
+	letter-spacing : 0.1ex;
+}
+
+div.book div.list-of-tables p {
+	font-family    : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	font-size      : 26px;
+	font-variant   : small-caps; 
+	font-weight    : bold;
+	letter-spacing : 0.1ex;
+}
+
+div.book div.list-of-examples p {
+	font-family    : "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	font-size      : 26px;
+	font-variant   : small-caps; 
+	font-weight    : bold;
+	letter-spacing : 0.1ex;
+}
+
+
+div.book .chapter {
+	font-size      :  22px;
+	font-variant   : small-caps; 
+	font-weight    : bold;
+	letter-spacing : 0.1ex;
+}
+
+div.book div.toc dl dd dl dt {
+	margin-top     : 5px; 
+	margin-bottom  : 5px;
+}
+
+div.book div.toc dl dd dl dt .section {
+	font-size      :  16px;
+	letter-spacing : 0.1ex;
+}
+
+div.book div.toc dl dd dl dd dl {
+	margin-top     : 0px;
+	margin-bottom  : 0px;
+}
+
+div.book div.toc dl dd dl dd dl .section {
+	font-size      :  12px;
+	letter-spacing : 0.1ex;
+}
+
+.expand-section:hover {
+	cursor: pointer;	
+}

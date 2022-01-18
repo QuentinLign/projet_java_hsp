@@ -1,0 +1,1918 @@
+<html xmlns:d="http://docbook.org/ns/docbook" xmlns:xslthl="http://xslthl.sf.net" xmlns:fo="http://www.w3.org/1999/XSL/Format"><head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <title>5.&nbsp;Constructeur, instanciation</title>  
+    <link rel="stylesheet" type="text/css" href="5.%C2%A0Constructeur,%20instanciation_fichiers/cours-en-ligne.css">  
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">  
+    <link rel="home" href="http://blog.paumard.org/cours/java/index.html" title="Java en ligne">  
+    <link rel="up" href="http://blog.paumard.org/cours/java/chap04-structure-classe.html" title="Structure d'une classe">  
+    <link rel="prev" href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html" title="4.&nbsp;Membres d'une classe, visibilité">  
+    <link rel="next" href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html" title="6.&nbsp;Énumérations">  
+    <meta name="date" content="2019/03/03">
+      <script type="text/javascript" async="" src="5.%C2%A0Constructeur,%20instanciation_fichiers/ga.js"></script><script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-20922323-2']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+      <script type="text/javascript" src="5.%C2%A0Constructeur,%20instanciation_fichiers/jquery.js"></script>
+      <script type="text/javascript" src="5.%C2%A0Constructeur,%20instanciation_fichiers/menu.js"></script>
+  </head>
+  <body file="chap04-structure-classe-instanciation.html" class="vsc-initialized"> 
+    <div id="page"> 
+      <div id="page_content"> 
+        <div class="sect1" lang="fr"> 
+          <div class="titlepage"> 
+            <div> 
+              <div> 
+                <h2 class="title" style="clear: both">
+                  <a name="chap04-structure-classe-instanciation">5.&nbsp;Constructeur, instanciation
+                </a></h2><a name="chap04-structure-classe-instanciation"> 
+              </a></div><a name="chap04-structure-classe-instanciation"> 
+            </a></div><a name="chap04-structure-classe-instanciation"> 
+          </a></div><a name="chap04-structure-classe-instanciation">  
+          <p>Nous avons vu que l’instanciation d’un objet recouvrait 
+deux choses : la réservation d’un espace mémoire sur lequel la machine 
+Java nous donne une référence, et l'initialisation de cet espace 
+mémoire. Ensuite, la machine Java appelle les éléments d'initialisation 
+qui ont été définis dans la classe, ou la hiérarchie de classes, tels 
+que les blocs statiques et non statiques, l'initialisation des champs et
+ les constructeurs.</p>  
+          <p>Voyons en détails comment tous ces éléments sont appelés et dans quel ordre.</p>  
+          </a><div class="sect2"><a name="chap04-structure-classe-instanciation"> 
+            </a><div class="titlepage"><a name="chap04-structure-classe-instanciation"> 
+              </a><div><a name="chap04-structure-classe-instanciation"> 
+                </a><div><a name="chap04-structure-classe-instanciation"> 
+                  </a><h3 class="title"><a name="chap04-structure-classe-instanciation">
+                    </a><a name="d0e2777">5.1.&nbsp;Chargement d'une classe
+                  </a></h3><a name="d0e2777"> 
+                </a></div><a name="d0e2777"> 
+              </a></div><a name="d0e2777"> 
+            </a></div><a name="d0e2777">  
+            <p>La première étape de l'instanciation d'un objet consiste à
+ charger la classe à laquelle il appartient. Cette classe n'est chargée 
+qu'une seule fois, et reste ensuite présente dans la machine Java. 
+Certaines machines Java sont capables d'effacer des classes de leur 
+mémoire, ce qui est possible en théorie, mais ce fonctionnement n'est 
+pas la règle générale.</p>  
+            <p>En général une classe n'est chargée que lorsqu'elle est 
+référencée par un objet. On peut aussi déclencher explicitement le 
+chargement d'une classe.</p>  
+            <p>Lors du chargement d'une classe, la machine Java charge 
+toutes les classes dont cette classe hérite, si elle ne l'ont pas déjà 
+été.</p>  
+            <p>L'ordre d'exécution des blocs statiques varie ensuite 
+suivant que l'on utilise une machine Java version 4 ou version 5 et 
+suivantes.</p>  
+            <p>Pour les JVM version 4 et antérieures, les blocs 
+statiques sont exécutés au chargement des classes. Donc, en partant de 
+la classe
+              <code class="code">Object</code>, et en redescendant toute la hiérarchie jusqu'à la classe qu'elle charge, et pour toutes les classes nouvellement chargées :
+            </p>  
+            <div class="itemizedlist"> 
+              <ul class="itemizedlist" style="list-style-type: disc; "> 
+                <li class="listitem"> 
+                  <p>la JVM exécute les initialiseurs des champs statiques ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>elle exécute ensuite les blocs statiques.</p> 
+                </li> 
+              </ul> 
+            </div>  
+            <p>Pour les JVM version 5 et postérieures, ces deux 
+opérations sont exécutées lors de la première instanciation d'un objet 
+de la classe. Si un champ publique statique est référencé, alors il est 
+initialisé, mais cela ne déclenche pas l'exécution des blocs statiques.</p>  
+            <p>Ces deux opérations ne sont effectuées qu'une seule fois, puisqu'une classe n'est chargée qu'une seule fois.</p>  
+            </a><div class="example"><a name="d0e2777">
+              </a><a name="d0e2804">
+              <p class="title">
+                <b>Exemple&nbsp;32.&nbsp;Exécution des blocs statiques lors du chargement d'une classe</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {  <span class="hl-comment">// dans le fichier Marin.java  </span>
+      
+     <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">static</strong>  <strong class="hl-keyword">long</strong> dateDeChargement = System.currentTimeMillis() ;  <span class="hl-comment">// 1  </span>
+  
+     <strong class="hl-keyword">static</strong> {  
+        System.out.println(<span class="hl-string">"Chargement de la classe Marin"</span>) ;  <span class="hl-comment">// 2  </span>
+    }  
+}  
+  
+ <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Capitaine  <strong class="hl-keyword">extends</strong> Marin {  <span class="hl-comment">// dans le fichier Capitaine.java  </span>
+      
+     <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">static</strong>  <strong class="hl-keyword">long</strong> dateDeChargement = System.currentTimeMillis() ;  <span class="hl-comment">// 3  </span>
+  
+     <strong class="hl-keyword">static</strong> {  
+        System.out.println(<span class="hl-string">"Chargement de la classe Capitaine"</span>) ;  <span class="hl-comment">// 4  </span>
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2804">
+            <br class="example-break">
+            <p>En Java 4 et avant, le chargement de la classe 
+              <code class="code">Capitaine</code> déclenche les 
+opérations statiques dans l'ordre de leur numérotation. À partir de la 
+version 5 de Java ces blocs sont exécutés lors de la première 
+instanciation de la classe
+              <code class="code">Capitaine</code>.
+            </p> 
+          </a></div><a name="d0e2804">  
+          </a><div class="sect2"><a name="d0e2804"> 
+            </a><div class="titlepage"><a name="d0e2804"> 
+              </a><div><a name="d0e2804"> 
+                </a><div><a name="d0e2804"> 
+                  </a><h3 class="title"><a name="d0e2804">
+                    </a><a name="d0e2817">5.2.&nbsp;Constructeurs d'une classe
+                  </a></h3><a name="d0e2817"> 
+                </a></div><a name="d0e2817"> 
+              </a></div><a name="d0e2817"> 
+            </a></div><a name="d0e2817">  
+            <p>Un constructeur d'une classe est une méthode 
+particulière. Elle n'a pas de type de retour, et porte le même nom que 
+la classe dans laquelle elle se trouve. Un constructeur peut jeter des 
+exceptions.</p>  
+            <p>Une classe peut avoir autant de constructeurs que l'on a 
+le courage de lui en créer, dès l'instant qu'ils ont des signatures 
+différentes, c'est-à-dire des paramètres différents. Il n'est toutefois 
+pas conseillé de multiplier les constructeurs, ni de créer des 
+constructeurs prenant des listes interminables de paramètres.</p>  
+            <p>Une classe qui ne déclare aucun constructeur 
+explicitement en possède en fait toujours un : le constructeur vide par 
+défaut, qui ne prend aucun paramètre. Si l'on définit un constructeur 
+explicite, alors ce constructeur vide par défaut n'existe plus ; on doit
+ le déclarer explicitement si l'on veut encore l'utiliser. Écrire ce 
+constructeur systématiquement est une bonne habitude de programmation : 
+le bon fonctionnement de nombreux framework repose sur l'existence 
+systématique de ce constructeur. Prenons l'exemple de la classe
+              <code class="code">Marin</code> ci-dessous.
+            </p>  
+            </a><div class="example"><a name="d0e2817">
+              </a><a name="d0e2829">
+              <p class="title">
+                <b>Exemple&nbsp;33.&nbsp;Constructeur vide par défaut - 1</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {   
+      
+     <strong class="hl-keyword">private</strong> String nom ;  
+      
+     <strong class="hl-keyword">public</strong> String getNom() {  
+         <strong class="hl-keyword">return</strong>  <strong class="hl-keyword">this</strong>.nom ;  
+    }  
+      
+     <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">void</strong> setNom(String nom) {  
+         <strong class="hl-keyword">this</strong>.nom = nom ;  
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2829">
+            <br class="example-break">
+            <p>La machine Java a créé un constructeur vide par défaut dans cette classe, on peut donc l'instancier de la façon suivante :</p>
+<pre class="screen"> Marin marin = new Marin() ;</pre>
+            <p>Si l'on spécifie un constructeur dans cette classe, alors
+ le constructeur vide par défaut n'est plus créé. Si l'on reprend notre 
+exemple :</p>  
+            </a><div class="example"><a name="d0e2829">
+              </a><a name="d0e2840">
+              <p class="title">
+                <b>Exemple&nbsp;34.&nbsp;Constructeur vide par défaut - 2</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {   
+      
+     <strong class="hl-keyword">private</strong> String nom ;  
+      
+     <strong class="hl-keyword">public</strong> Marin(String nom) {  
+         <strong class="hl-keyword">this</strong>.nom ;  
+    }  
+      
+     <strong class="hl-keyword">public</strong> String getNom() {  
+         <strong class="hl-keyword">return</strong>  <strong class="hl-keyword">this</strong>.nom ;  
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2840">
+            <br class="example-break">
+            <p>On ne peut plus instancier cette classe comme précédemment. On ne peut l'instancier que de la façon suivante :</p>
+<pre class="screen"> Marin marin = new Marin("Surcouf") ;</pre>
+            <p>Considérons l'exemple suivant.</p>  
+            </a><div class="example"><a name="d0e2840">
+              </a><a name="d0e2851">
+              <p class="title">
+                <b>Exemple&nbsp;35.&nbsp;Constructeur vide par défaut - 3</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {  <span class="hl-comment">// dans le fichier Marin.java  </span>
+      
+     <strong class="hl-keyword">private</strong> String nom ;  
+      
+     <span class="hl-comment">// constructeur vide de la classe Marin  </span>
+     <strong class="hl-keyword">public</strong> Marin() {  
+        nom =  <span class="hl-string">"indéfini"</span> ;  
+    }  
+}  
+  
+ <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Capitaine  <strong class="hl-keyword">extends</strong> Marin {  <span class="hl-comment">// dans le fichier Capitaine.java  </span>
+      
+     <strong class="hl-keyword">private</strong> String grade  
+      
+     <strong class="hl-keyword">public</strong> Capitaine(String grade) {  
+         <strong class="hl-keyword">this</strong>.grade = grade ;  
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2851">
+            <br class="example-break">
+            <p>Sur ce code, instancions un objet de type 
+              <code class="code">Capitaine</code> :
+            </p>
+<pre class="screen"> Capitaine capitaine = new Capitaine("Capitaine de vaisseau") ;</pre>
+            <p>L'instanciation de l'objet
+              <code class="code">capitaine</code> déclenche les opérations suivantes :
+            </p>  
+            <div class="itemizedlist"> 
+              <ul class="itemizedlist" style="list-style-type: disc; "> 
+                <li class="listitem"> 
+                  <p>le constructeur de la classe 
+                    <code class="code">Capitaine</code> est appelé ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>ce constructeur appelle tout d'abord implicitement le constructeur vide de la classe 
+                    <code class="code">Marin</code>, qui initialise le champ 
+                    <code class="code">nom</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>le constructeur de 
+                    <code class="code">Capitaine</code> initialise le champ 
+                    <code class="code">grade</code>.
+                  </p> 
+                </li> 
+              </ul> 
+            </div>  
+            <p>Lors qu'un objet instance d'une classe qui en étend une 
+autre est construit, au moins un constructeur de cette super classe doit
+ être appelé. Si aucun appel explicite n'est écrit, alors la JVM exécute
+ le constructeur vide par défaut. S'il n'existe pas, elle génère une 
+erreur à la compilation. Dans notre exemple, remplacer le constructeur 
+vide par un constructeur prenant en paramètre le nom du marin (par 
+exemple), génèrera une erreur de compilation, puisque son existence 
+supprime celle du constructeur vide par défaut. Il faudra donc conserver
+ un constructeur vide, ou appeler explicitement ce nouveau constructeur 
+de la classe 
+              <code class="code">Capitaine</code>.
+            </p>  
+            <p>Il est également possible pour un constructeur d'appeler 
+explicitement un unique constructeur. Cet appel ne peut être que la 
+première instruction de ce constructeur. Voyons cela sur un exemple.</p>  
+            </a><div class="example"><a name="d0e2851">
+              </a><a name="d0e2900">
+              <p class="title">
+                <b>Exemple&nbsp;36.&nbsp;Appels explicites de constructeurs</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {  <span class="hl-comment">// dans le fichier Marin.java  </span>
+      
+     <strong class="hl-keyword">private</strong> String nom ;  
+      
+     <strong class="hl-keyword">public</strong> Marin(String nom) {  
+         <strong class="hl-keyword">this</strong>.nom = nom ;  
+    }  
+}  
+  
+ <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Capitaine  <strong class="hl-keyword">extends</strong> Marin {  <span class="hl-comment">// dans le fichier Capitaine.java  </span>
+      
+     <strong class="hl-keyword">private</strong> String grade  
+      
+     <strong class="hl-keyword">public</strong> Capitaine(String nom, String grade) {  
+         <strong class="hl-keyword">super</strong>(nom) ;  <span class="hl-comment">// appel du constructeur de la super classe  </span>
+         <strong class="hl-keyword">this</strong>.grade = grade ;  
+    }  
+      
+     <strong class="hl-keyword">public</strong> Capitaine(String grade) {  
+         <strong class="hl-keyword">this</strong>(<span class="hl-string">"indéfini"</span>, grade) ;  <span class="hl-comment">// appel du constructeur de même classe  </span>
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2900">
+            <br class="example-break">
+            <p>Rappelons que l'appel d'un autre constructeur, qu'il soit
+ dans la même classe ou dans la super classe doit toujours être la 
+première instruction d'un constructeur. On peut bien sûr ajouter autant 
+d'instructions que l'on souhaite une fois cet appel effectué.</p> 
+          </a></div><a name="d0e2900">  
+          </a><div class="sect2"><a name="d0e2900"> 
+            </a><div class="titlepage"><a name="d0e2900"> 
+              </a><div><a name="d0e2900"> 
+                </a><div><a name="d0e2900"> 
+                  </a><h3 class="title"><a name="d0e2900">
+                    </a><a name="d0e2907">5.3.&nbsp;Instanciation d'un objet
+                  </a></h3><a name="d0e2907"> 
+                </a></div><a name="d0e2907"> 
+              </a></div><a name="d0e2907"> 
+            </a></div><a name="d0e2907">  
+            <p>Voyons à présent l'ensemble des opérations effectuées 
+lors de la création d'un objet. Les différentes étapes se déroulent dans
+ cet ordre :</p>  
+            <div class="itemizedlist"> 
+              <ul class="itemizedlist" style="list-style-type: disc; "> 
+                <li class="listitem"> 
+                  <p>la machine Java réserve de la mémoire pour stocker l'objet à créer ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>cette mémoire est effacée de toute ce qu'elle pouvait contenir auparavant : les champs sont mis à 0,
+                    <code class="code">false</code> ou 
+                    <code class="code">null</code> suivant leur type ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>le constructeur invoqué est appelé ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>si ce constructeur appelle un autre constructeur de la même classe, alors il est appelé ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>si ce constructeur appelle un autre constructeur d'une super classe, alors il est appelé ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>une fois que la chaîne d'appel des constructeurs a été épuisée, alors les initialiseurs de champs sont appelés ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>les blocs non statiques sont exécutés ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>le constructeur de la super classe dans laquelle on se trouve est exécuté ;</p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>on passe à la sous-classe suivante, en répétant les
+ mêmes opérations dans le même ordre, jusqu'à la classe dont on 
+construit finalement une instance.</p> 
+                </li> 
+              </ul> 
+            </div>  
+            <p>Voyons ceci sur un exemple.</p>  
+            </a><div class="example"><a name="d0e2907">
+              </a><a name="d0e2948">
+              <p class="title">
+                <b>Exemple&nbsp;37.&nbsp;Exemple d'une instanciation complexe</b>
+              </p>  
+              <div class="example-contents">
+                     <pre class="programlisting"><strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Marin {  <span class="hl-comment">// dans le fichier Marin.java  </span>
+      
+     <strong class="hl-keyword">private</strong>  <strong class="hl-keyword">long</strong> dateCreation = System.currentTimeMillis() ;  
+  
+    {  
+         <span class="hl-comment">// ceci est un bloc non statique  </span>
+        System.out.println(i) ;  
+    }  
+  
+     <strong class="hl-keyword">private</strong> String nom ;  
+  
+     <strong class="hl-keyword">public</strong> Marin() {  
+         <strong class="hl-keyword">this</strong>.nom =  <span class="hl-string">"indéfini"</span> ;  
+    }  
+  
+     <strong class="hl-keyword">public</strong> Marin(String nom) {  
+         <strong class="hl-keyword">this</strong>.nom = nom ;  
+    }  
+  
+     <strong class="hl-keyword">public</strong> String getNom() {  
+         <strong class="hl-keyword">return</strong> nom;  
+    }  
+  
+     <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">void</strong> setNom(String nom) {  
+         <strong class="hl-keyword">this</strong>.nom = nom;  
+    }  
+}  
+  
+ <strong class="hl-keyword">public</strong>  <strong class="hl-keyword">class</strong> Capitaine  <strong class="hl-keyword">extends</strong> Marin {  <span class="hl-comment">// dans le fichier Capitaine.java  </span>
+  
+     <strong class="hl-keyword">private</strong>  <strong class="hl-keyword">int</strong> grade ;  
+  
+     <strong class="hl-keyword">private</strong>  <strong class="hl-keyword">long</strong> dateCreation = System.currentTimeMillis() ;  
+  
+    {  
+         <span class="hl-comment">// ceci est un bloc non statique  </span>
+        System.out.println(i) ;  
+    }  
+  
+     <strong class="hl-keyword">public</strong> Capitaine(String nom) {  
+         <strong class="hl-keyword">super</strong>(nom) ;  
+    }  
+  
+     <strong class="hl-keyword">public</strong> Capitaine(String nom,  <strong class="hl-keyword">int</strong> grade) {  
+         <strong class="hl-keyword">this</strong>(nom) ;  
+         <strong class="hl-keyword">this</strong>.grade = grade ;  
+    }  
+}</pre>
+              </div> 
+            </a></div><a name="d0e2948">
+            <br class="example-break">
+            <p>Créons un objet Capitaine avec l'instruction suivante :</p>
+<pre class="screen"> Capitaine m = new Capitaine("Surcouf", 2) ;</pre>
+            <p>Les opérations s'enchaînent de la façon suivante :</p>  
+            <div class="itemizedlist"> 
+              <ul class="itemizedlist" style="list-style-type: disc; "> 
+                <li class="listitem"> 
+                  <p>appel du constructeur 
+                    <code class="code">(String, int)</code> de 
+                    <code class="code">Capitaine</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>appel du constructeur 
+                    <code class="code">(String)</code> de 
+                    <code class="code">Capitaine</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>appel du constructeur 
+                    <code class="code">(String)</code> de 
+                    <code class="code">Marin</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>initialisation de la variable 
+                    <code class="code">dateCreation</code> de 
+                    <code class="code">Marin</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>exécution du bloc non statique de
+                    <code class="code">Marin</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>exécution du constructeur
+                    <code class="code">(String)</code> de 
+                    <code class="code">Marin</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>initialisation de la variable 
+                    <code class="code">dateCreation</code> de 
+                    <code class="code">Capitaine</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>exécution du bloc non statique de
+                    <code class="code">Capitaine</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>exécution du constructeur
+                    <code class="code">(String)</code> de 
+                    <code class="code">Capitaine</code> ;
+                  </p> 
+                </li>  
+                <li class="listitem"> 
+                  <p>exécution du constructeur
+                    <code class="code">(String, int)</code> de 
+                    <code class="code">Capitaine</code>.
+                  </p> 
+                </li> 
+              </ul> 
+            </div>  
+            <p>Donc, lorsque l'exécution d'un constructeur s'achève, 
+l'objet, ou le morceau d'objet dans lequel on se trouve est entièrement 
+initialisé. Nous verrons que cela a un impact sur la définition des 
+champs
+              <code class="code">final</code>.
+            </p> 
+          </a></div><a name="d0e2948">  
+          </a><div class="sect2"><a name="d0e2948"> 
+            </a><div class="titlepage"><a name="d0e2948"> 
+              </a><div><a name="d0e2948"> 
+                </a><div><a name="d0e2948"> 
+                  </a><h3 class="title"><a name="d0e2948">
+                    </a><a name="d0e3049">5.4.&nbsp;Destruction d'objets
+                  </a></h3><a name="d0e3049"> 
+                </a></div><a name="d0e3049"> 
+              </a></div><a name="d0e3049"> 
+            </a></div><a name="d0e3049">  
+            </a><p><a name="d0e3049">Rappelons que l'utilisateur n'a pas
+ à se préoccuper de la destruction de ses objets : la notion de 
+destructeur n'existe pas en Java. Il existe une méthode 
+              <code class="code">finalize()</code> dans la classe 
+              <code class="code">Object</code>, 
+              </a><a class="link" href="">détaillée ici</a>, qui joue le rôle de callback avant que le
+              <span class="emphasis">
+                <em>garbage collector</em>
+              </span> ne détruise un objet.
+            </p> 
+          </div>  
+          <div class="sect2"> 
+            <div class="titlepage"> 
+              <div> 
+                <div> 
+                  <h3 class="title">
+                    <a name="d0e3066">5.5.&nbsp;Le mot-clé
+                    <code class="code">final</code>
+                  </a></h3><a name="d0e3066"> 
+                </a></div><a name="d0e3066"> 
+              </a></div><a name="d0e3066"> 
+            </a></div><a name="d0e3066">  
+            <p>Nous avons déjà utilisé ce mot-clé dans quelques 
+exemples, sans définir précisément à quoi il correspond, il est donc 
+temps de le faire.</p>  
+            <p>Ce mot-clé peut être utilisé comme modificateur de plusieurs choses.</p>  
+            <p>Tout d'abord, il peut être utilisé sur une classe. Si une classe est déclarée 
+              <code class="code">final</code>, alors il n'est pas possible de l'étendre. De nombreuses classes sont
+              <code class="code">final</code> dans l'API standard : c'est le cas de 
+              <code class="code">String</code>, et de toutes les classes enveloppes des classes de base.
+            </p>  
+            <p>Il peut être utilisé de façon analogue sur une méthode. Une méthode déclarée 
+              <code class="code">final</code> ne peut pas être 
+surchargée par une méthode d'une classe qui étendrait la classe dans 
+laquelle cette méthode est définie. Par exemple, les méthodes 
+              <code class="code">wait()</code> de la classe 
+              <code class="code">Object</code> sont finales, elles ne peuvent donc pas être surchargées.
+            </p>  
+            <p>Il peut être utilisé sur le champ d'une classe, statique 
+ou non. Dans ce cas, une fois intialisé, ce champ ne pourra plus être 
+modifié. Se pose alors la question, à quel moment peut-on, et doit-ont 
+initialiser un champ 
+              <code class="code">final</code> ?
+            </p>  
+            <p>Un champ 
+              <code class="code">static final</code>, doit être initialisé par un initialiseur de champ ou un bloc statique.
+            </p>  
+            <p>Un champ 
+              <code class="code">final</code> (non statique) doit être initialisé par un initialiseur de champ, un bloc non statique, ou dans le constructeur.
+            </p>  
+            <p>Un champ 
+              <code class="code">final</code>, statique ou non, ne peut pas être initialisé deux fois, une fois initialisé, il n'est plus possible de changer sa valeur.
+            </p>  
+            <p>Si un objet possède plusieurs constructeurs, et qu'il possède un champ
+              <code class="code">final</code>, alors l'initialisation de
+ ce champ doit suivre le même processus, quel que soit le constructeur 
+appelé. En particulier, si ce champ est initialisé dans un constructeur,
+ alors tous les constructeurs doivent l'initialiser, y compris le 
+constructeur par défaut.
+            </p>  
+            <p>Le mot-clé
+              <code class="code">final</code> peut être posé sur un paramètre reçu par une méthode. Dans ce cas, ce paramètre ne pourra être modifié.
+            </p>  
+            <p>Enfin, le mot-clé
+              <code class="code">final</code> peut être posé sur une variable définie dans une méthode. Dans ce cas, la valeur de cette variable ne pourra être modifiée.
+            </p>  
+            <p>Notons qu'une classe locale, anonyme ou non, peut accéder
+ aux variables et paramètres définis dans la méthode dans laquelle 
+elle-même a été définie, que si ceux-ci sont
+              <code class="code">final</code>.
+            </p>  
+            <p>Les règles d'utilisation des champs
+              <code class="code">final</code> sont complexes et 
+subtiles. Heureusement les environnements de développement intégré sont 
+là pour nous aider. Ils nous marquent les erreurs d'accès ou 
+d'initialisation, et nous rappellent les règles à appliquer pour 
+corriger nos erreurs.
+            </p> 
+          </a></div><a name="d0e3066"> 
+        </a></div><a name="d0e3066">  
+        </a><div class="navfooter"><a name="d0e3066"> 
+          </a><div id="navigation"><a name="d0e3066"> 
+            </a><div id="retour_toc"><a name="d0e3066">
+              </a><a accesskey="h" href="http://blog.paumard.org/cours/java/index.html">Sommaire</a>
+            </div>  
+            <div id="previous">&nbsp;
+              <a accesskey="n" href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html">P. suivante</a>
+            </div>  
+            <div id="next">
+              <a accesskey="p" href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html">P. précédente</a>&nbsp;
+            </div> 
+          </div> 
+        </div> 
+      </div>  
+      <div id="loc">
+        <a href="http://blog.paumard.org/cours/java/">Java langage &amp; API</a>
+      </div>  
+      <div id="blog">
+        <a href="http://blog.paumard.org/">Retour au blog Java le soir</a>
+      </div>  
+      <div id="cours">
+        <a href="http://blog.paumard.org/cours-tutoriaux/">Cours &amp; Tutoriaux</a>
+      </div>  
+      <div id="copyright"> 
+        <hr>José Paumard © 2019, tous droits réservés
+      </div>  
+      <div class="chapter">
+        <div class="toc" id="toc-3"> 
+          <p>
+            <b>Table des matières</b>
+          </p>  
+          <dl> 
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap01-introduction.html">Introduction : un peu d'histoire</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap01-introduction.html#chap01-introduction-genese">1. Java : genèse d'un nouveau langage</a>
+                  </span>
+                </dt> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap02-programmer-en-java.html">Programmer en Java</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap02-programmer-en-java.html#chap02-programmer-premier-exemple">1. Un premier exemple</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-en-java.html#d0e107">1.1. Aperçu général, cycle de vie</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-en-java.html#d0e196">1.2. Un premier programme</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-en-java.html#d0e222">1.3. Programmes, applets, servlets, etc...</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap02-programmer-premiere-classe.html">2. Une première classe</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-premiere-classe.html#d0e255">2.1. Écriture d'une classe</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-premiere-classe.html#d0e357">2.2. Instanciation de cette classe</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap02-programmer-types-objets.html">3. Types de base, classes et objets</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-types-objets.html#d0e502">3.1. Types de base</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap02-programmer-types-objets.html#d0e709">3.2. Classes et objets</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap03-object-string.html">Classes Object et String</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap03-object-string.html#chap03-object-string-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html">2. La classe Object</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e815">2.1. La méthode
+                          <code class="code">toString()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e927">2.2. La méthode
+                          <code class="code">clone()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e1000">2.3. La méthode
+                          <code class="code">equals()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e1163">2.4. La méthode
+                          <code class="code">hashCode()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e1396">2.5. La méthode
+                          <code class="code">finalize()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-object.html#d0e1465">2.6. La méthode
+                          <code class="code">getClass()</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html">3. La classe String</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1498">3.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1539">3.2. Construction d'un objet de type 
+                          <code class="code">String</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1578">3.3. Concaténation,
+                          <code class="code">StringBuffer</code> et 
+                          <code class="code">StringBuilder</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1691">3.4. Concaténations de chaînes de caractères depuis Java 8</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1770">3.5. Concaténations de chaînes de caractères depuis Java 11</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1781">3.6. Extraction d'une sous-chaîne de caractères</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1825">3.7. Comparaison de deux chaînes de caractères</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1916">3.8. Méthodes de comparaisons lexicographiques</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e1962">3.9. Méthode de recherche de caractères</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e2022">3.10. Méthode de modification de chaîne</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e2073">3.11. Méthode de duplication</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap03-object-string-string.html#d0e2121">3.12. Support de l'unicode, internationalisation</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap04-structure-classe.html">Structure d'une classe</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: block;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe.html#chap04-structure-classe-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html">2. Classes</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2201">2.1. Classes publiques</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2216">2.2. Classes internes</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2231">2.3. Classe membre</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2284">2.4. Classes locales</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2296">2.5. Classes anonymes</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-classe.html#d0e2313">2.6. Le mot-clé
+                          <code class="code">this</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-statique.html">3. Éléments statiques</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-statique.html#d0e2365">3.1. Champ statique</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-statique.html#d0e2397">3.2. Cas des constantes</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-statique.html#d0e2438">3.3. Bloc statique</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-statique.html#d0e2450">3.4. Classe membre statique</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html">4. Membres d'une classe, visibilité</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2478">4.1. Bloc non statique</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2486">4.2. Accès à un membre, visibilité</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2586">4.3. Les champs</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2613">4.4. Signature d'une méthode</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2651">4.5. Les méthodes</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-membre.html#d0e2704">4.6. Getters et Setters</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html">5. Constructeur, instanciation</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: block;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html#d0e2777">5.1. Chargement d'une classe</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html#d0e2817">5.2. Constructeurs d'une classe</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html#d0e2907">5.3. Instanciation d'un objet</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html#d0e3049">5.4. Destruction d'objets</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-instanciation.html#d0e3066">5.5. Le mot-clé
+                          <code class="code">final</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html">6. Énumérations</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3158">6.1. Déclaration d'une énumération</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3193">6.2. Classe énumération</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3224">6.3. Méthode
+                          <code class="code">toString()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3236">6.4. Méthode
+                          <code class="code">valueOf()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3263">6.5. Méthode
+                          <code class="code">values()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3275">6.6. Méthode
+                          <code class="code">ordinal()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3287">6.7. Méthode
+                          <code class="code">compareTo()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3299">6.8. Constructeurs privés</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap04-structure-classe-enumeration.html#d0e3349">6.9. Classe utilitaire : 
+                          <code class="code">EnumSet</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs.html">Noms, opérateurs, tableaux</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs.html#chap05-noms-operateurs-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-identificateurs.html">2. Identificateurs, noms et expressions</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-identificateurs.html#d0e3395">2.1. Identificateurs et noms</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-identificateurs.html#d0e3455">2.2. Expressions</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html">3. Opérateurs, ordre d'exécution</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e3561">3.1. Ordre d'exécution</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e3629">3.2. Les opérateurs</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e3921">3.3. Les opérateurs
+                          <code class="code">++</code> et 
+                          <code class="code">--</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e3949">3.4. Les opérateurs
+                          <code class="code">%</code> et 
+                          <code class="code">/</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e3971">3.5. Les opérateurs
+                          <code class="code">&lt;&lt;</code>, 
+                          <code class="code">&gt;&gt;</code> et 
+                          <code class="code">&gt;&gt;&gt;</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e4028">3.6. L'opérateur
+                          <code class="code">instanceof</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e4065">3.7. Les opérateurs
+                          <code class="code">&amp;</code>, 
+                          <code class="code">|</code> et 
+                          <code class="code">^</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e4080">3.8. Les opérateurs
+                          <code class="code">&amp;&amp;</code> et 
+                          <code class="code">||</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e4090">3.9. L'opérateur
+                          <code class="code">? ... :</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-operateurs.html#d0e4125">3.10. Les opérateurs d'affectation</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html">4. Tableaux</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html#d0e4156">4.1. Création d'un tableau</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html#d0e4203">4.2. Initialisation d'un tableau</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html#d0e4222">4.3. Utilisation d'un tableau comme un 
+                          <code class="code">Object</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html#d0e4261">4.4. Tableaux de tableaux</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-tableaux.html#d0e4311">4.5. Copie de tableaux</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html">5. Blocs, boucles et contrôles</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e4387">5.1. Blocs</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e4429">5.2. Mots-clés réservés</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e4693">5.3. Tests : 
+                          <code class="code">if</code> et 
+                          <code class="code">switch</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e4917">5.4. Boucles : 
+                          <code class="code">for</code>, 
+                          <code class="code">while</code>, 
+                          <code class="code">do ... while</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e5097">5.5. Commandes 
+                          <code class="code">continue</code> et 
+                          <code class="code">break</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap05-noms-operateurs-controles.html#d0e5180">5.6. Commandes 
+                          <code class="code">return</code> et 
+                          <code class="code">goto</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs.html">Nombres, précision, calculs</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs.html#chap06-nombres-calculs-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-calculs.html">2. Calculs</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-calculs.html#d0e5222">2.1. Précision</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-calculs.html#d0e5305">2.2. Codage des nombres flottants</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-calculs.html#d0e5431">2.3. Le mot-clé
+                          <code class="code">strictfp</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-calculs.html#d0e5464">2.4. Conversion de types</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-depassements.html">3. Dépassements de capacité</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-depassements.html#d0e5526">3.1. Cas des entiers</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-depassements.html#d0e5560">3.2. Cas des flottants</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-depassements.html#d0e5665">3.3. Bibliothèques
+                          <code class="code">BigInteger</code> et 
+                          <code class="code">BigDecimal</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-maths.html">4. Fonctions mathématiques</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-maths.html#d0e5693">4.1. Fonctions usuelles</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-maths.html#d0e5723">4.2. Générateurs aléatoires</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-enveloppes.html">5. Classes enveloppe</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-enveloppes.html#d0e5840">5.1. Associer les types de base à des objets</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap06-nombres-calculs-enveloppes.html#d0e6019">5.2. Auto-boxing</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface.html">Héritage, abstraction, interfaces</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface.html#chap07-heritage-interface-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-abstraction.html">2. Abstraction et encapsulation</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-abstraction.html#d0e6057">2.1. Abstraction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-abstraction.html#d0e6076">2.2. Encapsulation</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-heritage.html">3. Héritage</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-heritage.html#d0e6092">3.1. Définition de l'héritage</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-heritage.html#d0e6159">3.2. Conséquences pour les membres</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-heritage.html#d0e6193">3.3. Polymorphisme</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-heritage.html#d0e6271">3.4. Empêcher l'héritage</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-classes-abstraites.html">4. Classes abstraites</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html">5. Interfaces</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6401">5.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6530">5.2. Définition</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6573">5.3. Java 8 et les interfaces</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6767">5.4. Utilisation des interfaces</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6791">5.5. Définition de constantes dans les interfaces</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap07-heritage-interface-interface.html#d0e6809">5.6. Utilité des interfaces</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap08-paquets.html">Packages</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap08-paquets.html#chap08-paquets-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap08-paquets-paquet.html">2. Notion de paquet</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-paquet.html#d0e6859">2.1. Déclaration d’appartenance à un paquet</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-paquet.html#d0e6932">2.2. Chargement d’une classe</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-paquet.html#d0e6995">2.3. Choix de nom</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html">3. Archives, chemin de recherche, classpath</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7101">3.1. Archives</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7111">3.2. Variable 
+                          <code class="code">CLASSPATH</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7145">3.3. Notion de classloader</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7190">3.4. Bilan sur les classes chargées</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7235">3.5. Visibilité</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap08-paquets-classpath.html#d0e7276">3.6. Conseils d'écriture, bibliothèque standard</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap09-exceptions.html">Exceptions</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap09-exceptions.html#chap09-exceptions-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap09-exceptions-erreurs-exceptions.html">2. Erreurs et Exceptions</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-erreurs-exceptions.html#d0e7377">2.1. Classe 
+                          <code class="code">Throwable</code>, notion de 
+                          <span class="emphasis">
+                            <em>stack trace</em>
+                          </span>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-erreurs-exceptions.html#d0e7510">2.2. Classe 
+                          <code class="code">Error</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-erreurs-exceptions.html#d0e7526">2.3. Classe 
+                          <code class="code">RuntimException</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-erreurs-exceptions.html#d0e7545">2.4. Classe 
+                          <code class="code">Exception</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap09-exceptions-declenchement.html">3. Déclenchement d'une exception</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-declenchement.html#d0e7581">3.1. Exceptions déclenchées par la JVM</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-declenchement.html#d0e7593">3.2. Exceptions déclenchées par l'application</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap09-exceptions-capter.html">4. Capter une exception</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-capter.html#d0e7672">4.1. Traiter une exception localement</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap09-exceptions-capter.html#d0e7682">4.2. Code de captage</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap09-exceptions-creer.html">5. Créer ses propres exceptions</a>
+                  </span>
+                </dt> 
+              </dl> 
+            </dd>  
+            <dt class="toc-section-head"><b class="expand-section">+</b>
+              <span class="chapter">
+                <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties.html">Entrées / sorties</a>
+              </span>
+            </dt>  
+            <dd class="toc-section-content" style="display: none;"> 
+              <dl> 
+                <dt>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties.html#chap10-entrees-sorties-introduction">1. Introduction</a>
+                  </span>
+                </dt>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-fichier.html">2. Notion de fichier</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-fichier.html#d0e7820">2.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-fichier.html#d0e7828">2.2. La classe 
+                          <code class="code">File</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-fichier.html#d0e7942">2.3. Construction d'une instance de 
+                          <code class="code">File</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-fichier.html#d0e7989">2.4. Méthodes exposées</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html">3. Flux de sortie</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8428">3.1. Introduction, notion de flux</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8473">3.2. Écriture de caractères, classe 
+                          <code class="code">Writer</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8620">3.3. Bufferisation, construction d'un flux sur un autre</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8663">3.4. Utilisation de 
+                          <code class="code">PrintWriter</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8716">3.5. Écriture d'octets, 
+                          <code class="code">OuputStream</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8819">3.6. Écriture de types primitifs : 
+                          <code class="code">DataOutputStream</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-sortie.html#d0e8856">3.7. Écriture d'objets : 
+                          <code class="code">ObjectOutputStream</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html">4. Flux d'entrée</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e8874">4.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e8893">4.2. Lecture de caractères, classe
+                          <code class="code">Reader</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e8976">4.3. Bufferisation, lecture ligne par ligne</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e9008">4.4. Lecture d'octets : 
+                          <code class="code">InputStream</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e9101">4.5. Lecture de types primitifs : 
+                          <code class="code">DataInputStream</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-entree.html#d0e9144">4.6. Lecture d'objets : 
+                          <code class="code">ObjectInputStream</code>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-croises.html">5. Lecture et écriture de flux croisés</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-croises.html#d0e9154">5.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-croises.html#d0e9171">5.2. Lire des caractères sur un flux binaire : classe
+                          <code class="code">InputStreamReader</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-croises.html#d0e9286">5.3. Écrire des caractères sur un flux binaire : classe 
+                          <code class="code">OutputStreamWriter</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-flux-croises.html#d0e9302">5.4. Remarque sur les jeux de caractères</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html">6. Serialization d'objets</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9331">6.1. Enjeu de la sérialization d'objets</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9406">6.2. Serialization d'un objet</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9476">6.3. Sérialization d'une grappe d'objets</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9489">6.4. Première surcharge : méthode
+                          <code class="code">writeObject()</code>  
+                          <code class="code">readObject()</code>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9545">6.5. Deuxième surcharge : utilisation d'un
+                          <span class="emphasis">
+                            <em>externalizer</em>
+                          </span>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-serialization.html#d0e9600">6.6. Troisième surcharge : utilisation d'un objet proxy</a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd>  
+                <dt class="toc-subsection-head"><b class="expand-section">+</b>
+                  <span class="sect1">
+                    <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-zip.html">7. Flux compressés</a>
+                  </span>
+                </dt>  
+                <dd class="toc-subsection-content" style="display: none;"> 
+                  <dl> 
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-zip.html#d0e9664">7.1. Introduction</a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-zip.html#d0e9669">7.2. Flux de type 
+                          <span class="emphasis">
+                            <em>gzip</em>
+                          </span>
+                        </a>
+                      </span>
+                    </dt>  
+                    <dt>
+                      <span class="sect2">
+                        <a href="http://blog.paumard.org/cours/java/chap10-entrees-sorties-zip.html#d0e9704">7.3. Flux de type 
+                          <span class="emphasis">
+                            <em>zip</em>
+                          </span>
+                        </a>
+                      </span>
+                    </dt> 
+                  </dl> 
+                </dd> 
+              </dl> 
+            </dd> 
+          </dl> 
+        </div>
+      </div>
+    </div> 
+  
+
+</body></html>

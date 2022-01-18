@@ -1,0 +1,1112 @@
+
+<!DOCTYPE html>
+<html class="no-js " lang="fr" prefix="og: http://ogp.me/ns#">
+<head>
+<title>
+                            Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme - Débutez la programmation avec Java - OpenClassrooms
+                    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-5b58725ce0d442079d0",applicationID:"156815673"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="application-name" content="OpenClassrooms" />
+<meta name="msapplication-TileColor" content="#7451eb" />
+<meta name="msapplication-TileImage" content="/fav-icon.png?v=3" />
+<meta name="theme-color" content="#7451eb">
+<meta property="og:locale" content="fr" />
+<link rel="icon" sizes="144x144" href="/fav-icon.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+<link rel="apple-touch-icon" href="/apple-touch-icon-iphone.png?v=3" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-ipad.png?v=3" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-iphone-retina-display.png?v=3" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-ipad-retina-display.png?v=3" />
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png?v=3" />
+<link rel="shortcut icon" href="/favicon.ico?373f828a" />
+<style>.async-hide { opacity: 0 !important} </style>
+<script>
+          window.dataLayer = window.dataLayer || [];
+
+          (function(a,s,y,n,c,h,i,d,e){
+            var isEnabled = [
+              /\/paths/,
+              /\/apprenticeship/,
+              /\/employer/,
+            ].reduce(function (acc, pathReg) {
+                var matchUrl = !!document.location.pathname.match(pathReg);
+                return acc || matchUrl;
+            }, false);
+
+            if (!isEnabled) {
+              return;
+            }
+
+            s.className+=' '+y;
+            h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+            (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);
+          })(window,document.documentElement,'async-hide','dataLayer',2000,{'GTM-5WM9PV':true});
+        </script>
+<link href="/bundles/common/css/master-c47140a1.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/bundles/course/css/main-29e81ced.css" type="text/css" rel="stylesheet" media="all" />
+<link href="https://vjs.zencdn.net/6.2.5/video-js.css" rel="stylesheet">
+<script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+    !function(e,n,t){function o(e,n){return typeof e===n}function r(){var e,n,t,r,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(r=o(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=r:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=r),g.push((r?"":"no-")+a.join("-"))}}function s(e){var n=w.className,t=Modernizr._config.classPrefix||"";if(x&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),x?w.className.baseVal=n:w.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):x?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(){var e=n.body;return e||(e=i(x?"svg":"body"),e.fake=!0),e}function l(e,t,o,r){var s,l,u,f,p="modernizr",c=i("div"),d=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:p+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+p,(d.fake?d:c).appendChild(s),d.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=p,d.fake&&(d.style.background="",d.style.overflow="hidden",f=w.style.overflow,w.style.overflow="hidden",w.appendChild(d)),l=t(c,e),d.fake?(d.parentNode.removeChild(d),w.style.overflow=f,w.offsetHeight):c.parentNode.removeChild(c),!!l}function u(e,n){return!!~(""+e).indexOf(n)}function f(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function p(e,n){return function(){return e.apply(n,arguments)}}function c(e,n,t){var r;for(var s in e)if(e[s]in n)return t===!1?e[s]:(r=n[e[s]],o(r,"function")?p(r,t||n):r);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(n,o){var r=n.length;if("CSS"in e&&"supports"in e.CSS){for(;r--;)if(e.CSS.supports(d(n[r]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];r--;)s.push("("+d(n[r])+":"+o+")");return s=s.join(" or "),l("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function h(e,n,r,s){function a(){p&&(delete k.style,delete k.modElem)}if(s=o(s,"undefined")?!1:s,!o(r,"undefined")){var l=m(e,r);if(!o(l,"undefined"))return l}for(var p,c,d,h,v,y=["modernizr","tspan","samp"];!k.style&&y.length;)p=!0,k.modElem=i(y.shift()),k.style=k.modElem.style;for(d=e.length,c=0;d>c;c++)if(h=e[c],v=k.style[h],u(h,"-")&&(h=f(h)),k.style[h]!==t){if(s||o(r,"undefined"))return a(),"pfx"==n?h:!0;try{k.style[h]=r}catch(g){}if(k.style[h]!=v)return a(),"pfx"==n?h:!0}return a(),!1}function v(e,n,t,r,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+j.join(i+" ")+i).split(" ");return o(n,"string")||o(n,"undefined")?h(a,n,r,s):(a=(e+" "+E.join(i+" ")+i).split(" "),c(a,n,t))}function y(e,n,o){return v(e,t,t,n,o)}var g=[],C=[],S={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=S,Modernizr=new Modernizr;var w=n.documentElement,x="svg"===w.nodeName.toLowerCase(),_=S._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];S._prefixes=_;var b="CSS"in e&&"supports"in e.CSS,T="supportsCSS"in e;Modernizr.addTest("supports",b||T);var z=S.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",_.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");z(o,function(e){t=9===e.offsetTop})}return t});var P="Moz O ms Webkit",j=S._config.usePrefixes?P.split(" "):[];S._cssomPrefixes=j;var E=S._config.usePrefixes?P.toLowerCase().split(" "):[];S._domPrefixes=E;var N={elem:i("modernizr")};Modernizr._q.push(function(){delete N.elem});var k={style:N.elem.style};Modernizr._q.unshift(function(){delete k.style}),S.testAllProps=v,S.testAllProps=y,Modernizr.addTest("cssfilters",function(){if(Modernizr.supports)return y("filter","blur(2px)");var e=i("a");return e.style.cssText=_.join("filter:blur(2px); "),!!e.style.length&&(n.documentMode===t||n.documentMode>9)}),r(),s(g),delete S.addTest,delete S.addAsyncTest;for(var A=0;A<Modernizr._q.length;A++)Modernizr._q[A]();e.Modernizr=Modernizr}(window,document);
+    </script>
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1618478533000
+    };
+
+    App.user = {
+                    id: 8612828,
+            age: '',
+            createdAt: '2017\u002D12\u002D09T17\u003A46\u003A02\u002B01\u003A00',
+            gender: '',
+            premiumType: '',
+            locale: 'fr',
+            language: 'fr',
+            displayableName: 'amine\u0020Nakhil',
+            email: 'nakhilamine1\u0040gmail.com',
+            country: 'FR',
+            phoneNumber: '',
+            avatar: 'https\u003A\/\/openclassrooms.com\/bundles\/common\/images\/avatar_defaut.png',
+            isPremium: false,
+            isMentor: false,
+            roles: {
+                CAN_CREATE_AVAILABILITY: false,
+                ROLE_ASSIGN_SUPPORT_EXPERT: false,
+                ROLE_ADMIN: false,
+                ROLE_CAREER_SERVICE: false,
+                ROLE_STUDENT_SUCCESS_SPECIALIST: false,
+                ROLE_MENTOR_MANAGER: false,
+                ROLE_MENTOR: false,
+            }
+            };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: '373f828a',
+        contactPhone: '\u002B33\u00201\u002080\u002088\u002080\u002030',
+        phoneNumbersByCountry: {"uk":{"contact":"+44 16 1768 1880"},"ca":{"contact":"+1 929-376-0101"},"us":{"contact":"+1 929-376-0101"},"fr":{"contact":"+33 1 80 88 80 30","b2b_contact":"+33 1 80 88 80 40"},"es":{"contact":"+33 1 80 88 80 30"}},
+        adyenPublicKey: '10001\u007C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        application: {
+            form: {
+              funnelUrl: 'https\u003A\/\/www.tfaforms.com\/responses\/processor',
+              fields: {"firstname":"tfa_6","lastname":"tfa_4","email":"tfa_2","path_id":"tfa_138","source_name":"tfa_165","record_type_id":"tfa_217","utm_medium":"tfa_203","utm_source":"tfa_201","utm_term":"tfa_207","utm_campaign":"tfa_205","gclid":"tfa_209","fbclid":"tfa_211","consent":"tfa_150","user_locale":"tfa_125","userId":"tfa_3","gender":"tfa_10","user_study_motivation":"tfa_171","diploma_level":"tfa_30","user_diploma":"tfa_173","language_proficiency_fr":"tfa_40","language_proficiency_en":"tfa_42","ha_addressline_1":"tfa_16","ha_city":"tfa_18","ha_zip_code":"tfa_24","ha_state":"tfa_163","ha_country":"tfa_22","professional_status":"tfa_94","public_employment_agency_id":"tfa_159","user_public_employment_agency_certificate":"tfa_167","user_pe_advisor_email":"tfa_199","disabled_worker":"tfa_67","veteran":"tfa_73","athlete":"tfa_79","refugee":"tfa_85","rsa":"tfa_91","are":"tfa_175","api":"tfa_177","cui":"tfa_179","can_work_in_france":"tfa_142","user_resume":"tfa_1","online_cv":"tfa_157","user_has_mobility":"tfa_193","user_mobility_departamental":"tfa_187","user_mobility_national":"tfa_189","user_mobility_regional":"tfa_191","user_mobility_cities":"tfa_195","work_location_1":"tfa_128","work_location_2":"tfa_130","work_location_3":"tfa_132","work_location_4":"tfa_134","work_location_5":"tfa_136","career_motivation":"tfa_123","has_computer":"tfa_43","has_mic":"tfa_49","has_webcam":"tfa_169","has_fast_internet_connection":"tfa_55","has_quiet_space":"tfa_61","has_online_courses_xp":"tfa_118","has_online_courses_xp_text":"tfa_121","found_a_company":"tfa_146","date_of_birth":"tfa_9","phone_number":"tfa_126","user_desired_start_date":"tfa_161","video_link":"tfa_213","tfa_dbFormId":"tfa_dbFormId","tfa_dbControl":"tfa_dbControl","experiment_id":"tfa_219","full_time_available":"tfa_220"}
+            },
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\/ajax\/components\/user\u002Daccept\u002Dconsent\u002Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+                                };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    App.notifications = {};
+    App.scripts = [];
+
+    if (App.user.id) {
+        (function(){
+            var userData = { userId: App.user.id };
+
+            if (App.user.premiumType) {
+                userData.status = (App.user.premiumType === 'Premium Solo') ? 'premium solo student' : 'path student';
+            } else {
+                userData.status = 'free student';
+            }
+
+            if (App.user.isMentor) {
+                userData.status = App.user.premiumType ? (userData.status + '|mentor') : 'mentor';
+            }
+
+            if (!window.dataLayer) {
+              return;
+            }
+            window.dataLayer.push(userData);
+        })();
+    }
+</script>
+<script>    
+    App.preferences.modules['course/view/internalFolding'] = {
+        isBigCourse: true
+    };
+
+    App.data = App.data || {};
+App.data.currentCourse = {"partId":6458241,"partTitle":"S\u00e9lectionnez la condition appropri\u00e9e pour contr\u00f4ler le d\u00e9roulement de votre programme","partSlug":"selectionnez-la-condition-appropriee-pour-controler-le-deroulement-de-votre-programme","courseId":6173501,"courseTitle":"D\u00e9butez la programmation avec Java","courseSlug":"apprenez-a-programmer-avec-java","courseLanguage":"fr","isIntroduction":false,"isCertifying":true};
+App.preferences.modules['view/currentCoursePage'] = App.data.currentCourse;
+
+</script>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme" />
+<meta property="og:url" content="https://openclassrooms.com/fr/courses/6173501-debutez-la-programmation-avec-java/6458241-selectionnez-la-condition-appropriee-pour-controler-le-deroulement-de-votre-programme" />
+<meta property="og:site_name" content="OpenClassrooms" />
+<meta property="og:image" content="https://course.oc-static.com/courses/6173501/6173501_teaser_picture_1614872097.jpg" />
+<meta property="og:description" content="Découvrez des concepts clés de programmation comme les variables, les types et les boucles.  Lancez-vous dans la programmation orientée objet en Java et exercez-vous grâce à des exercices interactifs !" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@OCFrance" />
+<meta name="twitter:title" content="Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme" />
+<meta name="twitter:image" content="https://course.oc-static.com/courses/6173501/6173501_teaser_picture_1614872097.jpg" />
+<meta name="twitter:description" content="Découvrez des concepts clés de programmation comme les variables, les types et les boucles.  Lancez-vous dans la programmation orientée objet en Java et exercez-vous grâce à des exercices interactifs !" />
+<link rel="canonical" href="https://openclassrooms.com/fr/courses/6173501-debutez-la-programmation-avec-java/6458241-selectionnez-la-condition-appropriee-pour-controler-le-deroulement-de-votre-programme" />
+</head>
+<body class="course oc-body is-connected  breadcrumbFluid breadcrumbOnContrasted">
+<ul class="skipLink">
+<li>
+<a class="skipLink__item" href="#mainContent">Aller au contenu</a>
+</li>
+<li>
+<a class="skipLink__item" href="#footerChangeLanguage">Choisir la langue</a>
+</li>
+<li id="skipLink_search">
+<a class="skipLink__item" href="#algolia-search-input">Aller à la recherche</a>
+</li>
+</ul>
+<script id="_EVENTS-IDENTIFY" type="application/json">
+            {
+            "type": "identify",
+            "userId": "8612828",
+            "properties": {
+                "age": null,
+                "name": "amine Nakhil",
+                "createdAt": "2017-12-09T17:46:02+01:00",
+                "email": "nakhilamine1@gmail.com",
+                "gender": null,
+                "premium": false,
+                "premiumType": "",
+                "locale": "fr",
+                "language": "fr"
+            },
+            "integrations": {
+                "HubSpot": false,
+                "Zendesk": false
+            }
+        }
+        </script>
+<script id="_EVENTS-PAGE" type="application/json">
+        {"type":"page","integrations":{"HubSpot":false},"properties":{"pageCategory":"courses","courseTitle":"D\u00e9butez la programmation avec Java"}}
+    </script>
+<script id="headerConfiguration" type="application/json">
+{
+    "user": {
+        "id": 8612828,
+        "displayableName": "amine\u0020Nakhil",
+        "messageCount": 0,
+        "notificationCount": 0,
+        "profilePicture": "https://openclassrooms.com/bundles/common/images/avatar_defaut.png",
+        "premiumStatus": "none",
+        "organizationName": "",
+        "link": {
+            "profile": "/fr/members/76q4491zb951",
+            "parameter": "/fr/members/76q4491zb951/parametres",
+            "logOut": "/logout?_csrf_token=HYXbyJNzD424LgRdbndQIrZedRq-WeaMwJ6Ab1rnOM0",
+            "analyticsDashboard": ""
+        }
+    },
+    "right": {
+        "canSeeMentorDashboard": false,
+        "canSeeAdminDashboard": false,
+        "canDisplayForumAlert": false,
+        "canSeeOrganizationDashboard": false
+    }
+}
+</script>
+<script id="fundingMechanisms" type="application/json">
+    {
+        "fundingMechanisms": [{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":24,"name":"Action de Formation Pr\u00e9alable au Recrutement","shortName":"AFPR","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":25,"name":"Aide collective priv\u00e9e \u00e0 la formation","shortName":"Aide priv\u00e9e","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":20,"name":"Aide Individuelle \u00e0 la Formation","shortName":"AIF","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":28,"name":"Aide individuelle priv\u00e9e \u00e0 la formation","shortName":"Aide priv\u00e9e","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":21,"name":"Compte Personnel de Formation","shortName":"CPF","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":15,"name":"Contrat d'apprentissage","shortName":"Apprentissage","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":16,"name":"Contrat de professionnalisation","shortName":"Contrat pro","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":19,"name":"P\u00e9riode de professionnalisation","shortName":"P\u00e9riode pro","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":23,"name":"Pr\u00e9paration Op\u00e9rationnelle \u00e0 l'Emploi Collective","shortName":"POEC","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":17,"name":"Pr\u00e9paration Op\u00e9rationnelle \u00e0 l'Emploi Individuelle","shortName":"POEI","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":22,"name":"Programme R\u00e9gional de Formation pour l'Emploi","shortName":"PRFE","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":18,"name":"Reconversion ou promotion par l'alternance","shortName":"Pro-A","type":"apprenticeship"}]
+    }
+</script>
+<div id="oc-header">
+<div class="oc-mainHeader oc-mainHeader--none oc-mainHeader--skeleton">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div style="display: flex;">
+<div class="oc-mainHeaderLogo oc-mainHeaderLogo--skeleton">
+<a href="/fr/" class="oc-mainHeaderLogo__link">
+<svg fill="none" height="51" width="668" viewBox="0 0 668 51" xmlns="http://www.w3.org/2000/svg">
+<title>OpenClassrooms.com</title>
+<path d="M406.011 35.018c0 2.82-.71 5.641-2.368 7.991-1.659 2.35-3.79 4.23-6.87 5.64-3.079 1.41-6.869 2.116-11.37 2.116-3.79 0-7.343-.47-10.897-1.41-3.553-.94-6.395-2.35-8.527-3.996l7.106-8.46c1.421.705 2.843 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.711 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.369.94 4.264 2.35 6.159 4.23 1.658 1.646 2.605 4.466 2.605 7.756zm261.989 0c0 2.82-.711 5.641-2.369 7.991s-3.79 4.23-6.869 5.64c-3.08 1.41-6.87 2.116-11.371 2.116-3.79 0-7.343-.47-10.896-1.41s-6.396-2.35-8.528-3.996l7.107-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.053 1.41 4.975 0 7.581-1.41 7.581-3.995 0-1.41-.711-2.35-2.132-3.056-1.422-.705-3.791-1.41-6.87-2.115a49.361 49.361 0 0 1-8.764-2.585c-2.369-.94-4.264-2.35-6.159-4.23-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.869-5.64 3.08-1.41 6.87-2.116 11.371-2.116 3.079 0 6.158.47 9.001 1.175 3.079.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.317-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.896 1.88-1.896 3.056 0 1.41.711 2.35 2.132 2.82 1.422.705 3.791 1.41 6.87 2.115a49.361 49.361 0 0 1 8.764 2.585c2.369.94 4.264 2.35 6.159 4.23 1.895 1.646 2.606 4.466 2.606 7.756zM87.882 19.037c0 3.76-.947 6.816-2.605 9.4-1.659 2.586-4.027 4.701-7.107 6.111s-6.87 2.116-10.896 2.116H59.22v12.69H45.955V.706h21.319c4.264 0 7.817.705 10.896 2.115 3.08 1.41 5.448 3.526 7.107 6.346 1.895 3.055 2.605 6.346 2.605 9.87zm-13.265 0c0-2.35-.71-3.995-2.132-5.17s-3.316-1.88-6.159-1.88h-7.343v14.336h7.343c2.606 0 4.738-.706 6.16-1.88s2.131-3.056 2.131-5.406zm55.904 20.212v10.576h-37.19V1.175h36.242v10.576h-23.214v8.226h18.476v10.341h-18.476v8.93zm50.218-38.074v48.65h-10.896l-20.609-25.853v25.853h-13.028V1.175h10.896l20.609 25.853V1.175zm84.092 37.604v10.81h-32.926V.94h13.265v37.604h19.661zm56.851 11.046h-13.739l-3.553-9.401h-19.661l-3.553 9.4h-13.502l20.608-48.649h13.029zM300.6 30.083l-5.922-15.512-5.922 15.512zm62.536 4.935c0 2.82-.71 5.641-2.369 7.991-1.658 2.35-3.79 4.23-6.869 5.64-3.08 1.41-6.87 2.116-11.37 2.116-3.79 0-7.344-.47-10.897-1.41s-6.396-2.35-8.527-3.996l7.106-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.448 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.71 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.368.94 4.263 2.35 6.158 4.23 1.659 1.646 2.606 4.466 2.606 7.756zm-322.63-9.636c0 13.867-11.37 25.383-25.583 25.383-5.685 0-10.66-1.88-14.923-4.936l8.528-10.105c1.895 1.175 4.027 1.88 6.395 1.88 6.633 0 12.081-5.406 12.081-11.986 0-6.581-5.448-11.987-12.08-11.987-2.37 0-4.501.705-6.396 1.88L0 5.407C4.264 2.35 9.475.47 14.923.47 29.136.235 40.506 11.516 40.506 25.383zm177.66 10.341l8.528 10.107c-4.264 3.055-9.476 4.935-14.924 4.935-13.976 0-25.583-11.281-25.583-25.383C186.187 11.517 197.557 0 211.77 0c5.685 0 10.66 1.88 14.924 4.936l-8.528 10.105c-1.895-1.175-4.027-1.88-6.396-1.88-6.632 0-12.081 5.406-12.081 11.986 0 6.581 5.449 11.987 12.081 11.987 2.369.47 4.501-.235 6.396-1.41zm236.169 14.102l-10.423-15.042c3.079-1.41 5.211-3.525 6.87-6.11 1.658-2.585 2.605-5.876 2.605-9.401 0-3.76-.947-6.816-2.605-9.636-1.659-2.82-4.027-4.7-7.107-6.346-3.079-1.41-6.869-2.115-10.896-2.115H411.46v48.65h13.028V37.134h6.159l8.764 12.69zm-29.847-37.839h7.58c2.606 0 4.738.705 6.159 1.88s2.132 3.056 2.132 5.17c0 2.351-.711 3.996-2.132 5.171s-3.316 1.88-6.159 1.88h-7.58zM483.945.235c13.976 0 25.583 11.281 25.583 25.382S498.157 51 483.945 51c-13.976 0-25.583-11.281-25.583-25.383S469.732.235 483.945.235zm-13.029 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-6.87 0-12.792 5.64-12.792 12.69zM538.901.235c13.976 0 25.583 11.281 25.583 25.382S553.114 51 538.901 51c-13.976 0-25.583-11.281-25.583-25.383S524.925.235 538.901.235zm-12.792 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-7.107 0-12.792 5.64-12.792 12.69zm70.353 6.816L580.828 1.175h-10.896v48.65h11.607V28.438l11.607 21.387h6.87l11.607-21.387v21.387h11.607V1.175h-10.897z" />
+</svg>
+</a>
+</div>
+<nav class="oc-mainHeader__navWrapper" role="navigation" aria-label="Menu principal">
+<div class="oc-mainHeader__linksWrapper">
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Trainings" href="/fr/paths">Formations</a></div>
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Apprenticeship" href="/fr/apprenticeship">Alternance</a></div>
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Funding" href="/fr/funding">Financements</a></div>
+<div class="oc-mainHeader__navLinkWrapper--separator"></div>
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Business" href="/fr/business">Pour les entreprises</a></div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimers-container" style="display:none;">
+<!--[if lt IE 10]>
+        <div class="alertMessage">
+        <span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+        <p class="alertMessage__text">
+            Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+        </p>
+    </div>
+    <![endif]-->
+
+<div id="modern-ie-disclaimer" style="display:none">
+<div class="alertMessage">
+<span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+<p class="alertMessage__text">
+Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+</p>
+</div>
+</div>
+<script id="webapp-ie-disclaimer" type="application/json">{"message":"Vous utilisez un navigateur obsol\u00e8te, veuillez le <a href=\"https:\/\/browser-update.org\/update.html\">mettre \u00e0 jour<\/a>."}</script>
+<script>
+      var isModernIE =  document.documentMode === 10 || document.documentMode === 11;
+      var isEdgeLegacy = navigator.userAgent.indexOf('Edge') > -1; // Luckily for us, Edge Chromium uses string "Edg" without final "e"
+
+      if (isModernIE || isEdgeLegacy) {
+        document.getElementById('modern-ie-disclaimer').style.display = 'block';
+        document.getElementById('webapp-ie-disclaimer').setAttribute('data-role', 'disclaimer-message-data');
+      }
+    </script>
+<noscript>
+        <div class="alertMessage">
+            <span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+            <p class="alertMessage__text">
+                Veuillez utiliser un <a href="https://browser-update.org/update.html">navigateur internet moderne</a> avec JavaScript activé pour naviguer sur OpenClassrooms.com
+            </p>
+        </div>
+    </noscript>
+</div>
+<div id="mainContentWithHeader">
+<section class="breadcrumb  inset no-padding">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<nav class="breadcrumb__wrapper" role="navigation" aria-label="Fil d&#039;Ariane">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/" itemprop="url">
+<span itemprop="title">Accueil</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+</li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/courses" itemprop="url">
+<span itemprop="title">Cours</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+</li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/courses/6173501-debutez-la-programmation-avec-java?status=published" itemprop="url">
+<span itemprop="title">Débutez la programmation avec Java</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+</li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+<div id="pre-main-part">
+</div>
+<main class="claire clearfix" role="main" id="mainContent">
+<article itemscope itemtype="http://schema.org/Article" lang="fr">
+<header id="course-header" class="courseHeader" xmlns="http://www.w3.org/1999/html">
+<div class="grid-wrapper"><div class="grid-inner"><div class="grid-inner-content"><div class="courseHeader__topPart"><a itemprop="url" href="/fr/courses/6173501-debutez-la-programmation-avec-java"><h1 class="oc-typography-h2 typoColorOnContrastedBg  courseHeader__title" data-course-title="Débutez la programmation avec Java">Débutez la programmation avec Java</h1></a></div></div></div></div><div class="grid-wrapper"><div class="grid-inner"><div class="grid-inner-content"><div class="courseHeader__bottomPart"><div class="courseHeader__details"><div class="courseHeader__detailsGroup"><ul class="courseHeader__detailsList"><li class="courseHeader__detailsItem"><img class="courseHeader__icon js-tooltip" src="/images/icons/schedule.svg?373f828a" width="16" title="Ce cours demande en moyenne 15 heures de travail pour être réussi." /><span class="courseHeader__label">15 heures</span></li><li class="courseHeader__detailsItem"><i class="icon-level courseHeader__icon"></i><span class="courseHeader__label">Facile</span></li></ul></div><div class="courseHeader__detailsGroup courseHeader--license"><a class="courseHeader__license" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0"><span class="courseHeader__label">Licence</span><ul class="courseHeader__detailsList"><li class="iconBar__item"><i class="icon-cc iconBar__icon" title="CC"></i></li><li class="iconBar__item"><i class="icon-ccby iconBar__icon" title="BY"></i></li><li class="iconBar__item"><i class="icon-ccsa iconBar__icon" title="SA"></i></li></ul></a></div></div></div></div></div></div>
+<div id="popin-formats-availables" class="popin popin--course-formats-availables">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="course-types course-types--withSpace">
+<a class="course-types__item" href="/fr/courses/6173501-debutez-la-programmation-avec-java">
+<i class="icon-desktop course-types__icon"></i>
+</a>
+<a class="course-types__item" href="/fr/courses?video=true">
+<i class="icon-video course-types__icon"></i>
+</a>
+<a class="course-types__item" href="/fr/courses/6173501/certificate_example" target="_blank">
+<i class="icon-badge course-types__icon js-close-button"></i>
+</a>
+</div>
+<p>Ce cours est visible <a href="/fr/courses/6173501-debutez-la-programmation-avec-java">gratuitement en ligne</a>.</p>
+<p>course.header.alt.is_video</p>
+<p>
+course.header.alt.is_certifying
+</p>
+
+<a class="button button--primary js-close-button" href="#">J&#039;ai tout compris !</a>
+</div>
+</header>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content">
+<p class="courseHeader__updatedTime">
+Mis à jour le 07/04/2021 </p>
+</div>
+</div>
+</div>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content">
+<nav id="course-timeline" class="timeline">
+<div class="timeline__inner">
+<span class="timeline__iconContainer">
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java" title="Retour sur le sommaire du cours" class="roundIcon timeline__roundIcon">
+<i class="icon-home roundIcon__icon"></i>
+</a>
+</span>
+<div class="timeline__steps">
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6173508-tirez-le-maximum-de-ce-cours" class="timeline__step" title="Tirez le maximum de ce cours">
+<span class="timeline__stepName">
+Tirez le maximum de ce cours
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6313896-utilisez-les-variables-en-programmation" class="timeline__step" title="Utilisez les variables en programmation">
+<span class="timeline__stepName">
+Utilisez les variables en programmation
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6445371-choisissez-le-bon-type-d-une-variable" class="timeline__step" title="Choisissez le bon type d’une variable">
+<span class="timeline__stepName">
+Choisissez le bon type d’une variable
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6445721-ecrivez-une-fonction-principale-propre" class="timeline__step" title="Écrivez une fonction principale propre">
+<span class="timeline__stepName">
+Écrivez une fonction principale propre
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6446031-saisissez-la-portee-de-vos-variables-dans-votre-code" class="timeline__step" title="Saisissez la portée de vos variables dans votre code">
+<span class="timeline__stepName">
+Saisissez la portée de vos variables dans votre code
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6451076-ecrivez-une-boucle-dans-vos-fonctions" class="timeline__step" title="Écrivez une boucle dans vos fonctions">
+<span class="timeline__stepName">
+Écrivez une boucle dans vos fonctions
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6451426-faites-le-point-sur-les-concepts-cles-de-la-partie-1" class="timeline__step" title="Faites le point sur les concepts clés de la partie 1">
+<span class="timeline__stepName">
+Faites le point sur les concepts clés de la partie 1
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/exercises/3522" class="timeline__step" title="Quiz : Gérez les variables de votre programme en Java">
+<span class="timeline__stepName">
+Quiz : Gérez les variables de votre programme en Java
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458101-definissez-les-objets-et-leurs-attributs-avec-des-classes" class="timeline__step" title="Définissez les objets et leurs attributs avec des classes">
+<span class="timeline__stepName">
+Définissez les objets et leurs attributs avec des classes
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458196-specialisez-vos-classes-avec-l-heritage-et-le-polymorphisme" class="timeline__step" title="Spécialisez vos classes avec l’héritage et le polymorphisme">
+<span class="timeline__stepName">
+Spécialisez vos classes avec l’héritage et le polymorphisme
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458241-selectionnez-la-condition-appropriee-pour-controler-le-deroulement-de-votre-programme" class="timeline__step js-current-timeline-step" title="Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme">
+<span class="timeline__stepName">
+Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme
+</span>
+<span class="timeline__progressMarker"></span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458461-gerez-les-piles-de-donnees-avec-la-bonne-collection" class="timeline__step" title="Gérez les piles de données avec la bonne collection">
+<span class="timeline__stepName">
+Gérez les piles de données avec la bonne collection
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458826-gerez-les-differents-types-de-passage-de-parametre" class="timeline__step" title="Gérez les différents types de passage de paramètre">
+<span class="timeline__stepName">
+Gérez les différents types de passage de paramètre
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6497566-faites-le-point-sur-les-concepts-cles-de-la-partie-2" class="timeline__step" title="Faites le point sur les concepts clés de la partie 2">
+<span class="timeline__stepName">
+Faites le point sur les concepts clés de la partie 2
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/exercises/3640" class="timeline__step" title="Quiz : Programmez en orienté objet avec Java">
+<span class="timeline__stepName">
+Quiz : Programmez en orienté objet avec Java
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458951-entrez-dans-les-details-grace-a-la-recursivite" class="timeline__step" title="Entrez dans les détails grâce à la récursivité">
+<span class="timeline__stepName">
+Entrez dans les détails grâce à la récursivité
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6459121-gerez-les-comportements-inattendus-avec-les-erreurs-et-exceptions" class="timeline__step" title="Gérez les comportements inattendus avec les erreurs et exceptions">
+<span class="timeline__stepName">
+Gérez les comportements inattendus avec les erreurs et exceptions
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6459641-ecrivez-votre-premier-code-lambda" class="timeline__step" title="Écrivez votre premier code Lambda">
+<span class="timeline__stepName">
+Écrivez votre premier code Lambda
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6550571-faites-le-point-sur-les-concepts-cles-de-la-partie-3" class="timeline__step" title="Faites le point sur les concepts clés de la partie 3">
+<span class="timeline__stepName">
+Faites le point sur les concepts clés de la partie 3
+</span>
+</a>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/exercises/3641" class="timeline__step" title="Quiz : Utilisez quelques principes de programmation avancés en Java">
+<span class="timeline__stepName">
+Quiz : Utilisez quelques principes de programmation avancés en Java
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+</div>
+<span class="timeline__iconContainer">
+<a href="/fr/courses/6173501/certificate_example" title="Certificat de réussite (voir un exemple)" class="roundIcon timeline__roundIcon">
+<i class="icon-trophy roundIcon__icon"></i>
+ </a>
+</span>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="contentWithSidebar  spacer  js-contentWithSidebar  grid-inner-content">
+<div class="contentWithSidebar__content">
+<div id="js-courseRedirection" data-courseInfo-course_id="6173501"></div>
+<div class="relative js-sidebar-container">
+<div class="static">
+<h2 itemprop="name" data-part-title="Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme" class="part-title">Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme</h2>
+<section class="space-bottom js-desktop-sticky-container">
+<div itemprop="articleBody" data-page-indentifier="/fr/courses/6173501-debutez-la-programmation-avec-java/6458241-selectionnez-la-condition-appropriee-pour-controler-le-deroulement-de-votre-programme" class="js-isRestrictablePage js-course-container js-smilize js-userCanWatchVideo">
+<div class="userContent js-userContent">
+<video id="r-6938756" data-claire-element-id="30876951" src="https://vimeo.com/357783148"><a href="https://vimeo.com/357783148">https://vimeo.com/357783148</a></video><p id="r-6539812" data-claire-element-id="29863302">Au fur et à mesure que vous allez écrire des programmes de plus en plus sophistiqués, l'écriture de lignes de code qui doivent s'exécuter l'une après l'autre selon une séquence définie ne sera plus suffisante. C'est là que le <strong>déroulement du programme</strong> entre en jeu.</p><p id="r-6506631" data-claire-element-id="29782461">Reprenons le programme <em>Hello World</em> sur lequel nous avions travaillé dans le chapitre 4 de la partie 1 :</p><pre id="r-6550312" data-claire-element-id="29886942"><code data-claire-semantic="java">package hello;
+
+/** Ceci est une implémentation du message traditionnel &quot;Hello world!&quot;
+* @author L'équipe Education d'OpenClassrooms
+*/
+public class HelloWorld {
+
+/** Le programme commence ici */
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello World!&quot;);
+    }
+
+}</code></pre><p id="r-6458257" data-claire-element-id="29782464">Nous avons dit bonjour au monde entier. Ne serait-il pas agréable d'être un peu plus précis, par exemple dire bonjour à une personne réelle ? 🙋🏽🙋🙋🏻♂‍</p><h3 id="r-6458303" data-claire-element-id="30631383"><strong>Affichez des informations plus spécifiques si elles sont disponibles</strong></h3><p id="r-6458258" data-claire-element-id="29782791">Au démarrage du programme, il se peut que vous ne connaissiez pas le nom d'un utilisateur. Alors pourquoi ne pas utiliser quelque chose comme :</p><ul id="r-6458263" data-claire-element-id="29925486"><li id="r-6458260" data-claire-element-id="29925483"><p id="r-6458259" data-claire-element-id="29925482"><strong>if</strong> (si) nous connaissons le nom de la personne, l'afficher ;</p></li><li id="r-6458262" data-claire-element-id="29925485"><p id="r-6458261" data-claire-element-id="29925484"><strong>else </strong>(sinon), continuer à dire bonjour au monde entier.</p></li></ul><p id="r-6458264" data-claire-element-id="29672249">Voilà à quoi servent les <strong>conditions</strong>.</p><div id="r-6506806" data-claire-element-id="29782792" data-claire-semantic="question"><p id="r-6458265" data-claire-element-id="29672250">Comment pouvons-nous donc connaître le nom de cette personne ?</p></div><p id="r-6458266" data-claire-element-id="29782793">Revenons à la toute première déclaration qu'un programme exécute, la signature de la fonction <em>main</em> :</p><pre id="r-6508086" data-claire-element-id="29784971"><code data-claire-semantic="java">public static void main(String[] args) {</code></pre><p id="r-6458269" data-claire-element-id="29925487">Avez-vous remarqué  <code data-claire-semantic="text">String[] args</code>  à l'intérieur des parenthèses   <code data-claire-semantic="text">()</code>  ? Nous avons une variable  <code data-claire-semantic="text">args</code>  définie avec le type  <code data-claire-semantic="text">String[]</code>, qui est un tableau de chaînes de caractères (nous y reviendrons dans le prochain chapitre). Cela signifie que la fonction <em>main</em> est capable de recevoir des <strong>arguments </strong>que nous pouvons utiliser lorsque le programme est lancé.</p><p id="r-6458270" data-claire-element-id="29783221">Vous vous souvenez de la commande qui démarre un programme Java depuis le terminal ? Si on reprend notre exemple <em>Hello World,</em> nous avions suivi les étapes suivantes :</p><ol id="r-6458275" data-claire-element-id="29783226"><li id="r-6458272" data-claire-element-id="29783223"><p id="r-6458271" data-claire-element-id="29783222">Compiler le programme avec la commande javac.</p></li><li id="r-6458274" data-claire-element-id="29783225"><p id="r-6458273" data-claire-element-id="29783224">Exécuter le programme avec la commande java.</p></li></ol><p id="r-6458276" data-claire-element-id="29783227">La magie qui consiste à envoyer les arguments à votre programme se déroule durant la deuxième phase. Au lieu de simplement fournir le nom de la classe contenant la méthode <em>main</em>, vous pouvez fournir d'autres arguments, séparés par un espace. Voici ce que vous pouvez faire :</p><pre id="r-6458277" data-claire-element-id="29672262"><samp>$ java hello.HelloWorld Esther</samp></pre><p id="r-6458278" data-claire-element-id="29925488">Après le nom de la classe, nous avons ajouté la chaîne <code data-claire-semantic="text">Esther</code>. Au démarrage du programme, cette chaîne est contenue dans le tableau  <code data-claire-semantic="text">args</code>  qui fait partie de la signature de la fonction principale. Cependant, notre code original ne s'en sert pas. Nous devons le changer pour :</p><ol id="r-6458285" data-claire-element-id="29925493"><li id="r-6458280" data-claire-element-id="29783230"><p id="r-6458279" data-claire-element-id="29783229">Vérifier <strong>si</strong> le tableau  <code data-claire-semantic="text">args</code>  contient une valeur (la propriété  <code data-claire-semantic="text">length</code>  fournie par les tableaux peut nous aider ici).</p></li><li id="r-6458282" data-claire-element-id="29925490"><p id="r-6458281" data-claire-element-id="29925489"><strong>Si</strong> c'est le cas, appeler la méthode  <code data-claire-semantic="text">sayhelloTo</code>  avec la valeur qu'elle contient.</p></li><li id="r-6458284" data-claire-element-id="29925492"><p id="r-6458283" data-claire-element-id="29925491"><strong>Sinon,</strong> continuer à appeler la méthode avec la chaîne  <code data-claire-semantic="text">world</code>.</p></li></ol><p id="r-6458286" data-claire-element-id="29783236">Voilà ce que ça donne :</p><pre id="r-6458287" data-claire-element-id="30631382"><code data-claire-semantic="java">package conditions;
+
+/**Ce programme affiche
+ * - un message Hello personnalisé si un argument a été envoyé lors de l'exécution du programme
+ * - le message traditionnel &quot;Hello World!&quot; si ce n'est pas le cas
+* @author L'équipe éducation d'OpenClassrooms
+*/
+
+public class ConditionalHello {
+
+/** Le programme commence ici
+* @param args arguments envoyé avec la ligne de commande 
+*/
+
+    public static void main(String[] args) {
+    
+        if (args.length==1) {
+        sayHelloTo(args[0]);
+        } 
+        else {
+        sayHelloTo(&quot;world&quot;);
+        }
+
+    }
+
+/** affiche le message hello au destinataire fourni 
+* @param recipient
+*/
+
+    private static void sayHelloTo(String recipient) {
+        System.out.println(&quot;Hello &quot; + recipient + &quot;!&quot;);
+        }
+
+}</code></pre><p id="r-6458289" data-claire-element-id="29672274">Maintenant :</p><p id="r-6508081" data-claire-element-id="29784961">1. Compilez le programme avec la commande javac.</p><pre id="r-6508082" data-claire-element-id="29784962"><samp>$ javac conditions/ConditionalHello.java
+</samp></pre><p id="r-6508083" data-claire-element-id="29784963">2. Exécutez le programme sans argument.</p><pre id="r-6508084" data-claire-element-id="29784964"><samp>$ java conditions/ConditionalHello 
+Hello world! 
+$
+</samp></pre><p id="r-6508085" data-claire-element-id="29784965">3. Exécutez le programme en ajoutant &quot;Esther&quot; après le nom de la classe.</p><pre id="r-6458300" data-claire-element-id="29672285"><samp>$java conditions/ConditionalHello Esther
+Hello Esther!
+$</samp></pre><p id="r-6458302" data-claire-element-id="29783238">Ça marche ! Voyons plus en détail comment fonctionne réellement cette affectation conditionnelle <strong>If/Else</strong>.</p><h3 id="r-6458326" data-claire-element-id="29983857"><strong>Testez vos conditions avec des booléens</strong></h3><p id="r-6458304" data-claire-element-id="29983852">En langage Java, pour valider une condition, vous utilisez un type de données spécial appelé  <code data-claire-semantic="text">boolean</code>  . Une variable de type booléen ne peut contenir que deux valeurs : <strong>true</strong> ou <strong>false</strong>. Un  <code data-claire-semantic="text">boolean</code>  est le type de données le plus simple.</p><aside id="r-6458306" data-claire-element-id="29925496" data-claire-semantic="information"><p id="r-6458305" data-claire-element-id="29925495">Une valeur <strong>booléenne</strong> prend le plus petit emplacement de la mémoire de l'ordinateur : un seul <strong>bit</strong>. Vous avez déjà entendu dire que les ordinateurs n'utilisent que des zéros et des uns ? Eh bien, un bit ne peut avoir qu'une seule valeur : 0 ou 1. Huit bits égalent un <strong>octet</strong>, et un kilo-octet correspond à 1 024 bits. Les tailles dont vous avez l'habitude d'entendre parler, comme les gigaoctets ou les mégaoctets, correspondent toutes à une multitude d'octets, et donc de bits. Sympa, n'est-ce pas ? 🤓</p></aside><p id="r-6458307" data-claire-element-id="29983853">En Java, les types  <code data-claire-semantic="text">boolean</code>  utilisent des paires vrai/faux (true/false). Pour déclarer une variable booléenne, spécifiez son type comme  <code data-claire-semantic="text">boolean</code>  . Déclarons quelques variables booléennes :</p><pre id="r-6507996" data-claire-element-id="29784781"><code data-claire-semantic="java">boolean theCourseIsExcellent = true;
+boolean theAuthorIsHumble = false;</code></pre><p id="r-6458310" data-claire-element-id="29672295">C'est logique, n'est-ce pas ? 😉</p><p id="r-6458311" data-claire-element-id="29983783">Ce qui importe vraiment, c'est que la <strong>condition</strong> qui est exprimée à l'intérieur des parenthèses et après le mot clé  <code data-claire-semantic="text">if</code>  soit résolue par un booléen. Cette condition peut être exprimée de la façon suivante :</p><ol id="r-6458318" data-claire-element-id="29983856"><li id="r-6458313" data-claire-element-id="29925504"><p id="r-6458312" data-claire-element-id="29925503">Une valeur true ou false. Par exemple,  <code data-claire-semantic="text">if(true)</code>.</p></li><li id="r-6458315" data-claire-element-id="29983855"><p id="r-6458314" data-claire-element-id="29983854">Une variable de type  <code data-claire-semantic="text">boolean</code> . Par exemple,  <code data-claire-semantic="text">if(myVar)</code>  où  <code data-claire-semantic="text">myVar</code>  est de type  <code data-claire-semantic="text">boolean</code> .</p></li><li id="r-6458317" data-claire-element-id="29672302"><p id="r-6458316" data-claire-element-id="29672301">Une <strong>expression</strong> qui se résout en une valeur booléenne. Cette expression peut être aussi simple que le résultat d'un appel de méthode.</p></li></ol><aside id="r-6458320" data-claire-element-id="29672305" data-claire-semantic="information"><p id="r-6458319" data-claire-element-id="29672304">Une <strong>expression</strong> est tout ce qui produit une valeur.</p></aside><p id="r-6458321" data-claire-element-id="29672306">Par exemple :</p><pre id="r-6507997" data-claire-element-id="29784782"><code data-claire-semantic="java">String weather=&quot;The weather is good&quot;;
+ weather.startsWith(&quot;The weather&quot;); // -&gt; true </code></pre><p id="r-6458324" data-claire-element-id="29783651"><code data-claire-semantic="text">startsWith</code>  est une méthode de la classe  <code data-claire-semantic="text">String</code>  qui retourne  <code data-claire-semantic="text">true</code>  si cette chaîne commence par le préfixe spécifié. Elle peut donc être utilisée comme une condition.</p><p id="r-6458325" data-claire-element-id="29983792">Pour produire un booléen, vous pouvez également utiliser des <strong>opérateurs de comparaison</strong>.</p><h3 id="r-6458360" data-claire-element-id="30631393"><strong>Opérateurs de comparaison</strong></h3><p id="r-6458327" data-claire-element-id="29925524">Comme leur nom l'indique, les opérateurs de comparaison sont utilisés pour <strong>comparer deux valeurs</strong>. Ils sont au nombre de six :</p><ul id="r-6458340" data-claire-element-id="29925537"><li id="r-6458329" data-claire-element-id="29925526"><p id="r-6458328" data-claire-element-id="29925525"><code data-claire-semantic="text">==</code>  égal à (exactement le même) ;</p></li><li id="r-6458331" data-claire-element-id="29925528"><p id="r-6458330" data-claire-element-id="29925527"><code data-claire-semantic="text">!=</code>  non égal à (différent, de quelque façon que ce soit) ;</p></li><li id="r-6458333" data-claire-element-id="29925530"><p id="r-6458332" data-claire-element-id="29925529"><code data-claire-semantic="text">&lt;</code>  inférieur à ;</p></li><li id="r-6458335" data-claire-element-id="29925532"><p id="r-6458334" data-claire-element-id="29925531"><code data-claire-semantic="text">&lt;=</code>  inférieur ou égal à ;</p></li><li id="r-6458337" data-claire-element-id="29925534"><p id="r-6458336" data-claire-element-id="29925533"><code data-claire-semantic="text">&gt;</code>  supérieur à ;</p></li><li id="r-6458339" data-claire-element-id="29925536"><p id="r-6458338" data-claire-element-id="29925535"><code data-claire-semantic="text">&gt;=</code>  supérieur ou égal à.</p></li></ul><p id="r-6458341" data-claire-element-id="29784711">Voici quelques exemples de comparaisons numériques :</p><pre id="r-6507961" data-claire-element-id="29784712"><code data-claire-semantic="java">2 == 2 // -&gt; true
+2 == 3 // -&gt; false
+
+4 != 4 // -&gt; false
+4 != 5 // -&gt; true
+
+1 &lt; 2 // -&gt; true
+1 &lt; 1 // -&gt; false
+
+1 &lt;= 1 // -&gt; true
+3 &gt; 4 // -&gt; false
+
+5 &gt; 4 // -&gt; true
+5 &gt;= 4 // -&gt; true</code></pre><p id="r-6507962" data-claire-element-id="30631392">Enfin, vous voudrez peut-être avoir des conditions plus compliquées, où la décision dépend du résultat d'une combinaison d'expressions différentes. C'est ici que vous utiliserez les <strong>opérateurs logiques</strong>.</p><h3 id="r-6458402" data-claire-element-id="30625513"><strong>Opérateurs logiques</strong></h3><p id="r-6458361" data-claire-element-id="29672346">Ces opérateurs vous permettent de combiner des valeurs booléennes : soit des valeurs booléennes spécifiques, soit des résultats d'expressions. Ils sont au nombre de trois :</p><ul id="r-6458368" data-claire-element-id="29925558"><li id="r-6458363" data-claire-element-id="29925553"><p id="r-6458362" data-claire-element-id="29925552"><code data-claire-semantic="text">&amp;&amp;</code><strong>  ET </strong>logique.<br />Le résultat n'est vrai que si <strong>toutes </strong>les parties participantes sont vraies. <br />Exemple : le résultat de  <code data-claire-semantic="text">expression1 &amp;&amp; expression2</code>  n'est vrai que si  <code data-claire-semantic="text">expression1</code>  est vraie <strong>ET</strong>  <code data-claire-semantic="text">expression2</code>  est également vraie.</p></li><li id="r-6458365" data-claire-element-id="29925555"><p id="r-6458364" data-claire-element-id="29925554"><code data-claire-semantic="text">||</code><strong>  OU </strong>logique.<br />Le résultat est vrai si <strong>au moins une </strong>des parties participantes est vraie. <br />Exemple : le résultat de  <code data-claire-semantic="text">expression1 || expression2</code>  est vrai si  <code data-claire-semantic="text">expression1</code>  est vraie <strong>OU</strong>  <code data-claire-semantic="text">expression2</code>  est vraie. Il en sera de même si les deux expressions sont vraies !</p></li><li id="r-6458367" data-claire-element-id="29925557"><p id="r-6458366" data-claire-element-id="29925556"><code data-claire-semantic="text">!</code>  <strong>NON </strong>logique.<br />Il <strong>inverse</strong> simplement l'expression donnée.<br />Le résultat de  <code data-claire-semantic="text">!expression1</code>  est vrai si  <code data-claire-semantic="text">expression1</code>  est fausse ; le résultat est faux si  <code data-claire-semantic="text">expression1</code>  est vraie.</p></li></ul><p id="r-6458369" data-claire-element-id="29672354">Voici quelques exemples :</p><pre id="r-6507964" data-claire-element-id="29784724"><code data-claire-semantic="java">true &amp;&amp; true // -&gt; true
+true &amp;&amp; false // -&gt; false
+false &amp;&amp; false // -&gt; false
+true || false // -&gt; true
+true || true // -&gt; true
+false || false // -&gt; false
+!true // -&gt; false
+!false // -&gt; true</code></pre><p id="r-6458379" data-claire-element-id="29672364">Les mêmes règles s'appliquent si plus de deux expressions sont enchaînées les unes après les autres :</p><pre id="r-6507965" data-claire-element-id="29784725"><code data-claire-semantic="java">true &amp;&amp; true &amp;&amp; true // -&gt; true
+true &amp;&amp; true &amp;&amp; false // -&gt; false
+true || false || false// -&gt; true 
+false || false || false// -&gt; false</code></pre><p id="r-6458385" data-claire-element-id="29783821">Comme pour les opérateurs numériques, les opérateurs logiques respectent la priorité des opérations : l'opérateur d'inversion  <code data-claire-semantic="text">!</code>  vient en premier, puis l'opérateur ET  <code data-claire-semantic="text">&amp;&amp;</code>  et enfin, l'opérateur OU<strong> </strong><code data-claire-semantic="text">||</code>. Par exemple :</p><pre id="r-6507966" data-claire-element-id="30625512"><code data-claire-semantic="java">false || true &amp;&amp; true // -&gt; true
+!false &amp;&amp; true || false // -&gt; true</code></pre><p id="r-6458388" data-claire-element-id="29672373">Comme pour les opérateurs numériques, utilisez les parenthèses (() ) pour changer l'ordre :</p><pre id="r-6507967" data-claire-element-id="29784727"><code data-claire-semantic="java">(true &amp;&amp; false) || true // -&gt; true
+!(true &amp;&amp; false || !true) // -&gt; true</code></pre><div id="r-6458393" data-claire-element-id="29783942" data-claire-semantic="question"><p id="r-6458392" data-claire-element-id="29783941">Pour vous entraîner, pouvez-vous calculer le résultat des expressions suivantes ?</p></div><pre id="r-6507968" data-claire-element-id="29784728"><code data-claire-semantic="java">!true &amp;&amp; false
+!(true &amp;&amp; false)
+ 4 &lt; 3 || 4 &gt;= 4
+ (!(1 == 2) || 3 != 3) &amp;&amp; 35 &gt; 34</code></pre><p id="r-6458399" data-claire-element-id="29983858"><strong>En résumé :</strong> la forme générale d'une instruction conditionnelle en Java est  <code data-claire-semantic="text">if(condition)</code>  : la <strong>condition</strong> est soit une valeur booléenne, soit une variable de type  <code data-claire-semantic="text">boolean</code> , soit le résultat de toute expression qui produit une valeur booléenne.</p><p id="r-6458400" data-claire-element-id="29925572">Dans notre exemple <em>Hello World</em>, nous avons défini une <strong>alternative</strong>. Et si vous voulez prendre des décisions plus complexes, basées sur <strong>plusieurs valeurs possibles</strong> ?</p><p id="r-6458401" data-claire-element-id="29672386"></p><h3 id="r-6458417" data-claire-element-id="29925613"><strong>Gérez une chaîne de conditions</strong></h3><p id="r-6458403" data-claire-element-id="29672388">Nous avons personnalisé notre message de bienvenue, mais que faire si nous voulons plaire aux personnes ayant plus d'un prénom ?</p><p id="r-6458404" data-claire-element-id="29925574">Une première possibilité consiste à créer une <strong>chaîne de conditions</strong>. Voici la forme générale :</p><pre id="r-6507970" data-claire-element-id="29784731"><code data-claire-semantic="java">if(condition1) {
+// instructions
+} 
+else if(condition2) {
+// instructions 
+} 
+else {
+// instructions
+}</code></pre><p id="r-6458405" data-claire-element-id="29784732"></p><p id="r-6458413" data-claire-element-id="29785271">Dans notre exemple <em>Hello World</em>, nous pourrions envoyer deux chaînes de caractères après le nom de la classe lors de l'exécution du programme. Cela signifierait que le tableau  <code data-claire-semantic="text">args</code>  contiendrait deux éléments. Nous pourrions alors envoyer une chaîne contenant la concaténation de ces deux chaînes à notre fonction  <code data-claire-semantic="text">sayHelloTo</code>  :</p><pre id="r-6458414" data-claire-element-id="29785272"><code data-claire-semantic="java">public static void main(String[] args) {
+    if (args.length==1) {
+        sayHelloTo(args[0]);
+    } else if (args.length==2) {
+        sayHelloTo(args[0] + &quot;-&quot; + args[1]);
+    } else {
+      sayHelloTo(&quot;world&quot;);
+    }
+}</code></pre><p id="r-6458416" data-claire-element-id="29925612">Dans cet exemple, ce que fait réellement notre chaîne est d'évaluer les différentes valeurs d'<strong>une condition particulière</strong> (la taille du tableau  <code data-claire-semantic="text">args</code>). Dans ce cas, Java fournit une construction spécifique qui ne fait l'évaluation qu'une seule fois : l'instruction <em>switch</em>.</p><h3 id="r-6458432" data-claire-element-id="29925725"><strong>L'instruction Switch</strong></h3><p id="r-6458418" data-claire-element-id="29925722">Parfois, il y a des circonstances où vous avez un ensemble plus long de conditions à remplir, et où l'une d'elles peut être <em>true</em> dans la séquence. Dans ce cas, une technique, <strong>switch</strong>,<strong> </strong>s'avère plus pratique à utiliser. Switch utilise ce qu'on appelle des <strong><em>cas</em></strong> pour comparer une valeur et décider si un bloc de code associé doit être exécuté. Réécrivons notre exemple <strong>if/else if/else </strong>en utilisant l’instruction switch :</p><pre id="r-6458419" data-claire-element-id="29785542"><code data-claire-semantic="java">public static void main(String[] args) {
+    switch(args.length) {
+        case 0: // aucun argument n'a été envoyé
+            sayHelloTo(&quot;world&quot;);
+            break;
+        case 1: // l'utilisateur a fourni un argument dans le terminal 
+            sayHelloTo(args[0]);
+            break;
+        case 2: // l'utilisateur a fourni 2 arguments
+            sayHelloTo(args[0] + &quot;-&quot; + args[1]);
+            break;
+        default: // l'utilisateur a fourni plus d'arguments qu'on peut en gérer !
+            System.out.println(&quot;Sorry, I don't know how to manage more than 2 names!&quot;);
+    }
+}</code></pre><p id="r-6458420" data-claire-element-id="29925723">Avec l'instruction switch :</p><ul id="r-6458429" data-claire-element-id="29925623"><li id="r-6458422" data-claire-element-id="29925616"><p id="r-6458421" data-claire-element-id="29925615">l'expression conditionnelle  <code data-claire-semantic="text">args.length</code>  n'est évaluée qu'une seule fois ;</p></li><li id="r-6458424" data-claire-element-id="29925618"><p id="r-6458423" data-claire-element-id="29925617">chaque cas compare le résultat de l'expression à une valeur spécifique ;</p></li><li id="r-6458426" data-claire-element-id="29925620"><p id="r-6458425" data-claire-element-id="29925619">par défaut, une fois qu'un cas est évalué <em>true</em>, tous les cas ci-dessous sont également évalués en <strong>cascade</strong>. Pour éviter cela, terminez chaque cas par une instruction  <code data-claire-semantic="text">break;</code> ;</p></li><li id="r-6458428" data-claire-element-id="29925622"><p id="r-6458427" data-claire-element-id="29925621">la clause Default à la fin traite de tous les cas où le résultat de l'expression ne correspond à aucun cas.</p></li></ul><p id="r-6458430" data-claire-element-id="29925724">L'instruction switch rend votre intention plus claire qu'une chaîne de <strong>if/else</strong> et vous permet d'évaluer l'état une seule fois. C'est cool. 😎 Mais ce n'est pas fini ! Encore un autre type de données : les <strong>énumérations</strong>. </p><h3 id="r-6458440" data-claire-element-id="29925728"><strong>Utilisez le type d'énumération</strong></h3><p id="r-6458433" data-claire-element-id="29785671">Les énumérations sont une liste de cas prédéfinis destinés à vous aider pendant le développement. Elles améliorent la lisibilité du code et diminuent les risques d'erreurs. Prenons un exemple où nous définissons toutes les directions possibles (nord, est, sud, ouest) dans une énumération et utilisons-les dans un switch. Comme le switch doit couvrir tous les cas possibles, nous pouvons utiliser deux approches.</p><p id="r-6458434" data-claire-element-id="29925692">La première est de lister tous les cas d'énumération en switch, afin que nous n'ayons pas à utiliser l'instruction  <code data-claire-semantic="text">default</code> ;</p><pre id="r-6458435" data-claire-element-id="29887003"><code data-claire-semantic="java">public class myDirection {
+
+    /** listez toutes les directions possibles */
+    enum Direction {
+        north, east, south, west;
+    }
+
+    /** trouvez le nord */
+    public static void main(String[] args) {
+        Direction direction = Direction.north;
+        switch (direction) {
+            case north:
+                System.out.println(&quot;You are heading north&quot;);
+                break;
+            case east:
+                System.out.println(&quot;You are heading east&quot;);
+                break;
+            case south:
+                System.out.println(&quot;You are heading south&quot;);
+                break;
+            case west:
+                System.out.println(&quot;You are heading west&quot;);
+                break;
+        }
+    }
+}</code></pre><p id="r-6458436" data-claire-element-id="29925726">Dans ce cas, nous couvrons toutes les directions, nous n'avons donc pas besoin de la clause  <code data-claire-semantic="text">default</code>.</p><p id="r-6565092" data-claire-element-id="29925727">Nous pouvons également définir un cas d'utilisation où nous ne devrions nous diriger que vers le nord :</p><pre id="r-6458438" data-claire-element-id="29785963"><code data-claire-semantic="java">public static void main(String[] args) {
+    Direction direction = Direction.north;
+    switch (direction) {
+        case north:
+            System.out.println(&quot;You are heading north&quot;);
+            break;
+        default:
+            System.out.println(&quot;You are lost!&quot;);
+    }
+}</code></pre><p id="r-6458439" data-claire-element-id="29672424"></p><h3 id="r-6458443" data-claire-element-id="29901143"><strong>À vous de jouer !</strong></h3><p id="r-6458441" data-claire-element-id="29901142"><a href="https://api.next.tech/api/v1/publishable_key/2A9CAA3419124E3E8C3F5AFCE5306292?content_id=815dcbcd-8ad5-486b-bcf4-a93ed7c3315a">https://api.next.tech/api/v1/publishable_key/2A9CAA3419124E3E8C3F5AFCE5306292?content_id=815dcbcd-8ad5-486b-bcf4-a93ed7c3315a</a></p><p id="r-6458442" data-claire-element-id="29672427"></p><h3 id="r-6458458" data-claire-element-id="30876955"><strong>En résumé</strong></h3><ul id="r-6458456" data-claire-element-id="29925735"><li id="r-6458445" data-claire-element-id="29925730"><p id="r-6458444" data-claire-element-id="29925729">Les conditions vous permettent d'exécuter un bloc de code uniquement si une valeur  <code data-claire-semantic="text">boolean</code>, une variable ou une expression évalue comme  <code data-claire-semantic="text">true</code>.</p></li><li id="r-6458447" data-claire-element-id="29925732"><p id="r-6458446" data-claire-element-id="29925731">Un moyen de fournir des valeurs à un programme est d'envoyer des <strong>arguments</strong> sur la ligne de commande. Ces arguments sont mis à la disposition de la fonction main dans le tableau  <code data-claire-semantic="text">args</code>.</p></li><li id="r-6458449" data-claire-element-id="29925734"><p id="r-6458448" data-claire-element-id="29925733">Les expressions conditionnelles utilisent l'<strong>arithmétique booléenne</strong>, notamment les <strong>opérateurs de comparaison</strong> et les <strong>opérateurs logiques</strong>.</p></li><li id="r-6458451" data-claire-element-id="29672436"><p id="r-6458450" data-claire-element-id="29672435">Vous pouvez évaluer plusieurs conditions en <strong>créant des chaînes </strong>d'instructions <strong>if/else if/else</strong>.</p></li><li id="r-6458453" data-claire-element-id="29672438"><p id="r-6458452" data-claire-element-id="29672437">L'instruction switch est une façon plus propre d'exécuter en fonction des différentes <strong>valeurs</strong> possibles d'une condition particulière.</p></li><li id="r-6458455" data-claire-element-id="29672440"><p id="r-6458454" data-claire-element-id="29672439">Les<strong> énumérations </strong>vous permettent de définir un ensemble de valeurs possibles pour rendre votre code encore plus propre.</p></li></ul><p id="r-6550358" data-claire-element-id="29925736"><em>Découvrez dans le prochain chapitre comment gérer un grand nombre de données avec les tableaux, les listes et les dictionnaires !</em></p><aside id="r-6938758" data-claire-element-id="30876953" data-claire-semantic="information"><p id="r-6938757" data-claire-element-id="30876952">Que pensez-vous de ce cours ? Donnez-nous votre avis <a href="https://forms.gle/zWg1o5irG3tkRPZN8">ici</a>. </p></aside><p id="r-6938759" data-claire-element-id="30876954"></p>
+</div>
+<div class="js-courseSelementActions sideActions">
+<ul class="sideActions__container">
+<li>
+<a class="sideActions__item  js-courseElementActions-copyUrl  js-tooltip" href="#" data-tooltip="Copier le lien" data-tooltip-done="Lien copié !">
+#
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="text-center space-top">
+<form name="form" method="post" action="/fr/courses/6173501/parts/6458241/mark-as-complete" class=" oc-form">
+<button type="submit" id="form_submit" name="form[submit]" class="button button--primary button"> J'ai terminé ce chapitre et je passe au suivant</button>
+<input type="hidden" id="form__token" name="form[_token]" class=" textInput textInput--hidden" value="HHvvG50E7zuNwx7N-orTQCaRdo_Nl71l6srhv0Sp7B0" /></form>
+</div>
+<nav id="course-pagination" class="course-pagination    clearfix">
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458196-specialisez-vos-classes-avec-l-heritage-et-le-polymorphisme" class="button button--secondary  course-pagination__btn course-pagination__btn--previous">
+<i class="icon-previous"></i>
+<span>Spécialisez vos classes avec l’héritage et le polymorphisme</span>
+</a>
+<span class="course-pagination__separator"></span>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458461-gerez-les-piles-de-donnees-avec-la-bonne-collection" class="button button--secondary  course-pagination__btn course-pagination__btn--next">
+<span>Gérez les piles de données avec la bonne collection</span>
+<i class="icon-next"></i>
+</a>
+</nav>
+<div tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="popin-view-restriction_popin_title" class="popin popin--illustrated  js-popin" id="popin-view-restriction">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__illustrationWrapper">
+<div class="popin__illustration illustration--balloon"></div>
+</div>
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<div id="popin-view-restriction_popin_title" class="popin__title  js-popin-title">Waouh !</div>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Très heureux de voir que nos cours vous plaisent, déjà 5 pages lues aujourd&#039;hui ! Vous pouvez continuer la lecture de nos cours en devenant un membre de la communauté d&#039;OpenClassrooms. C&#039;est gratuit !
+</p>
+<p>
+Vous pourrez aussi suivre votre avancement dans le cours, faire les exercices et discuter avec les autres membres.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<span class="u--inlineBlock">
+<a class="button button--primary " href="/fr/register">S'inscrire</a>
+</span>
+<span class="u--inlineBlock">
+<a class="button button--secondary " href="/fr/login">Se connecter</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script type="text/template" class="js-single-video-download-info">
+            <div class="videoDownload js-download-video-popin-link">
+                <a href="#popin-download-video" class="js-popin-activator">
+                    <i class="icon-download videoDownload__icon"></i> Télécharger la vidéo
+                </a>
+            </div>
+        </script>
+<script type="text/template" class="js-all-video-download-info">
+            <div class="videoDownload js-download-video-popin-link">
+                <a href="#popin-download-all-videos" class="js-popin-activator">
+                    <i class="icon-download videoDownload__icon"></i> Télécharger toutes les vidéos de ce cours
+                </a>
+            </div>
+        </script>
+<div id="popin-not-certifying-yet_343558" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#039;issue de ce cours.
+                            <span><i class='icon-star'></i> Devenez Premium</span>
+                    ">
+<img alt="Exemple de certificat de réussite" src="//static.oc-static.com/prod/images/courses/certif.jpg" />
+</div>
+<div tabindex="-1" role="dialog" aria-hidden="true" class="popin popin--small  js-popin" id="popin-download-video">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div id="popin-download-video_popin_title" class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<i class="icon-video popin__icon  js-popin-icon"></i>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Le téléchargement des vidéos de nos cours est accessible pour les membres Premium. Vous pouvez toutefois les visionner en streaming gratuitement.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<a class="button button--primary js-close-button" href="#">Devenez Premium</a>
+</div>
+</div>
+</div>
+</div>
+<div id="popin-not-certifying-yet_513454" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#039;issue de ce cours.
+                            <span><i class='icon-star'></i> Devenez Premium</span>
+                    ">
+<img alt="Exemple de certificat de réussite" src="//static.oc-static.com/prod/images/courses/certif.jpg" />
+</div>
+<div tabindex="-1" role="dialog" aria-hidden="true" class="popin popin--small  js-popin" id="popin-download-video">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div id="popin-download-video_popin_title" class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<i class="icon-video popin__icon  js-popin-icon"></i>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Le téléchargement des vidéos de nos cours est accessible pour les membres Premium. Vous pouvez toutefois les visionner en streaming gratuitement.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<a class="button button--primary js-close-button" href="#">Devenez Premium</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside id="content-with-sidebar" class="contentWithSidebar__sidebar  js-contentWithSidebar-slidingElement">
+<nav class="col-nav">
+<div id="tab-courseMenu" class="col-nav__inner js-sidebar-inner">
+<div class="col-nav__block  col-nav__block--summary">
+<div class="side-paginate">
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458196-specialisez-vos-classes-avec-l-heritage-et-le-polymorphisme" class="side-paginate__previous" title="Chapitre précédent">
+<i class="icon-previous"></i>
+</a>
+<span class="side-paginate__separator"></span>
+<h6 class="side-paginate__title">
+Programmez en orienté objet avec Java
+</h6>
+<span class="side-paginate__separator"></span>
+<a href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458461-gerez-les-piles-de-donnees-avec-la-bonne-collection" class="side-paginate__next" title="Chapitre suivant">
+<i class="icon-next"></i>
+</a>
+</div>
+<div class="col-nav__block--summary-list">
+<ol class="col-nav__chapters">
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458101-definissez-les-objets-et-leurs-attributs-avec-des-classes">Définissez les objets et leurs attributs avec des classes</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458196-specialisez-vos-classes-avec-l-heritage-et-le-polymorphisme">Spécialisez vos classes avec l’héritage et le polymorphisme</a>
+</li>
+<li class="selected">
+<span class="col-nav__chapterTitle">Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme</span>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458461-gerez-les-piles-de-donnees-avec-la-bonne-collection">Gérez les piles de données avec la bonne collection</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/6173501-debutez-la-programmation-avec-java/6458826-gerez-les-differents-types-de-passage-de-parametre">Gérez les différents types de passage de paramètre</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/6173501-debutez-la-programmation-avec-java/6497566-faites-le-point-sur-les-concepts-cles-de-la-partie-2">Faites le point sur les concepts clés de la partie 2</a>
+</li>
+</ol>
+<div class="tocExercise"><ul class="tocExercise__list"><li class="tocExercise__item "><a class="tocExercise__link " href="/fr/courses/6173501-debutez-la-programmation-avec-java/exercises/3640"><i class="tocExercise__icon icon-test"></i><span class="tocExercise__text">Quiz : Programmez en orienté objet avec Java</span></a></li></ul></div> </div>
+</div>
+<div class="socialNetwork col-nav__block">
+<ul class="socialButtons  js-socialButtons" data-options="
+                title: 'Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme @OCFrance',
+        mailTitle: 'Cours &quot;Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme&quot; sur OpenClassrooms',
+        mailContent: 'Découvrez le cours &quot;Sélectionnez la condition appropriée pour contrôler le déroulement de votre programme&quot; sur OpenClassrooms.'">
+<li>
+<a class="roundIcon  roundIcon--twitter addthis_button_twitter  js-socialButtons-btn" data-tooltip="Partagez sur Twitter">
+<i class="roundIcon__icon  icon-twitter"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--facebook  addthis_button_facebook  js-socialButtons-btn" data-tooltip="Partagez sur Facebook">
+<i class="roundIcon__icon  icon-facebook"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  addthis_button_email  js-socialButtons-btn  js-socialButtons-email" data-tooltip="Partagez par e-mail">
+<i class="roundIcon__icon  icon-letter"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</aside>
+</div>
+</div>
+</div>
+<footer id="course-footer" class="alt-section noMarginBottom">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content  courseFooter">
+<div class="courseFooter__authorsOnly course-bottom__category">
+<div class="course-bottom__title">
+Les professeurs
+</div>
+<div>
+<div class="course-bottom__text-illustrated">
+<span data-author="Mohamed Dabo" data-image-cdn-background-image="https://user.oc-static.com/users/avatars/15693365692287_Capture%20d%E2%80%99e%CC%81cran%202019-09-24%20a%CC%80%2016.49.03.png" data-image-cdn-width="120"></span>
+<div class="course-bottom__subtitle" itemprop="name">Mohamed Dabo</div>
+<p itemprop="description">
+Ingénieur informatique. Co-fondateur de BlaBlaFoot, la radio où les chroniqueurs sont choisis parmi les auditeurs qui le souhaitent.
+</p>
+</div>
+<div class="course-bottom__text-illustrated">
+<span data-author="Olga Volkova" data-image-cdn-background-image="https://user.oc-static.com/users/avatars/14981229632081_OVRes2015-square.png" data-image-cdn-width="120"></span>
+<div class="course-bottom__subtitle" itemprop="name">Olga Volkova</div>
+<p itemprop="description">
+Fascinated by limitless opportunities in the universe of unknown. iOS engineer, interaction designer, entrepreneur, educator, writer.
+</p>
+</div>
+<div class="course-bottom__text-illustrated">
+<span data-author="Sylvain Tenier" data-image-cdn-background-image="https://user.oc-static.com/users/avatars/15477317606016_MCAM_012.00_04_56_05.Still001.jpg" data-image-cdn-width="120"></span>
+<div class="course-bottom__subtitle" itemprop="name">Sylvain Tenier</div>
+<p itemprop="description">
+Computer Science professor, and developer for multiple languages.
+</p>
+</div>
+<div class="course-bottom__text-illustrated">
+<span data-author="Mila Paul" data-image-cdn-background-image="https://user.oc-static.com/users/avatars/15452894498734_Capture%20d%E2%80%99e%CC%81cran%202018-12-20%20a%CC%80%2008.03.27.png" data-image-cdn-width="120"></span>
+<div class="course-bottom__subtitle" itemprop="name">Mila Paul</div>
+<p itemprop="description">
+I am an academic instructor of Computer Science and Information Security, freelance Blockchain developer, and Cyber Operations SME!
+</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</footer>
+</article>
+</main>
+</div>
+<div id="mainSearchLegacy" class="mainSearch"></div>
+<div id="footerWrapper">
+<footer id="footer" class="oc-footerSkeleton">
+<hr style="margin-bottom: 8px" />
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="oc-footerSkeleton__container">
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 80%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 70%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 85%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 75%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 50%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<span class="skeleton" style="height: 25px; width: 65%"></span>
+<div class="oc-footerSkeleton__socialButtonWrapper">
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+</div>
+<div><span class="skeleton skeleton--width50" style="height: 40px;"></span></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div id="showDisclaimer" class="cookiesDisclaimer"></div>
+<script>
+  var isPrerender = !!navigator.userAgent.match(/github\.com\/prerender\/prerender/);
+  var preRenderBrowserFakeUa = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163 Safari/537.36";
+  var polyfillUrl = "https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=default,es6,IntersectionObserver,Object.values,Array.prototype.includes,Array.prototype.findIndex,Array.prototype.find,Array.from,Promise.prototype.finally,fetch,String.prototype.includes,Object.entries,Array.prototype.entries,Intl.~locale.fr";
+
+    if (isPrerender) {
+    polyfillUrl+= "&ua=" + encodeURIComponent(preRenderBrowserFakeUa);
+  }
+
+  App.translations = {};
+
+  App.scripts.push(polyfillUrl);
+
+  App.script = {
+    DASHBOARD: 'dashboard',
+    MENTORSHIP_STUDENT_DASHBOARD: 'mentorshipStudentdashboard',
+    SHOP: 'shop',
+    PAYMENT: 'payment',
+    PROJECTS: 'projects',
+    TEAM: 'team',
+    COURSE_EDIT: 'course_edit',
+    COURSE_VIEW: 'course_view',
+    ADMIN: 'admin',
+    ADMIN_STUDENT_CREDENTIAL_CREATE: 'adminStudentCredentialCreate',
+    POST_A_JOB: 'postAJob',
+    GIG_WORKERS: 'gigWorkers',
+    JOB_SURVEY: 'jobSurvey',
+    MCQ_EDIT: 'mcqEdit',
+    MCQ_VIEW: 'mcqView',
+    MENTOR_EDIT: 'mentorEdit',
+    MENTORSHIP_DASHBOARD: 'mentorshipDashboard',
+    MENTORSHIP_SESSION_CREATE: 'mentorshipSessionCreate',
+    MENTORSHIP_SESSION_NON_ASSESSOR_CREATE: 'mentorshipSessionNonAssessorCreate',
+    PATHS: 'paths',
+    PRIVATE_CONVERSATIONS: 'privateConversations',
+    USER_PROFILE: 'userProfile',
+    WELCOME: 'welcome',
+    APPRENTICESHIP: 'apprenticeship',
+    WEBAPP: 'webapp',
+    PROJECTS_ADMIN: 'projectsAdmin',
+    SECURITY: 'security',
+  };
+</script>
+<script>App.scripts.push("/js/runtime.04733354058e84bb044d.js");</script>
+<script>App.scripts.push("/js/vendors.163aded1682cb6d60485.js");</script>
+<script>App.scripts.push("/languages/fr.976759d0c638eb765c0f.js");</script>
+<script>App.scripts.push("/js/oc/packages/index.a2665b95db17f1992504.js");</script>
+<script type="text/javascript">
+        function getConsentedSegmentIntegrations() {
+            // getCookie from https://www.w3schools.com/js/js_cookies.asp
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) === ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) === 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            var consent = getCookie('cmapi_cookie_privacy');
+
+            function isCookieAllowedByConsent(consent, level) {
+              return !!consent && consent.search(level) !== -1;
+            }
+
+            var isFunctionalCookieAllowed = isCookieAllowedByConsent(consent, 2);
+            var isAdvertisingCookieAllowed = isCookieAllowedByConsent(consent, 3);
+
+            var isAppCuesPremiumUser = false;
+
+            var isOnPoleEmploiPage = !!window && window.location.pathname.indexOf('partners/pole-emploi/offers') >= 0;
+
+            return {
+                Amplitude: isFunctionalCookieAllowed,
+                'Bing Ads': isAdvertisingCookieAllowed,
+                'Google Ads': isAdvertisingCookieAllowed,
+                'Google Analytics': isFunctionalCookieAllowed,
+                'Zendesk': isFunctionalCookieAllowed,
+                Appcues: (isAppCuesPremiumUser || isOnPoleEmploiPage) && isFunctionalCookieAllowed,
+            };
+        }
+
+        var consentedSegmentIntegrations = getConsentedSegmentIntegrations();
+
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+            window.loadAnalytics = function () { window.analytics.load('mou95e6tdn', {integrations: consentedSegmentIntegrations}) };
+        }}();
+    </script>
+
+<script>App.scriptToLoad = App.script.COURSE_VIEW</script>
+
+<script>
+    (function () {
+        function loadScripts(cb) {
+            App.scripts.forEach(function (src, index) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false;
+                document.body.appendChild(script);
+
+                if (cb && index === App.scripts.length - 1) {
+                    script.onload = cb;
+                }
+            });
+        }
+
+        function boot() {
+            loadScripts(function () {
+                if (App.modules) {
+                    App.modules.startAll();
+                }
+            });
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener('load', boot, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', boot);
+        } else {
+            window.onload = boot;
+        }
+    }());
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.eu01.nr-data.net","licenseKey":"NRJS-5b58725ce0d442079d0","applicationID":"156815673","transactionName":"MhBSZQoZVhJWB0xfDAtac0QLDFcMGAtbaQAJFFlDHSdbDkIWS1M8FRRCRScIWRNDO05fBhI=","queueTime":0,"applicationTime":209,"atts":"HldRE0IDRRw=","errorBeacon":"bam.eu01.nr-data.net","agent":""}</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"si":10,"rayId":"64041bafac6c06b2","version":"2021.4.0"}'></script>
+</body>
+</html>

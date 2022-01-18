@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+<html class="no-js " lang="fr" prefix="og: http://ogp.me/ns#">
+<head>
+<title>
+                            Les fonctions - Concevez votre site web avec PHP et MySQL - OpenClassrooms
+                    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-5b58725ce0d442079d0",applicationID:"156815673"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="application-name" content="OpenClassrooms" />
+<meta name="msapplication-TileColor" content="#7451eb" />
+<meta name="msapplication-TileImage" content="/fav-icon.png?v=3" />
+<meta name="theme-color" content="#7451eb">
+<meta property="og:locale" content="fr" />
+<link rel="icon" sizes="144x144" href="/fav-icon.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+<link rel="apple-touch-icon" href="/apple-touch-icon-iphone.png?v=3" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-ipad.png?v=3" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-iphone-retina-display.png?v=3" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-ipad-retina-display.png?v=3" />
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png?v=3" />
+<link rel="shortcut icon" href="/favicon.ico?373f828a" />
+<style>.async-hide { opacity: 0 !important} </style>
+<script>
+          window.dataLayer = window.dataLayer || [];
+
+          (function(a,s,y,n,c,h,i,d,e){
+            var isEnabled = [
+              /\/paths/,
+              /\/apprenticeship/,
+              /\/employer/,
+            ].reduce(function (acc, pathReg) {
+                var matchUrl = !!document.location.pathname.match(pathReg);
+                return acc || matchUrl;
+            }, false);
+
+            if (!isEnabled) {
+              return;
+            }
+
+            s.className+=' '+y;
+            h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+            (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);
+          })(window,document.documentElement,'async-hide','dataLayer',2000,{'GTM-5WM9PV':true});
+        </script>
+<link href="/bundles/common/css/master-c47140a1.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/bundles/course/css/main-29e81ced.css" type="text/css" rel="stylesheet" media="all" />
+<link href="https://vjs.zencdn.net/6.2.5/video-js.css" rel="stylesheet">
+<script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+    !function(e,n,t){function o(e,n){return typeof e===n}function r(){var e,n,t,r,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(r=o(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=r:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=r),g.push((r?"":"no-")+a.join("-"))}}function s(e){var n=w.className,t=Modernizr._config.classPrefix||"";if(x&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),x?w.className.baseVal=n:w.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):x?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(){var e=n.body;return e||(e=i(x?"svg":"body"),e.fake=!0),e}function l(e,t,o,r){var s,l,u,f,p="modernizr",c=i("div"),d=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:p+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+p,(d.fake?d:c).appendChild(s),d.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=p,d.fake&&(d.style.background="",d.style.overflow="hidden",f=w.style.overflow,w.style.overflow="hidden",w.appendChild(d)),l=t(c,e),d.fake?(d.parentNode.removeChild(d),w.style.overflow=f,w.offsetHeight):c.parentNode.removeChild(c),!!l}function u(e,n){return!!~(""+e).indexOf(n)}function f(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function p(e,n){return function(){return e.apply(n,arguments)}}function c(e,n,t){var r;for(var s in e)if(e[s]in n)return t===!1?e[s]:(r=n[e[s]],o(r,"function")?p(r,t||n):r);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(n,o){var r=n.length;if("CSS"in e&&"supports"in e.CSS){for(;r--;)if(e.CSS.supports(d(n[r]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];r--;)s.push("("+d(n[r])+":"+o+")");return s=s.join(" or "),l("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function h(e,n,r,s){function a(){p&&(delete k.style,delete k.modElem)}if(s=o(s,"undefined")?!1:s,!o(r,"undefined")){var l=m(e,r);if(!o(l,"undefined"))return l}for(var p,c,d,h,v,y=["modernizr","tspan","samp"];!k.style&&y.length;)p=!0,k.modElem=i(y.shift()),k.style=k.modElem.style;for(d=e.length,c=0;d>c;c++)if(h=e[c],v=k.style[h],u(h,"-")&&(h=f(h)),k.style[h]!==t){if(s||o(r,"undefined"))return a(),"pfx"==n?h:!0;try{k.style[h]=r}catch(g){}if(k.style[h]!=v)return a(),"pfx"==n?h:!0}return a(),!1}function v(e,n,t,r,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+j.join(i+" ")+i).split(" ");return o(n,"string")||o(n,"undefined")?h(a,n,r,s):(a=(e+" "+E.join(i+" ")+i).split(" "),c(a,n,t))}function y(e,n,o){return v(e,t,t,n,o)}var g=[],C=[],S={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=S,Modernizr=new Modernizr;var w=n.documentElement,x="svg"===w.nodeName.toLowerCase(),_=S._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];S._prefixes=_;var b="CSS"in e&&"supports"in e.CSS,T="supportsCSS"in e;Modernizr.addTest("supports",b||T);var z=S.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",_.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");z(o,function(e){t=9===e.offsetTop})}return t});var P="Moz O ms Webkit",j=S._config.usePrefixes?P.split(" "):[];S._cssomPrefixes=j;var E=S._config.usePrefixes?P.toLowerCase().split(" "):[];S._domPrefixes=E;var N={elem:i("modernizr")};Modernizr._q.push(function(){delete N.elem});var k={style:N.elem.style};Modernizr._q.unshift(function(){delete k.style}),S.testAllProps=v,S.testAllProps=y,Modernizr.addTest("cssfilters",function(){if(Modernizr.supports)return y("filter","blur(2px)");var e=i("a");return e.style.cssText=_.join("filter:blur(2px); "),!!e.style.length&&(n.documentMode===t||n.documentMode>9)}),r(),s(g),delete S.addTest,delete S.addAsyncTest;for(var A=0;A<Modernizr._q.length;A++)Modernizr._q[A]();e.Modernizr=Modernizr}(window,document);
+    </script>
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1618478486000
+    };
+
+    App.user = {
+                    id: 8612828,
+            age: '',
+            createdAt: '2017\u002D12\u002D09T17\u003A46\u003A02\u002B01\u003A00',
+            gender: '',
+            premiumType: '',
+            locale: 'fr',
+            language: 'fr',
+            displayableName: 'amine\u0020Nakhil',
+            email: 'nakhilamine1\u0040gmail.com',
+            country: 'FR',
+            phoneNumber: '',
+            avatar: 'https\u003A\/\/openclassrooms.com\/bundles\/common\/images\/avatar_defaut.png',
+            isPremium: false,
+            isMentor: false,
+            roles: {
+                CAN_CREATE_AVAILABILITY: false,
+                ROLE_ASSIGN_SUPPORT_EXPERT: false,
+                ROLE_ADMIN: false,
+                ROLE_CAREER_SERVICE: false,
+                ROLE_STUDENT_SUCCESS_SPECIALIST: false,
+                ROLE_MENTOR_MANAGER: false,
+                ROLE_MENTOR: false,
+            }
+            };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: '373f828a',
+        contactPhone: '\u002B33\u00201\u002080\u002088\u002080\u002030',
+        phoneNumbersByCountry: {"uk":{"contact":"+44 16 1768 1880"},"ca":{"contact":"+1 929-376-0101"},"us":{"contact":"+1 929-376-0101"},"fr":{"contact":"+33 1 80 88 80 30","b2b_contact":"+33 1 80 88 80 40"},"es":{"contact":"+33 1 80 88 80 30"}},
+        adyenPublicKey: '10001\u007C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        application: {
+            form: {
+              funnelUrl: 'https\u003A\/\/www.tfaforms.com\/responses\/processor',
+              fields: {"firstname":"tfa_6","lastname":"tfa_4","email":"tfa_2","path_id":"tfa_138","source_name":"tfa_165","record_type_id":"tfa_217","utm_medium":"tfa_203","utm_source":"tfa_201","utm_term":"tfa_207","utm_campaign":"tfa_205","gclid":"tfa_209","fbclid":"tfa_211","consent":"tfa_150","user_locale":"tfa_125","userId":"tfa_3","gender":"tfa_10","user_study_motivation":"tfa_171","diploma_level":"tfa_30","user_diploma":"tfa_173","language_proficiency_fr":"tfa_40","language_proficiency_en":"tfa_42","ha_addressline_1":"tfa_16","ha_city":"tfa_18","ha_zip_code":"tfa_24","ha_state":"tfa_163","ha_country":"tfa_22","professional_status":"tfa_94","public_employment_agency_id":"tfa_159","user_public_employment_agency_certificate":"tfa_167","user_pe_advisor_email":"tfa_199","disabled_worker":"tfa_67","veteran":"tfa_73","athlete":"tfa_79","refugee":"tfa_85","rsa":"tfa_91","are":"tfa_175","api":"tfa_177","cui":"tfa_179","can_work_in_france":"tfa_142","user_resume":"tfa_1","online_cv":"tfa_157","user_has_mobility":"tfa_193","user_mobility_departamental":"tfa_187","user_mobility_national":"tfa_189","user_mobility_regional":"tfa_191","user_mobility_cities":"tfa_195","work_location_1":"tfa_128","work_location_2":"tfa_130","work_location_3":"tfa_132","work_location_4":"tfa_134","work_location_5":"tfa_136","career_motivation":"tfa_123","has_computer":"tfa_43","has_mic":"tfa_49","has_webcam":"tfa_169","has_fast_internet_connection":"tfa_55","has_quiet_space":"tfa_61","has_online_courses_xp":"tfa_118","has_online_courses_xp_text":"tfa_121","found_a_company":"tfa_146","date_of_birth":"tfa_9","phone_number":"tfa_126","user_desired_start_date":"tfa_161","video_link":"tfa_213","tfa_dbFormId":"tfa_dbFormId","tfa_dbControl":"tfa_dbControl","experiment_id":"tfa_219","full_time_available":"tfa_220"}
+            },
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\/ajax\/components\/user\u002Daccept\u002Dconsent\u002Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+                                };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    App.notifications = {};
+    App.scripts = [];
+
+    if (App.user.id) {
+        (function(){
+            var userData = { userId: App.user.id };
+
+            if (App.user.premiumType) {
+                userData.status = (App.user.premiumType === 'Premium Solo') ? 'premium solo student' : 'path student';
+            } else {
+                userData.status = 'free student';
+            }
+
+            if (App.user.isMentor) {
+                userData.status = App.user.premiumType ? (userData.status + '|mentor') : 'mentor';
+            }
+
+            if (!window.dataLayer) {
+              return;
+            }
+            window.dataLayer.push(userData);
+        })();
+    }
+</script>
+<script>    
+    App.preferences.modules['course/view/internalFolding'] = {
+        isBigCourse: true
+    };
+
+    App.data = App.data || {};
+App.data.currentCourse = {"partId":912352,"partTitle":"Les fonctions","partSlug":"les-fonctions-32","courseId":918836,"courseTitle":"Concevez votre site web avec PHP et MySQL","courseSlug":"concevez-votre-site-web-avec-php-et-mysql","courseLanguage":"fr","isIntroduction":false,"isCertifying":true};
+App.preferences.modules['view/currentCoursePage'] = App.data.currentCourse;
+
+</script>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Les fonctions" />
+<meta property="og:url" content="https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912352-les-fonctions" />
+<meta property="og:site_name" content="OpenClassrooms" />
+<meta property="og:image" content="https://course.oc-static.com/courses/918836/918836_teaser_picture_1614871844.jpg" />
+<meta property="og:description" content="PHP est un langage de création de sites web dynamiques très populaire. Son rôle est de générer des pages web HTML. Il permet de créer des blogs, des forums, des espaces membres... Facebook et Wikipedia sont des sites célèbres développés en PHP." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@OCFrance" />
+<meta name="twitter:title" content="Les fonctions" />
+<meta name="twitter:image" content="https://course.oc-static.com/courses/918836/918836_teaser_picture_1614871844.jpg" />
+<meta name="twitter:description" content="PHP est un langage de création de sites web dynamiques très populaire. Son rôle est de générer des pages web HTML. Il permet de créer des blogs, des forums, des espaces membres... Facebook et Wikipedia sont des sites célèbres développés en PHP." />
+<link rel="canonical" href="https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912352-les-fonctions" />
+</head>
+<body class="course oc-body is-connected  breadcrumbFluid breadcrumbOnContrasted">
+<ul class="skipLink">
+<li>
+<a class="skipLink__item" href="#mainContent">Aller au contenu</a>
+</li>
+<li>
+<a class="skipLink__item" href="#footerChangeLanguage">Choisir la langue</a>
+</li>
+<li id="skipLink_search">
+<a class="skipLink__item" href="#algolia-search-input">Aller à la recherche</a>
+</li>
+</ul>
+<script id="_EVENTS-IDENTIFY" type="application/json">
+            {
+            "type": "identify",
+            "userId": "8612828",
+            "properties": {
+                "age": null,
+                "name": "amine Nakhil",
+                "createdAt": "2017-12-09T17:46:02+01:00",
+                "email": "nakhilamine1@gmail.com",
+                "gender": null,
+                "premium": false,
+                "premiumType": "",
+                "locale": "fr",
+                "language": "fr"
+            },
+            "integrations": {
+                "HubSpot": false,
+                "Zendesk": false
+            }
+        }
+        </script>
+<script id="_EVENTS-PAGE" type="application/json">
+        {"type":"page","integrations":{"HubSpot":false},"properties":{"pageCategory":"courses","courseTitle":"Concevez votre site web avec PHP et MySQL"}}
+    </script>
+<script id="headerConfiguration" type="application/json">
+{
+    "user": {
+        "id": 8612828,
+        "displayableName": "amine\u0020Nakhil",
+        "messageCount": 0,
+        "notificationCount": 0,
+        "profilePicture": "https://openclassrooms.com/bundles/common/images/avatar_defaut.png",
+        "premiumStatus": "none",
+        "organizationName": "",
+        "link": {
+            "profile": "/fr/members/76q4491zb951",
+            "parameter": "/fr/members/76q4491zb951/parametres",
+            "logOut": "/logout?_csrf_token=HYXbyJNzD424LgRdbndQIrZedRq-WeaMwJ6Ab1rnOM0",
+            "analyticsDashboard": ""
+        }
+    },
+    "right": {
+        "canSeeMentorDashboard": false,
+        "canSeeAdminDashboard": false,
+        "canDisplayForumAlert": false,
+        "canSeeOrganizationDashboard": false
+    }
+}
+</script>
+<script id="fundingMechanisms" type="application/json">
+    {
+        "fundingMechanisms": [{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":24,"name":"Action de Formation Pr\u00e9alable au Recrutement","shortName":"AFPR","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":25,"name":"Aide collective priv\u00e9e \u00e0 la formation","shortName":"Aide priv\u00e9e","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":20,"name":"Aide Individuelle \u00e0 la Formation","shortName":"AIF","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":28,"name":"Aide individuelle priv\u00e9e \u00e0 la formation","shortName":"Aide priv\u00e9e","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":21,"name":"Compte Personnel de Formation","shortName":"CPF","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":15,"name":"Contrat d'apprentissage","shortName":"Apprentissage","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":16,"name":"Contrat de professionnalisation","shortName":"Contrat pro","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":19,"name":"P\u00e9riode de professionnalisation","shortName":"P\u00e9riode pro","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":23,"name":"Pr\u00e9paration Op\u00e9rationnelle \u00e0 l'Emploi Collective","shortName":"POEC","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":17,"name":"Pr\u00e9paration Op\u00e9rationnelle \u00e0 l'Emploi Individuelle","shortName":"POEI","type":"apprenticeship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":22,"name":"Programme R\u00e9gional de Formation pour l'Emploi","shortName":"PRFE","type":"scholarship"},{"country":"FR","eligibleCountries":["FR","RE","GP","MQ","PF","GF","YT","NC","BL","PM","WF"],"id":18,"name":"Reconversion ou promotion par l'alternance","shortName":"Pro-A","type":"apprenticeship"}]
+    }
+</script>
+<div id="oc-header">
+<div class="oc-mainHeader oc-mainHeader--none oc-mainHeader--skeleton">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div style="display: flex;">
+<div class="oc-mainHeaderLogo oc-mainHeaderLogo--skeleton">
+<a href="/fr/" class="oc-mainHeaderLogo__link">
+<svg fill="none" height="51" width="668" viewBox="0 0 668 51" xmlns="http://www.w3.org/2000/svg">
+<title>OpenClassrooms.com</title>
+<path d="M406.011 35.018c0 2.82-.71 5.641-2.368 7.991-1.659 2.35-3.79 4.23-6.87 5.64-3.079 1.41-6.869 2.116-11.37 2.116-3.79 0-7.343-.47-10.897-1.41-3.553-.94-6.395-2.35-8.527-3.996l7.106-8.46c1.421.705 2.843 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.711 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.369.94 4.264 2.35 6.159 4.23 1.658 1.646 2.605 4.466 2.605 7.756zm261.989 0c0 2.82-.711 5.641-2.369 7.991s-3.79 4.23-6.869 5.64c-3.08 1.41-6.87 2.116-11.371 2.116-3.79 0-7.343-.47-10.896-1.41s-6.396-2.35-8.528-3.996l7.107-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.053 1.41 4.975 0 7.581-1.41 7.581-3.995 0-1.41-.711-2.35-2.132-3.056-1.422-.705-3.791-1.41-6.87-2.115a49.361 49.361 0 0 1-8.764-2.585c-2.369-.94-4.264-2.35-6.159-4.23-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.869-5.64 3.08-1.41 6.87-2.116 11.371-2.116 3.079 0 6.158.47 9.001 1.175 3.079.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.317-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.896 1.88-1.896 3.056 0 1.41.711 2.35 2.132 2.82 1.422.705 3.791 1.41 6.87 2.115a49.361 49.361 0 0 1 8.764 2.585c2.369.94 4.264 2.35 6.159 4.23 1.895 1.646 2.606 4.466 2.606 7.756zM87.882 19.037c0 3.76-.947 6.816-2.605 9.4-1.659 2.586-4.027 4.701-7.107 6.111s-6.87 2.116-10.896 2.116H59.22v12.69H45.955V.706h21.319c4.264 0 7.817.705 10.896 2.115 3.08 1.41 5.448 3.526 7.107 6.346 1.895 3.055 2.605 6.346 2.605 9.87zm-13.265 0c0-2.35-.71-3.995-2.132-5.17s-3.316-1.88-6.159-1.88h-7.343v14.336h7.343c2.606 0 4.738-.706 6.16-1.88s2.131-3.056 2.131-5.406zm55.904 20.212v10.576h-37.19V1.175h36.242v10.576h-23.214v8.226h18.476v10.341h-18.476v8.93zm50.218-38.074v48.65h-10.896l-20.609-25.853v25.853h-13.028V1.175h10.896l20.609 25.853V1.175zm84.092 37.604v10.81h-32.926V.94h13.265v37.604h19.661zm56.851 11.046h-13.739l-3.553-9.401h-19.661l-3.553 9.4h-13.502l20.608-48.649h13.029zM300.6 30.083l-5.922-15.512-5.922 15.512zm62.536 4.935c0 2.82-.71 5.641-2.369 7.991-1.658 2.35-3.79 4.23-6.869 5.64-3.08 1.41-6.87 2.116-11.37 2.116-3.79 0-7.344-.47-10.897-1.41s-6.396-2.35-8.527-3.996l7.106-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.448 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.71 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.368.94 4.263 2.35 6.158 4.23 1.659 1.646 2.606 4.466 2.606 7.756zm-322.63-9.636c0 13.867-11.37 25.383-25.583 25.383-5.685 0-10.66-1.88-14.923-4.936l8.528-10.105c1.895 1.175 4.027 1.88 6.395 1.88 6.633 0 12.081-5.406 12.081-11.986 0-6.581-5.448-11.987-12.08-11.987-2.37 0-4.501.705-6.396 1.88L0 5.407C4.264 2.35 9.475.47 14.923.47 29.136.235 40.506 11.516 40.506 25.383zm177.66 10.341l8.528 10.107c-4.264 3.055-9.476 4.935-14.924 4.935-13.976 0-25.583-11.281-25.583-25.383C186.187 11.517 197.557 0 211.77 0c5.685 0 10.66 1.88 14.924 4.936l-8.528 10.105c-1.895-1.175-4.027-1.88-6.396-1.88-6.632 0-12.081 5.406-12.081 11.986 0 6.581 5.449 11.987 12.081 11.987 2.369.47 4.501-.235 6.396-1.41zm236.169 14.102l-10.423-15.042c3.079-1.41 5.211-3.525 6.87-6.11 1.658-2.585 2.605-5.876 2.605-9.401 0-3.76-.947-6.816-2.605-9.636-1.659-2.82-4.027-4.7-7.107-6.346-3.079-1.41-6.869-2.115-10.896-2.115H411.46v48.65h13.028V37.134h6.159l8.764 12.69zm-29.847-37.839h7.58c2.606 0 4.738.705 6.159 1.88s2.132 3.056 2.132 5.17c0 2.351-.711 3.996-2.132 5.171s-3.316 1.88-6.159 1.88h-7.58zM483.945.235c13.976 0 25.583 11.281 25.583 25.382S498.157 51 483.945 51c-13.976 0-25.583-11.281-25.583-25.383S469.732.235 483.945.235zm-13.029 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-6.87 0-12.792 5.64-12.792 12.69zM538.901.235c13.976 0 25.583 11.281 25.583 25.382S553.114 51 538.901 51c-13.976 0-25.583-11.281-25.583-25.383S524.925.235 538.901.235zm-12.792 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-7.107 0-12.792 5.64-12.792 12.69zm70.353 6.816L580.828 1.175h-10.896v48.65h11.607V28.438l11.607 21.387h6.87l11.607-21.387v21.387h11.607V1.175h-10.897z" />
+</svg>
+</a>
+</div>
+<nav class="oc-mainHeader__navWrapper" role="navigation" aria-label="Menu principal">
+<div class="oc-mainHeader__linksWrapper">
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Trainings" href="/fr/paths">Formations</a></div>
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Apprenticeship" href="/fr/apprenticeship">Alternance</a></div>
+ <div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Funding" href="/fr/funding">Financements</a></div>
+<div class="oc-mainHeader__navLinkWrapper--separator"></div>
+<div class="oc-mainHeader__navLinkWrapper"><a class="oc-mainHeader__navLink" data-event="click|Header|Business" href="/fr/business">Pour les entreprises</a></div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="disclaimers-container" style="display:none;">
+<!--[if lt IE 10]>
+        <div class="alertMessage">
+        <span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+        <p class="alertMessage__text">
+            Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+        </p>
+    </div>
+    <![endif]-->
+
+<div id="modern-ie-disclaimer" style="display:none">
+<div class="alertMessage">
+<span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+<p class="alertMessage__text">
+Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+</p>
+</div>
+</div>
+<script id="webapp-ie-disclaimer" type="application/json">{"message":"Vous utilisez un navigateur obsol\u00e8te, veuillez le <a href=\"https:\/\/browser-update.org\/update.html\">mettre \u00e0 jour<\/a>."}</script>
+<script>
+      var isModernIE =  document.documentMode === 10 || document.documentMode === 11;
+      var isEdgeLegacy = navigator.userAgent.indexOf('Edge') > -1; // Luckily for us, Edge Chromium uses string "Edg" without final "e"
+
+      if (isModernIE || isEdgeLegacy) {
+        document.getElementById('modern-ie-disclaimer').style.display = 'block';
+        document.getElementById('webapp-ie-disclaimer').setAttribute('data-role', 'disclaimer-message-data');
+      }
+    </script>
+<noscript>
+        <div class="alertMessage">
+            <span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+            <p class="alertMessage__text">
+                Veuillez utiliser un <a href="https://browser-update.org/update.html">navigateur internet moderne</a> avec JavaScript activé pour naviguer sur OpenClassrooms.com
+            </p>
+        </div>
+    </noscript>
+</div>
+<div id="mainContentWithHeader">
+<section class="breadcrumb  inset no-padding">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<nav class="breadcrumb__wrapper" role="navigation" aria-label="Fil d&#039;Ariane">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/" itemprop="url">
+<span itemprop="title">Accueil</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+</li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/courses" itemprop="url">
+<span itemprop="title">Cours</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+</li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+<a class="breadcrumb__link" href="https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql?status=published" itemprop="url">
+<span itemprop="title">Concevez votre site web avec PHP et MySQL</span
+                                    ></a>
+<span class="breadcrumb__separator"> > </span>
+ </li>
+<li class="breadcrumb__item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+Les fonctions
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+<div id="pre-main-part">
+</div>
+<main class="claire clearfix" role="main" id="mainContent">
+<article itemscope itemtype="http://schema.org/Article" lang="fr">
+<header id="course-header" class="courseHeader" xmlns="http://www.w3.org/1999/html">
+<div class="grid-wrapper"><div class="grid-inner"><div class="grid-inner-content"><div class="courseHeader__topPart"><a itemprop="url" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql"><h1 class="oc-typography-h2 typoColorOnContrastedBg  courseHeader__title" data-course-title="Concevez votre site web avec PHP et MySQL">Concevez votre site web avec PHP et MySQL</h1></a></div></div></div></div><div class="grid-wrapper"><div class="grid-inner"><div class="grid-inner-content"><div class="courseHeader__bottomPart"><div class="courseHeader__details"><div class="courseHeader__detailsGroup"><ul class="courseHeader__detailsList"><li class="courseHeader__detailsItem"><img class="courseHeader__icon js-tooltip" src="/images/icons/schedule.svg?373f828a" width="16" title="Ce cours demande en moyenne 70 heures de travail pour être réussi." /><span class="courseHeader__label">70 heures</span></li><li class="courseHeader__detailsItem"><i class="icon-level courseHeader__icon"></i><span class="courseHeader__label">Moyenne</span></li></ul></div><div class="courseHeader__detailsGroup courseHeader--license"><a class="courseHeader__license" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0"><span class="courseHeader__label">Licence</span><ul class="courseHeader__detailsList"><li class="iconBar__item"><i class="icon-cc iconBar__icon" title="CC"></i></li><li class="iconBar__item"><i class="icon-ccby iconBar__icon" title="BY"></i></li><li class="iconBar__item"><i class="icon-ccsa iconBar__icon" title="SA"></i></li></ul></a></div></div></div></div></div></div>
+<div id="popin-formats-availables" class="popin popin--course-formats-availables">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="course-types course-types--withSpace">
+<a class="course-types__item" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql">
+<i class="icon-desktop course-types__icon"></i>
+</a>
+<a class="course-types__item" href="/fr/courses?video=true">
+<i class="icon-video course-types__icon"></i>
+</a>
+<a class="course-types__item" href="http://www.eyrolles.com/Informatique/Livre/concevez-votre-site-web-avec-php-et-mysql-9791090085411?societe=openclassrooms">
+<i class="icon-book course-types__icon"></i>
+</a>
+<a class="course-types__item" href="/fr/courses/918836/certificate_example" target="_blank">
+<i class="icon-badge course-types__icon js-close-button"></i>
+</a>
+</div>
+<p>Ce cours est visible <a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql">gratuitement en ligne</a>.</p>
+<p>course.header.alt.is_video</p>
+<p>
+Ce cours existe en livre papier.
+</p>
+<p>
+course.header.alt.is_certifying
+</p>
+<a class="button button--primary js-close-button" href="#">J&#039;ai tout compris !</a>
+</div>
+</header>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content">
+<p class="courseHeader__updatedTime">
+Mis à jour le 01/03/2021 </p>
+</div>
+</div>
+</div>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content">
+<nav id="course-timeline" class="timeline">
+<div class="timeline__inner">
+<span class="timeline__iconContainer">
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql" title="Retour sur le sommaire du cours" class="roundIcon timeline__roundIcon">
+<i class="icon-home roundIcon__icon"></i>
+</a>
+</span>
+<div class="timeline__steps">
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4237646-decouvrez-le-fonctionnement-dun-site-ecrit-en-php" class="timeline__step timeline__step--completed" title="Découvrez le fonctionnement d&#039;un site écrit en PHP">
+<span class="timeline__stepName">
+Découvrez le fonctionnement d&#039;un site écrit en PHP
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4237816-preparez-votre-environnement-de-travail" class="timeline__step timeline__step--completed" title="Préparez votre environnement de travail">
+<span class="timeline__stepName">
+Préparez votre environnement de travail
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238116-ecrivez-votre-premier-script" class="timeline__step timeline__step--completed" title="Écrivez votre premier script">
+<span class="timeline__stepName">
+Écrivez votre premier script
+</span>
+</a>
+ <a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238821-configurez-php-pour-visualiser-les-erreurs" class="timeline__step timeline__step--completed" title="Configurez PHP pour visualiser les erreurs">
+<span class="timeline__stepName">
+Configurez PHP pour visualiser les erreurs
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/1663" class="timeline__step" title="Quiz : Faites vos premiers pas en PHP">
+<span class="timeline__stepName">
+Quiz : Faites vos premiers pas en PHP
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/911847-les-variables" class="timeline__step timeline__step--completed" title="Les variables">
+<span class="timeline__stepName">
+Les variables
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912046-les-conditions" class="timeline__step" title="Les conditions">
+<span class="timeline__stepName">
+Les conditions
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912133-les-boucles" class="timeline__step" title="Les boucles">
+<span class="timeline__stepName">
+Les boucles
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238931-les-tableaux" class="timeline__step" title="Les tableaux">
+<span class="timeline__stepName">
+Les tableaux
+</span>
+</a>
+ <a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912352-les-fonctions" class="timeline__step js-current-timeline-step" title="Les fonctions">
+<span class="timeline__stepName">
+Les fonctions
+</span>
+<span class="timeline__progressMarker"></span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4240011-au-secours-mon-script-plante" class="timeline__step" title="Au secours ! Mon script plante !">
+<span class="timeline__stepName">
+Au secours ! Mon script plante !
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239271-inclure-des-portions-de-page" class="timeline__step" title="Inclure des portions de page">
+<span class="timeline__stepName">
+Inclure des portions de page
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239346-codez-proprement" class="timeline__step" title="Codez proprement">
+<span class="timeline__stepName">
+Codez proprement
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/95" class="timeline__step" title="Quiz : Découvrez les bases de PHP">
+<span class="timeline__stepName">
+Quiz : Découvrez les bases de PHP
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912799-transmettez-des-donnees-avec-lurl" class="timeline__step" title="Transmettez des données avec l&#039;URL">
+<span class="timeline__stepName">
+Transmettez des données avec l&#039;URL
+ </span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires" class="timeline__step" title="Transmettez des données avec les formulaires">
+<span class="timeline__stepName">
+Transmettez des données avec les formulaires
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913196-tp-page-protegee-par-mot-de-passe" class="timeline__step" title="TP : Page protégée par mot de passe">
+<span class="timeline__stepName">
+TP : Page protégée par mot de passe
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913348-variables-superglobales" class="timeline__step" title="Variables superglobales">
+<span class="timeline__stepName">
+Variables superglobales
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239476-session-cookies" class="timeline__step" title="Session &amp; Cookies">
+<span class="timeline__stepName">
+Session &amp; Cookies
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913492-lisez-et-ecrivez-dans-un-fichier" class="timeline__step" title="Lisez et écrivez dans un fichier">
+<span class="timeline__stepName">
+Lisez et écrivez dans un fichier
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/98" class="timeline__step" title="Quiz : Transmettez des données de page en page">
+<span class="timeline__stepName">
+Quiz : Transmettez des données de page en page
+</span>
+
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913655-quest-ce-quune-base-de-donnees" class="timeline__step" title="Qu&#039;est-ce qu&#039;une base de données ?">
+<span class="timeline__stepName">
+Qu&#039;est-ce qu&#039;une base de données ?
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913893-phpmyadmin" class="timeline__step" title="phpMyAdmin">
+<span class="timeline__stepName">
+phpMyAdmin
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/914293-lisez-des-donnees" class="timeline__step" title="Lisez des données">
+<span class="timeline__stepName">
+Lisez des données
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/914508-ecrivez-des-donnees" class="timeline__step" title="Écrivez des données">
+<span class="timeline__stepName">
+Écrivez des données
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/914663-tp-un-minichat" class="timeline__step" title="TP : un minichat">
+<span class="timeline__stepName">
+TP : un minichat
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/915107-les-fonctions-sql" class="timeline__step" title="Les fonctions SQL">
+<span class="timeline__stepName">
+Les fonctions SQL
+</span>
+</a>
+ <a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/915206-les-dates-en-sql" class="timeline__step" title="Les dates en SQL">
+<span class="timeline__stepName">
+Les dates en SQL
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/6964512-tp-un-blog-avec-des-commentaires" class="timeline__step" title="TP : un blog avec des commentaires">
+<span class="timeline__stepName">
+TP : un blog avec des commentaires
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916084-les-jointures-entre-tables" class="timeline__step" title="Les jointures entre tables">
+<span class="timeline__stepName">
+Les jointures entre tables
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/93" class="timeline__step" title="Quiz : Stockez des informations dans une base de données">
+<span class="timeline__stepName">
+Quiz : Stockez des informations dans une base de données
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916429-creez-des-images-en-php" class="timeline__step" title="Créez des images en PHP">
+<span class="timeline__stepName">
+Créez des images en PHP
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916990-les-expressions-regulieres-partie-1-2" class="timeline__step" title="Les expressions régulières (partie 1/2)">
+<span class="timeline__stepName">
+Les expressions régulières (partie 1/2)
+</span>
+</a>
+ <a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/917386-les-expressions-regulieres-partie-2-2" class="timeline__step" title="Les expressions régulières (partie 2/2)">
+<span class="timeline__stepName">
+Les expressions régulières (partie 2/2)
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/917948-tp-creez-un-espace-membres" class="timeline__step" title="TP : Créez un espace membres">
+<span class="timeline__stepName">
+TP : Créez un espace membres
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4778351-comment-aller-plus-loin" class="timeline__step" title="Comment aller plus loin ?">
+<span class="timeline__stepName">
+Comment aller plus loin ?
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/1497" class="timeline__step" title="Quiz : Allez plus loin avec PHP">
+<span class="timeline__stepName">
+Quiz : Allez plus loin avec PHP
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/918167-envoyez-votre-site-sur-le-web" class="timeline__step" title="Envoyez votre site sur le Web">
+<span class="timeline__stepName">
+Envoyez votre site sur le Web
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/918372-utilisez-la-documentation-php" class="timeline__step" title="Utilisez la documentation PHP !">
+<span class="timeline__stepName">
+Utilisez la documentation PHP !
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/918580-protegez-un-dossier-avec-un-htaccess" class="timeline__step" title="Protégez un dossier avec un .htaccess">
+<span class="timeline__stepName">
+Protégez un dossier avec un .htaccess
+</span>
+</a>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/918834-memento-des-expressions-regulieres" class="timeline__step" title="Mémento des expressions régulières">
+<span class="timeline__stepName">
+Mémento des expressions régulières
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+</div>
+<span class="timeline__iconContainer">
+<a href="/fr/courses/918836/certificate_example" title="Certificat de réussite (voir un exemple)" class="roundIcon timeline__roundIcon">
+<i class="icon-trophy roundIcon__icon"></i>
+</a>
+</span>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="contentWithSidebar  spacer  js-contentWithSidebar  grid-inner-content">
+<div class="contentWithSidebar__content">
+<div id="js-courseRedirection" data-courseInfo-course_id="918836"></div>
+<div class="relative js-sidebar-container">
+<div class="static">
+<h2 itemprop="name" data-part-title="Les fonctions" class="part-title">Les fonctions</h2>
+<section class="space-bottom js-desktop-sticky-container">
+<div itemprop="articleBody" data-page-indentifier="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912352-les-fonctions" class="js-isRestrictablePage js-course-container js-smilize js-userCanWatchVideo">
+<div class="userContent js-userContent">
+<video id="r-6964434" data-claire-element-id="30935607" src="https://vimeo.com/89864634"><a href="https://vimeo.com/89864634">https://vimeo.com/89864634</a></video><p id="r-2221477" data-claire-element-id="30895092">En PHP, on n'aime pas avoir à répéter le même code. Pour pallier ce problème, nous avons découvert les boucles, qui permettent d'exécuter des instructions un certain nombre de fois. Ici, nous allons découvrir un autre type de structure indispensable pour la suite : les fonctions.</p><p id="r-2173287" data-claire-element-id="30895052">Comme les boucles, les fonctions permettent d'éviter d'avoir à répéter du code PHP que l'on utilise souvent. Mais alors que les boucles sont de bêtes machines tout juste capables de répéter deux cents fois la même chose, les fonctions sont des robots « intelligents » qui s'adaptent en fonction de ce que vous voulez faire, et qui automatisent grandement la plupart des tâches courantes.</p><h3 id="r-912198" data-claire-element-id="30935613">Qu'est-ce qu'une fonction ?</h3><p id="r-2173288" data-claire-element-id="2404748">Une fonction est une série d'instructions qui effectue des actions et qui retourne une valeur. En général, dès que vous avez besoin d'effectuer des opérations un peu longues dont vous aurez à nouveau besoin plus tard, il est conseillé de vérifier s'il n'existe pas déjà une fonction qui fait cela pour vous. Et si la fonction n'existe pas, vous avez la possibilité de la créer.</p><p id="r-2173289" data-claire-element-id="30895053">Imaginez que les fonctions sont des robots, comme dans la figure suivante.</p><figure id="r-2173292" data-claire-element-id="30935609"><img id="r-2173290" data-claire-element-id="2404750" src="https://user.oc-static.com/files/214001_215000/214325.jpg" alt="Une fonction est comme un robot" /><figcaption>Une fonction est comme un robot</figcaption></figure><p id="r-2173293" data-claire-element-id="2404753">Vous ne savez pas ce qui se passe à l'intérieur de ce robot, mais vous pouvez appuyer sur un bouton pour lui demander de faire quelque chose de précis. Avec les fonctions, c'est le même principe !</p><h4 id="r-2173315" data-claire-element-id="30935612">Dialogue avec une fonction</h4><p id="r-2173294" data-claire-element-id="2404754">Voici le genre de dialogue qu'on peut avoir avec une fonction :</p><ul id="r-2173297" data-claire-element-id="30895186"><li id="r-2173296" data-claire-element-id="30895185"><p id="r-2173295" data-claire-element-id="30895184"><strong>Toi, la fonction <code data-claire-semantic="text">calculCube </code>  , donne-moi le volume d'un cube dont l'arête mesure 4 cm.</strong></p></li></ul><p id="r-2173298" data-claire-element-id="2404758"><em>La fonction effectue les calculs demandés puis répond :</em></p><ul id="r-2173301" data-claire-element-id="30895139"><li id="r-2173300" data-claire-element-id="30895138"><p id="r-2173299" data-claire-element-id="30895137"><strong>Ce cube a un volume de 64 cm3.</strong></p></li></ul><p id="r-2173302" data-claire-element-id="30895140">On donne en <strong>entrée</strong> à la fonction un <strong>paramètre</strong> sur lequel elle va faire des calculs (ici, la longueur de l'arête : 4), et la fonction nous retourne en <strong>sortie</strong> le résultat : 64. Voyez la figure suivante.</p><figure id="r-2173305" data-claire-element-id="30935611"><img id="r-2173303" data-claire-element-id="2404763" src="https://user.oc-static.com/files/214001_215000/214321.png" alt="Calcul du cube" /><figcaption>Calcul du cube</figcaption></figure><p id="r-2173306" data-claire-element-id="30895226">Grâce à la fonction, vous n'avez pas eu besoin de vous souvenir de la manière dont on calcule le volume d'un cube. Bon, ici c'était assez simple (il suffisait de faire $4*4*4$), mais vous serez souvent amené à faire des opérations de plus en plus complexes, et les fonctions vous permettront de ne pas avoir à vous soucier des détails des calculs.</p><p id="r-2173307" data-claire-element-id="30895306">Si vous aviez eu à déterminer le volume du cube une seule fois, vous auriez pu chercher la formule dans un livre (si vous ne vous en souveniez pas), et écrire le calcul à la main. Mais si vous aviez à le faire 5 fois ? 10 fois  ? 100 fois ?</p><div id="r-2173309" data-claire-element-id="30895267" data-claire-semantic="question"><p id="r-2173308" data-claire-element-id="30895266">En quoi est-ce différent des boucles ? Avec les boucles, on peut faire répéter le même code plusieurs fois aussi !</p></div><p id="r-2173310" data-claire-element-id="30895346">Oui, mais les fonctions sont capables de s'adapter en fonction des informations que vous leur envoyez. Par exemple dans notre cas, il suffit de transmettre la longueur de l'arête du cube à notre fonction pour qu'elle nous retourne le résultat. Ces informations que l'on donne en <strong>entrée</strong> à la fonction sont appelées <strong><em>paramètres </em></strong>(un mot à connaître !).</p><div id="r-2173312" data-claire-element-id="2404772" data-claire-semantic="question"><p id="r-2173311" data-claire-element-id="2404771">Les fonctions ne servent qu'à faire des calculs mathématiques ? Je veux juste créer un site web, pas faire des maths !</p></div><p id="r-2173313" data-claire-element-id="30895426">J'ai choisi un exemple mathématique ici parce que je le trouve simple et parlant ; mais dans la pratique, on ne passe pas son temps à calculer des logarithmes et des exponentielles quand on crée un site web, je suis d'accord.</p><p id="r-2173314" data-claire-element-id="2404774">Concrètement, les fonctions peuvent permettre de récupérer des informations comme la date et l'heure actuelles, de crypter des données, d'envoyer des e-mails, de faire des recherches dans du texte, et bien d'autres choses encore !</p><h4 id="r-2173349" data-claire-element-id="30895611">Les fonctions en PHP</h4><p id="r-2173316" data-claire-element-id="2404776">Nous avons jusqu'ici imaginé le dialogue avec une fonction représentée par un robot, ce qui n'est pas très intéressant.<br /> Revenons aux choses sérieuses et concrètes.</p><h5 id="r-2173329" data-claire-element-id="30895518">Appeler une fonction</h5><p id="r-2173317" data-claire-element-id="2404777">En PHP, comment appelle-t-on une fonction ? Par son nom, pardi ! Par exemple :</p><pre id="r-2173318" data-claire-element-id="6419170"><code data-claire-semantic="php">&lt;?php
+calculCube();
+?&gt;</code></pre><aside id="r-2173320" data-claire-element-id="30895468" data-claire-semantic="information"><p id="r-2173319" data-claire-element-id="30895467">La fonction <code data-claire-semantic="text">calculCube</code>  est une fonction imaginaire : elle n'existe pas (à moins qu'on la crée nous-mêmes). Par conséquent, n'essayez pas d'exécuter ce code PHP chez vous, car il ne fonctionnera pas. Lisez simplement pour bien comprendre le fonctionnement, vous aurez ensuite l'occasion de pratiquer plus loin dans ce chapitre.</p></aside><p id="r-2173321" data-claire-element-id="30895469">Comme vous le voyez, j'ai simplement écrit le nom de la fonction, suivi de parenthèses vides, puis de l'inévitable point-virgule. En faisant cela, j'appelle la fonction <code data-claire-semantic="text">calculCube</code>  mais je ne lui envoie aucune information, aucun <strong>paramètre</strong>.</p><p id="r-2173322" data-claire-element-id="30895470">Certaines fonctions peuvent fonctionner sans paramètres, mais elles sont assez rares. Dans le cas de <code data-claire-semantic="text">calculCube</code>  , ça n'a pas de sens de l'appeler sans lui donner la longueur de l'arête du cube pour faire le calcul !</p><p id="r-2173323" data-claire-element-id="2404783">Si on veut lui envoyer un paramètre (un nombre, une chaîne de caractères, un booléen...), il faut l'écrire entre les parenthèses :</p><pre id="r-2173324" data-claire-element-id="6419175"><code data-claire-semantic="php">&lt;?php
+calculCube(4);
+?&gt;</code></pre><p id="r-2173325" data-claire-element-id="30895471">Ainsi, <code data-claire-semantic="text">calculCube</code>  saura qu'elle doit travailler avec le nombre 4.</p><p id="r-2173326" data-claire-element-id="2404786">Souvent, les fonctions acceptent plusieurs paramètres. Vous devez dans ce cas les séparer par des virgules :</p><pre id="r-2173327" data-claire-element-id="6419177"><code data-claire-semantic="php">&lt;?php
+fonctionImaginaire(17, 'Vert', true, 41.7);
+?&gt;</code></pre><p id="r-2173328" data-claire-element-id="30895517">Cette fonction recevra quatre paramètres : 17, le texte « Vert », le booléen Vrai et le nombre 41,7.</p><h5 id="r-2173348" data-claire-element-id="30895610">Récupérer la valeur de retour de la fonction</h5><p id="r-2173330" data-claire-element-id="30895519">Maintenant que nous savons appeler une fonction et même lui envoyer plusieurs paramètres, il faut récupérer ce qu'elle nous retourne, si toutefois elle retourne quelque chose. Il y a en effet deux types de fonctions :</p><ul id="r-2173335" data-claire-element-id="2404795"><li id="r-2173332" data-claire-element-id="2404792"><p id="r-2173331" data-claire-element-id="2404791">celles qui ne retournent aucune valeur (ça ne les empêche pas d'effectuer des actions) ;</p></li><li id="r-2173334" data-claire-element-id="2404794"><p id="r-2173333" data-claire-element-id="2404793">celles qui retournent une valeur.</p></li></ul><p id="r-2173336" data-claire-element-id="2404796">Si la fonction ne retourne aucune valeur, il n'y a rien de plus à faire que dans les codes précédents. La fonction est appelée, fait son travail, et on ne lui demande rien de plus.</p><p id="r-2173337" data-claire-element-id="30895520">En revanche, si la fonction retourne une valeur (comme ça devrait être le cas pour <code data-claire-semantic="text">calculCube</code>  ), on la récupère dans une variable, comme ceci :</p><pre id="r-2173338" data-claire-element-id="6419180"><code data-claire-semantic="php">&lt;?php
+$volume = calculCube(4);
+?&gt;</code></pre><p id="r-2173339" data-claire-element-id="2404799">Sur une ligne comme celle-ci, il se passe en fait les deux choses suivantes (dans l'ordre, et de droite à gauche) :</p><ol id="r-2173344" data-claire-element-id="30895609"><li id="r-2173341" data-claire-element-id="30895558"><p id="r-2173340" data-claire-element-id="30895557">La fonction <code data-claire-semantic="text">calculCube</code>  est appelée avec le paramètre 4.</p></li><li id="r-2173343" data-claire-element-id="30895608"><p id="r-2173342" data-claire-element-id="30895607">Le résultat renvoyé par la fonction (lorsqu'elle a terminé) est stocké dans la variable <code data-claire-semantic="text">$volume</code>  .</p></li></ol><p id="r-2173345" data-claire-element-id="30895562">La variable <code data-claire-semantic="text">$volume</code>  aura donc pour valeur 64 après l'exécution de cette ligne de code !</p><aside id="r-2173347" data-claire-element-id="30895564" data-claire-semantic="information"><p id="r-2173346" data-claire-element-id="30895563">Bon à savoir : comme on l'a vu, il est possible d'envoyer en entrée plusieurs paramètres à une fonction ; en revanche, cette dernière ne peut retourner qu'une seule valeur. Il existe un moyen de contourner cette limitation en combinant des variables au sein d'un tableau de variables (appelé <strong><em>array</em></strong>) dont nous avons parlé dans le chapitre précédent.</p></aside><h3 id="r-912297" data-claire-element-id="30935630">Les fonctions prêtes à l'emploi de PHP</h3><p id="r-2173350" data-claire-element-id="30895568">PHP propose des centaines et des centaines de fonctions prêtes à l'emploi. Sur le site officiel, la documentation PHP les répertorie toutes, <a href="http://fr.php.net/manual/fr/funcref.php">classées par catégorie</a>.</p><p id="r-2173351" data-claire-element-id="2404812">Ces fonctions sont très pratiques et très nombreuses. En fait, c'est en partie là que réside la force de PHP : ses fonctions sont vraiment excellentes car elles couvrent la quasi-totalité de nos besoins. J'ai en fait remarqué que, pratiquement à chaque fois que je m'apprêtais à écrire une fonction, celle-ci existait déjà.</p><p id="r-2173352" data-claire-element-id="30895648">Voici un petit aperçu des fonctions qui existent, pour vous mettre l'eau à la bouche :</p><ul id="r-2173369" data-claire-element-id="30895665"><li id="r-2173354" data-claire-element-id="30895650"><p id="r-2173353" data-claire-element-id="30895649">une fonction qui permet de rechercher et de remplacer des mots dans une variable ;</p></li><li id="r-2173356" data-claire-element-id="30895652"><p id="r-2173355" data-claire-element-id="30895651">une fonction qui envoie un fichier sur un serveur ;</p></li><li id="r-2173358" data-claire-element-id="30895654"><p id="r-2173357" data-claire-element-id="30895653">une fonction qui permet de créer des images miniatures (aussi appelées <code data-claire-semantic="text">thumbnails</code>  ) ;</p></li><li id="r-2173360" data-claire-element-id="30895656"><p id="r-2173359" data-claire-element-id="30895655">une fonction qui envoie un mail avec PHP (très pratique pour faire une newsletter !) ;</p></li><li id="r-2173362" data-claire-element-id="30895658"><p id="r-2173361" data-claire-element-id="30895657">une fonction qui permet de modifier des images, y écrire du texte, tracer des lignes, des rectangles, etc. ;</p></li><li id="r-2173364" data-claire-element-id="30895660"><p id="r-2173363" data-claire-element-id="30895659">une fonction qui crypte des mots de passe ;</p></li><li id="r-2173366" data-claire-element-id="30895662"><p id="r-2173365" data-claire-element-id="30895661">une fonction qui renvoie l'heure, la date… ;</p></li><li id="r-2173368" data-claire-element-id="30895664"><p id="r-2173367" data-claire-element-id="30895663">etc.</p></li></ul><p id="r-2173370" data-claire-element-id="30895666">Dans la plupart des cas, il faudra indiquer des paramètres à la fonction, pour qu'elle sache sur quoi travailler.</p><p id="r-2173371" data-claire-element-id="30895667">Nous allons ici découvrir rapidement quelques fonctions pour vous habituer à les utiliser. Nous ne pourrons jamais toutes les passer en revue (j'ai dit qu'il y en avait des centaines et des centaines !), mais avec l'expérience de ces premières fonctions et la documentation de PHP, vous n'aurez aucun mal à aller plus loin tout seul.</p><p id="r-2173372" data-claire-element-id="30895708">Nous allons voir quelques fonctions qui effectuent des modifications sur des chaînes de caractères, et une qui permet de récupérer la date. Ce sont seulement des exemples destinés à vous habituer à utiliser des fonctions.</p><h4 id="r-2173402" data-claire-element-id="30935626">Traitement des chaînes de caractères</h4><p id="r-2173373" data-claire-element-id="2404834">De nombreuses fonctions permettent de manipuler le texte. En voici quelques-unes qui vont vous montrer leur intérêt.</p><h5 id="r-2173379" data-claire-element-id="30935616"><code data-claire-semantic="text">strlen</code>  : longueur d'une chaîne</h5><p id="r-2173374" data-claire-element-id="2404835">Cette fonction retourne la longueur d'une chaîne de caractères, c'est-à-dire le nombre de lettres et de chiffres dont elle est constituée (espaces compris). Exemple :</p><pre id="r-2173375" data-claire-element-id="6419193"><code data-claire-semantic="php">&lt;?php
+$phrase = 'Bonjour tout le monde ! Je suis une phrase !';
+$longueur = strlen($phrase);
+ 
+ 
+echo 'La phrase ci-dessous comporte ' . $longueur . ' caractères :&lt;br /&gt;' . $phrase;
+?&gt;</code></pre><p id="r-2173376" data-claire-element-id="3747689">Résultat :</p><figure id="r-2809966" data-claire-element-id="30935615"><img id="r-2809964" data-claire-element-id="3747690" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_compteur.png" alt="Un comptage du nombre de caractères" /><figcaption>Comptage du nombre de caractères</figcaption></figure><aside id="r-2173378" data-claire-element-id="2404839" data-claire-semantic="warning"><p id="r-2173377" data-claire-element-id="2404838">Méfiez-vous, il se peut que le nombre de caractères soit parfois inexact. Ceci est dû à un bug de PHP dans la gestion des encodages de caractères. Ce sera corrigé dans les prochaines versions du langage.</p></aside><h5 id="r-2173392" data-claire-element-id="30935619"><code data-claire-semantic="text">str_replace</code>  : rechercher et remplacer</h5><p id="r-2173380" data-claire-element-id="30895751"><code data-claire-semantic="text">str_replace</code>  remplace une chaîne de caractères par une autre. Exemple :</p><pre id="r-2173381" data-claire-element-id="6419198"><code data-claire-semantic="php">&lt;?php
+$ma_variable = str_replace('b', 'p', 'bim bam boum');
+ 
+echo $ma_variable;
+?&gt;</code></pre><p id="r-2173382" data-claire-element-id="3747694">Résultat :</p><figure id="r-2809969" data-claire-element-id="30935618"><img id="r-2809967" data-claire-element-id="3747695" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_replace.png" alt="Remplacement de caractères" /><figcaption>Remplacement de caractères</figcaption></figure><p id="r-2173383" data-claire-element-id="2404844">On a besoin d'indiquer trois paramètres :</p><ol id="r-2173390" data-claire-element-id="30895799"><li id="r-2173385" data-claire-element-id="30895794"><p id="r-2173384" data-claire-element-id="30895793">La chaîne qu'on recherche – ici, les « b » (on aurait pu rechercher un mot aussi).</p></li><li id="r-2173387" data-claire-element-id="30895796"><p id="r-2173386" data-claire-element-id="30895795">La chaîne qu'on veut mettre à la place – ici, on met des « p » à la place des « b ».</p></li><li id="r-2173389" data-claire-element-id="30895798"><p id="r-2173388" data-claire-element-id="30895797">La chaîne dans laquelle on doit faire la recherche.</p></li></ol><p id="r-2173391" data-claire-element-id="2404852">Ce qui nous donne « pim pam poum ». :D</p><h5 id="r-2173396" data-claire-element-id="30935622"><code data-claire-semantic="text">str_shuffle</code>  : mélanger les lettres</h5><p id="r-2173393" data-claire-element-id="2404854">Pour vous amuser à mélanger aléatoirement les caractères de votre chaîne !</p><pre id="r-2173394" data-claire-element-id="6419202"><code data-claire-semantic="php">&lt;?php
+$chaine = 'Cette chaîne va être mélangée !';
+$chaine = str_shuffle($chaine);
+ 
+echo $chaine;
+?&gt;</code></pre><p id="r-2173395" data-claire-element-id="3747699">Résultat :</p><figure id="r-2809972" data-claire-element-id="30935621"><img id="r-2809970" data-claire-element-id="3747700" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_shuffle.png" alt="Lettres mélangées" /><figcaption>Lettres mélangées</figcaption></figure><h5 id="r-2173401" data-claire-element-id="30935625"><code data-claire-semantic="text">strtolower</code>  : écrire en minuscules</h5><p id="r-2173397" data-claire-element-id="30895847"><code data-claire-semantic="text">strtolower</code>  met tous les caractères d'une chaîne en minuscules.</p><pre id="r-2173398" data-claire-element-id="6419207"><code data-claire-semantic="php">&lt;?php
+$chaine = 'COMMENT CA JE CRIE TROP FORT ???';
+$chaine = strtolower($chaine);
+ 
+echo $chaine;
+?&gt;</code></pre><p id="r-2173399" data-claire-element-id="3747704">Résultat :</p><figure id="r-2809975" data-claire-element-id="30935624"><img id="r-2809973" data-claire-element-id="3747705" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_lower.png" alt="Lettres en minuscules" /><figcaption>Lettres en minuscules</figcaption></figure><p id="r-2173400" data-claire-element-id="30895850">À noter qu'il existe <code data-claire-semantic="text">strtoupper</code>  qui fait la même chose en sens inverse : minuscules → majuscules.</p><h4 id="r-2173447" data-claire-element-id="30935629">Récupérer la date</h4><p id="r-2173403" data-claire-element-id="30895891">Nous allons découvrir la fonction qui renvoie l'heure et la date. Il s'agit de <code data-claire-semantic="text">date</code>  (un nom facile à retenir, avouez !). Cette fonction peut donner beaucoup d'informations. Voici les principaux paramètres à connaître :</p><table id="r-2173436" data-claire-element-id="2404897"><thead id="r-2173409" data-claire-element-id="2404870"><tr id="r-2173408" data-claire-element-id="2404869"><th id="r-2173405" data-claire-element-id="2404866"><p id="r-2173404" data-claire-element-id="2404865">Paramètre</p></th><th id="r-2173407" data-claire-element-id="2404868"><p id="r-2173406" data-claire-element-id="2404867">Description</p></th></tr></thead><tbody id="r-2173435" data-claire-element-id="2404896"><tr id="r-2173414" data-claire-element-id="2404875"><td id="r-2173411" data-claire-element-id="2404872"><p id="r-2173410" data-claire-element-id="2404871">H</p></td><td id="r-2173413" data-claire-element-id="2404874"><p id="r-2173412" data-claire-element-id="2404873">Heure</p></td></tr><tr id="r-2173419" data-claire-element-id="2404880"><td id="r-2173416" data-claire-element-id="2404877"><p id="r-2173415" data-claire-element-id="2404876">i</p></td><td id="r-2173418" data-claire-element-id="2404879"><p id="r-2173417" data-claire-element-id="2404878">Minute</p></td></tr><tr id="r-2173424" data-claire-element-id="2404885"><td id="r-2173421" data-claire-element-id="2404882"><p id="r-2173420" data-claire-element-id="2404881">d</p></td><td id="r-2173423" data-claire-element-id="2404884"><p id="r-2173422" data-claire-element-id="2404883">Jour</p></td></tr><tr id="r-2173429" data-claire-element-id="2404890"><td id="r-2173426" data-claire-element-id="2404887"><p id="r-2173425" data-claire-element-id="2404886">m</p></td><td id="r-2173428" data-claire-element-id="2404889"><p id="r-2173427" data-claire-element-id="2404888">Mois</p></td></tr><tr id="r-2173434" data-claire-element-id="2404895"><td id="r-2173431" data-claire-element-id="2404892"><p id="r-2173430" data-claire-element-id="2404891">Y</p></td><td id="r-2173433" data-claire-element-id="2404894"><p id="r-2173432" data-claire-element-id="2404893">Année</p></td></tr></tbody></table><aside id="r-2173438" data-claire-element-id="2404899" data-claire-semantic="warning"><p id="r-2173437" data-claire-element-id="2404898">Attention ! Respectez les majuscules/minuscules, c'est important !</p></aside><p id="r-2173439" data-claire-element-id="2404900">Si vous voulez afficher l'année, il faut donc envoyer le paramètre Y à la fonction :</p><pre id="r-2173440" data-claire-element-id="6419214"><code data-claire-semantic="php">&lt;?php
+$annee = date('Y');
+echo $annee;
+?&gt;</code></pre><p id="r-2173441" data-claire-element-id="30895931">On peut bien entendu faire mieux ; voici la date complète et l'heure :</p><pre id="r-2173442" data-claire-element-id="6419215"><code data-claire-semantic="php">&lt;?php
+// Enregistrons les informations de date dans des variables
+
+$jour = date('d');
+$mois = date('m');
+$annee = date('Y');
+
+$heure = date('H');
+$minute = date('i');
+
+// Maintenant on peut afficher ce qu'on a recueilli
+echo 'Bonjour ! Nous sommes le ' . $jour . '/' . $mois . '/' . $annee . 'et il est ' . $heure. ' h ' . $minute;
+?&gt;</code></pre><p id="r-2173443" data-claire-element-id="3747710">Résultat :</p><figure id="r-2809978" data-claire-element-id="30935628"><img id="r-2809976" data-claire-element-id="3747711" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_date_actuelle.png" alt="Affichage de la date" /><figcaption>Affichage de la date</figcaption></figure><p id="r-2173444" data-claire-element-id="2404905">Et voilà le travail ! On a pu afficher la date et l'heure en un clin d'œil.<br /> Normalement, quand vous avez testé le code précédent, vous avez dû avoir la date et l'heure exactes (n'hésitez donc pas à essayer d'exécuter ce code source chez vous).</p><aside id="r-2173446" data-claire-element-id="2404907" data-claire-semantic="information"><p id="r-2173445" data-claire-element-id="2404906">Si l'heure n'était pas bonne, sachez que c'est le serveur qui donne l'heure, et le serveur du Site du Zéro étant situé à Paris, vous comprendrez le décalage horaire si vous habitez dans un autre pays.</p></aside><h3 id="r-912351" data-claire-element-id="30935637">Créer ses propres fonctions</h3><p id="r-2173448" data-claire-element-id="30895975">Bien que PHP propose des centaines et des centaines de fonctions (j'insiste, mais il faut dire qu'il y en a tellement !), parfois il n'y aura pas ce que vous cherchez, et il faudra écrire vous-même la fonction. C'est une façon pratique d'étendre les possibilités offertes par PHP.</p><p id="r-2173449" data-claire-element-id="2404911">Quand écrire une fonction ? En général, si vous effectuez des opérations un peu complexes que vous pensez avoir besoin de refaire régulièrement, il est conseillé de créer une fonction.</p><p id="r-2173450" data-claire-element-id="2404912">Nous allons découvrir la création de fonctions à travers deux exemples :</p><ul id="r-2173455" data-claire-element-id="2404917"><li id="r-2173452" data-claire-element-id="2404914"><p id="r-2173451" data-claire-element-id="2404913">l'affichage d'un message de bienvenue en fonction du nom ;</p></li><li id="r-2173454" data-claire-element-id="2404916"><p id="r-2173453" data-claire-element-id="2404915">le calcul du volume d'un cône.</p></li></ul><h4 id="r-2173473" data-claire-element-id="30935633">Premier exemple : dis bonjour au monsieur</h4><p id="r-2173456" data-claire-element-id="2404918">C'est peut-être un peu fatigant de dire bonjour à chacun de ses visiteurs, non ? Ça serait bien de le faire automatiquement… Les fonctions sont justement là pour nous aider !<br /> Regardez le code ci-dessous :</p><pre id="r-2173457" data-claire-element-id="6419220"><code data-claire-semantic="php">&lt;?php
+$nom = 'Sandra';
+echo 'Bonjour, ' . $nom . ' !&lt;br /&gt;';
+
+$nom = 'Patrick';
+echo 'Bonjour, ' . $nom . ' !&lt;br /&gt;';
+
+$nom = 'Claude';
+echo 'Bonjour, ' . $nom . ' !&lt;br /&gt;';
+?&gt;</code></pre><p id="r-2173458" data-claire-element-id="2404920">Vous voyez, c'est un peu fatigant à la longue… Alors nous allons créer une fonction qui le fait à notre place !</p><pre id="r-2173459" data-claire-element-id="6419221"><code data-claire-semantic="php">&lt;?php
+function DireBonjour($nom)
+{
+    echo 'Bonjour ' . $nom . ' !&lt;br /&gt;';
+}
+
+DireBonjour('Marie');
+DireBonjour('Patrice');
+DireBonjour('Edouard');
+DireBonjour('Pascale');
+DireBonjour('François');
+DireBonjour('Benoît');
+DireBonjour('Père Noël');
+?&gt;</code></pre><p id="r-2173460" data-claire-element-id="3747716">Résultat :</p><figure id="r-2809981" data-claire-element-id="30935632"><img id="r-2809979" data-claire-element-id="3747717" src="https://sdz-upload.s3.amazonaws.com/prod/upload/fonction_bonjour.png" alt="Appels de la fonction DireBonjour" /><figcaption>Appels de la fonction DireBonjour</figcaption></figure><p id="r-2173461" data-claire-element-id="30896057">Alors qu'y a-t-il de différent ici ? C'est surtout en haut qu'il y a une nouveauté : c'est la fonction. En fait, les lignes en haut permettent de définir la fonction (son nom, ce qu'elle est capable de faire, etc.). Elles ne font rien de particulier, mais elles disent à PHP : « Une fonction <code data-claire-semantic="text">DireBonjour</code>  existe maintenant ».</p><p id="r-2173462" data-claire-element-id="30896058">Pour créer une fonction, vous devez taper <code data-claire-semantic="text">function</code>  (en français, ça veut dire « fonction »). Ensuite, donnez-lui un nom. Par exemple, celle-ci s'appelle <code data-claire-semantic="text">DireBonjour</code>  .</p><p id="r-2173463" data-claire-element-id="30896059">Ce qui est plus particulier après, c'est ce qu'on met entre parenthèses : il y a une variable. C'est le <strong>paramètre</strong> dont a besoin la fonction pour travailler, afin qu'elle sache à qui elle doit dire bonjour, dans notre cas. Notre fonction doit forcément être appelée avec un paramètre (le nom), sans quoi elle ne pourra pas travailler.</p><aside id="r-2173465" data-claire-element-id="2404927" data-claire-semantic="information"><p id="r-2173464" data-claire-element-id="2404926">Vous avez peut-être remarqué que cette ligne est la seule à ne pas se terminer par un point-virgule. C'est normal, il ne s'agit pas d'une instruction mais juste d'une « carte d'identité » de la fonction (son nom, ses paramètres…).</p></aside><p id="r-2173466" data-claire-element-id="30896137">Ensuite, vous repérez des accolades. Elles permettent de marquer les limites de la fonction. Cette dernière commence dès qu'il y a une<code data-claire-semantic="text">{</code>  et se termine lorsqu'il y a une<code data-claire-semantic="text">}</code>  . Entre les deux, il y a son contenu.</p><p id="r-2173467" data-claire-element-id="30896097">Ici, la fonction contient une seule instruction ( <code data-claire-semantic="text">echo</code>  ). J'ai fait simple pour commencer, mais vous verrez qu'en pratique, une fonction contient plus d'instructions que cela.</p><p id="r-2173468" data-claire-element-id="30896098">Voilà, la fonction est créée, vous n'avez plus besoin d'y toucher. Après, pour faire appel à elle, il suffit d'indiquer son nom, et de préciser ses paramètres entre parenthèses. Enfin, il ne faut pas oublier le fameux point-virgule (  <code data-claire-semantic="text">;</code>  ), car il s'agit d'une instruction. Par exemple :</p><pre id="r-2173469" data-claire-element-id="6419227"><code data-claire-semantic="php">&lt;?php
+DireBonjour('Marie');
+?&gt;</code></pre><p id="r-2173470" data-claire-element-id="2404932">À vous d'essayer ! Créez une page avec cette fonction et dites bonjour à qui vous voulez, vous verrez : ça marche (encore heureux !) !</p><aside id="r-2173472" data-claire-element-id="2404934" data-claire-semantic="information"><p id="r-2173471" data-claire-element-id="2404933">Un conseil pour que vous vous entraîniez sur les fonctions : basez-vous sur mes exemples et essayez de les retoucher petit à petit pour voir ce que ça donne. Il peut y avoir des fonctions très simples comme des fonctions très compliquées, alors allez-y prudemment.</p></aside><h4 id="r-2173490" data-claire-element-id="30935636">Deuxième exemple : calculer le volume d'un cône</h4><p id="r-2173474" data-claire-element-id="30896178">Allez, on passe à la vitesse supérieure. La fonction <code data-claire-semantic="text">DireBonjour</code>  que l'on a créée ne renvoyait aucune valeur, elle se contentait d'effectuer des actions (afficher un texte, dans le cas présent). Maintenant, nous allons créer une fonction qui renvoie une valeur.</p><p id="r-2173475" data-claire-element-id="30896218">Ici, notre fonction va servir à faire un calcul : le calcul du volume d'un cône. Le principe est le suivant : vous donnez à la fonction le rayon et la hauteur du cône, elle travaille et vous renvoie le volume que vous cherchiez.</p><p id="r-2173476" data-claire-element-id="6419230">Bon : tout d'abord, il faut connaître la formule pour calculer le volume d'un cône. Vous avez oublié comment on fait ? <br /> Il faut connaître le rayon de la base et la hauteur. La formule à utiliser pour trouver le volume est :</p><p id="r-3910685" data-claire-element-id="6419488"><math>$\(\mathit{rayon}^2 \times \pi \times \mathit{hauteur} \times \frac{1}{3}\)$</math></p><p id="r-3910596" data-claire-element-id="6419232">. Voyez la figure suivante.</p><figure id="r-2173479" data-claire-element-id="30935635"><img id="r-2173477" data-claire-element-id="2404939" src="https://user.oc-static.com/files/5001_6000/5758.gif" alt="Représentation d'un cône" /><figcaption>Représentation d'un cône</figcaption></figure><p id="r-2173480" data-claire-element-id="30896260">Si vous avez bien suivi dans le chapitre précédent, vous êtes normalement capable de comprendre le code ci-dessous. Seul problème si on a à le faire plusieurs fois : c'est vite répétitif. Regardez :</p><pre id="r-2173481" data-claire-element-id="6419235"><code data-claire-semantic="php">&lt;?php
+// Calcul du volume d'un cône de rayon 5 et de hauteur 2
+$volume = 5 * 5 * 3.14 * 2 * (1/3);
+echo 'Le volume du cône de rayon 5 et de hauteur 2 est : ' . $volume . ' cm&lt;sup&gt;3&lt;/sup&gt;&lt;br /&gt;';
+
+// Calcul du volume d'un cône de rayon 3 et de hauteur 4
+$volume = 3 * 3 * 3.14 * 4 * (1/3);
+echo 'Le volume du cône de rayon 3 et de hauteur 4 est : ' . $volume . ' cm&lt;sup&gt;3&lt;/sup&gt;&lt;br /&gt;';
+?&gt;</code></pre><p id="r-2173482" data-claire-element-id="30896261">Nous allons donc créer une fonction <code data-claire-semantic="text">VolumeCone</code>  , qui va calculer le volume du cône en fonction du rayon et de la hauteur. Cette fonction ne va rien afficher, on veut juste qu'elle nous renvoie le volume qu'on cherche.</p><p id="r-2173483" data-claire-element-id="2404945">Regardez attentivement le code ci-dessous, il présente deux nouveautés :</p><pre id="r-2173484" data-claire-element-id="6419237"><code data-claire-semantic="php">&lt;?php
+// Ci-dessous, la fonction qui calcule le volume du cône
+function VolumeCone($rayon, $hauteur)
+{
+   $volume = $rayon * $rayon * 3.14 * $hauteur * (1/3); // calcul du volume
+   return $volume; // indique la valeur à renvoyer, ici le volume
+}
+
+$volume = VolumeCone(3, 1);
+echo 'Le volume d\'un cône de rayon 3 et de hauteur 1 est de ' . $volume;
+?&gt;</code></pre><p id="r-2173485" data-claire-element-id="30896340">Regardez bien la fonction, il y a l'instruction : <code data-claire-semantic="text">return $volume;</code>  .<br /> Cette instruction indique ce que doit renvoyer la fonction. Ici, elle renvoie le volume. Si vous aviez tapé <code data-claire-semantic="text">return 15</code>  , ça aurait à chaque fois affiché un volume de 15 (c'est un peu idiot, j'en conviens, mais faites l'essai !).</p><p id="r-2173486" data-claire-element-id="2404948">La fonction renvoie une valeur, que l'on doit donc récupérer dans une variable :</p><pre id="r-2173487" data-claire-element-id="6419239"><code data-claire-semantic="php">&lt;?php
+$volume = VolumeCone(3, 1);
+?&gt;</code></pre><p id="r-2173488" data-claire-element-id="30896341">Ensuite, on peut afficher ce que contient la variable à l'aide d'une instruction <code data-claire-semantic="text">echo</code>  .</p><p id="r-2173489" data-claire-element-id="30896342">Les possibilités de création de fonctions sont quasi infinies. Il est clair que normalement, vous n'allez pas avoir à créer de fonction qui calcule le volume d'un cône (qui est assez fou pour faire ça ?). En fait, tout ce que je vous demande ici, c'est de comprendre qu'une fonction peut se révéler très pratique et vous faire gagner du temps.</p><h4 id="r-2173500" data-claire-element-id="30896347">En résumé</h4><ul id="r-2173499" data-claire-element-id="30896346"><li id="r-2173492" data-claire-element-id="2404954"><p id="r-2173491" data-claire-element-id="2404953">Les fonctions sont des blocs de code qui exécutent des instructions en fonction de certains paramètres.</p></li><li id="r-2173494" data-claire-element-id="2404956"><p id="r-2173493" data-claire-element-id="2404955">Les fonctions ont généralement une entrée et une sortie. Par exemple, si on donne la valeur 4 à la fonction de calcul du cube, celle-ci renvoie 64 en sortie.</p></li><li id="r-2173496" data-claire-element-id="2404958"><p id="r-2173495" data-claire-element-id="2404957">PHP propose des centaines et des centaines de fonctions prêtes à l'emploi pour tous types de tâches : envoyer un e-mail, récupérer l'heure, crypter des mots de passe, etc.</p></li><li id="r-2173498" data-claire-element-id="30896345"><p id="r-2173497" data-claire-element-id="30896344">Si PHP ne propose pas la fonction dont on a besoin, il est possible de la créer avec le mot-clé <code data-claire-semantic="text">function</code>  .</p></li></ul>
+</div>
+<div class="js-courseSelementActions sideActions">
+<ul class="sideActions__container">
+<li>
+<a class="sideActions__item  js-courseElementActions-copyUrl  js-tooltip" href="#" data-tooltip="Copier le lien" data-tooltip-done="Lien copié !">
+#
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="text-center space-top">
+<form name="form" method="post" action="/fr/courses/918836/parts/912352/mark-as-complete" class=" oc-form">
+<button type="submit" id="form_submit" name="form[submit]" class="button button--primary button"> J'ai terminé ce chapitre et je passe au suivant</button>
+<input type="hidden" id="form__token" name="form[_token]" class=" textInput textInput--hidden" value="HHvvG50E7zuNwx7N-orTQCaRdo_Nl71l6srhv0Sp7B0" /></form>
+</div>
+<nav id="course-pagination" class="course-pagination    clearfix">
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238931-les-tableaux" class="button button--secondary  course-pagination__btn course-pagination__btn--previous">
+<i class="icon-previous"></i>
+<span>Les tableaux</span>
+</a>
+<span class="course-pagination__separator"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4240011-au-secours-mon-script-plante" class="button button--secondary  course-pagination__btn course-pagination__btn--next">
+<span>Au secours ! Mon script plante !</span>
+<i class="icon-next"></i>
+</a>
+</nav>
+<div tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="popin-view-restriction_popin_title" class="popin popin--illustrated  js-popin" id="popin-view-restriction">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__illustrationWrapper">
+<div class="popin__illustration illustration--balloon"></div>
+</div>
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<div id="popin-view-restriction_popin_title" class="popin__title  js-popin-title">Waouh !</div>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Très heureux de voir que nos cours vous plaisent, déjà 5 pages lues aujourd&#039;hui ! Vous pouvez continuer la lecture de nos cours en devenant un membre de la communauté d&#039;OpenClassrooms. C&#039;est gratuit !
+</p>
+<p>
+Vous pourrez aussi suivre votre avancement dans le cours, faire les exercices et discuter avec les autres membres.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<span class="u--inlineBlock">
+<a class="button button--primary " href="/fr/register">S'inscrire</a>
+</span>
+<span class="u--inlineBlock">
+<a class="button button--secondary " href="/fr/login">Se connecter</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script type="text/template" class="js-single-video-download-info">
+            <div class="videoDownload js-download-video-popin-link">
+                <a href="#popin-download-video" class="js-popin-activator">
+                    <i class="icon-download videoDownload__icon"></i> Télécharger la vidéo
+                </a>
+            </div>
+        </script>
+<script type="text/template" class="js-all-video-download-info">
+            <div class="videoDownload js-download-video-popin-link">
+                <a href="#popin-download-all-videos" class="js-popin-activator">
+                    <i class="icon-download videoDownload__icon"></i> Télécharger toutes les vidéos de ce cours
+                </a>
+            </div>
+        </script>
+<div id="popin-not-certifying-yet_542737" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#039;issue de ce cours.
+                            <span><i class='icon-star'></i> Devenez Premium</span>
+                    ">
+<img alt="Exemple de certificat de réussite" src="//static.oc-static.com/prod/images/courses/certif.jpg" />
+</div>
+<div tabindex="-1" role="dialog" aria-hidden="true" class="popin popin--small  js-popin" id="popin-download-video">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div id="popin-download-video_popin_title" class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<i class="icon-video popin__icon  js-popin-icon"></i>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Le téléchargement des vidéos de nos cours est accessible pour les membres Premium. Vous pouvez toutefois les visionner en streaming gratuitement.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<a class="button button--primary js-close-button" href="#">Devenez Premium</a>
+</div>
+</div>
+</div>
+</div>
+<div id="popin-not-certifying-yet_18108" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#039;issue de ce cours.
+                            <span><i class='icon-star'></i> Devenez Premium</span>
+                    ">
+<img alt="Exemple de certificat de réussite" src="//static.oc-static.com/prod/images/courses/certif.jpg" />
+</div>
+<div tabindex="-1" role="dialog" aria-hidden="true" class="popin popin--small  js-popin" id="popin-download-video">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__mainContainer">
+<div class="popin__gigTitleContainer js-popin-title">
+<div class="gigWorkersPopin__timeline">
+<div class="gigWorkersPopin__dot">1</div>
+<div class="gigWorkersPopin__line"></div>
+<div class="gigWorkersPopin__dot gigWorkersPopin__dot--disabled">2</div>
+</div>
+<div id="popin-download-video_popin_title" class="popin__title">Créez un compte <br /> OpenClassrooms</div>
+</div>
+<i class="icon-video popin__icon  js-popin-icon"></i>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Le téléchargement des vidéos de nos cours est accessible pour les membres Premium. Vous pouvez toutefois les visionner en streaming gratuitement.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<a class="button button--primary js-close-button" href="#">Devenez Premium</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside id="content-with-sidebar" class="contentWithSidebar__sidebar  js-contentWithSidebar-slidingElement">
+<nav class="col-nav">
+<div id="tab-courseMenu" class="col-nav__inner js-sidebar-inner">
+<div class="col-nav__block  col-nav__block--summary">
+<div class="side-paginate">
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238931-les-tableaux" class="side-paginate__previous" title="Chapitre précédent">
+<i class="icon-previous"></i>
+</a>
+<span class="side-paginate__separator"></span>
+<h6 class="side-paginate__title">
+Découvrez les bases de PHP
+</h6>
+<span class="side-paginate__separator"></span>
+<a href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4240011-au-secours-mon-script-plante" class="side-paginate__next" title="Chapitre suivant">
+<i class="icon-next"></i>
+</a>
+</div>
+<div class="col-nav__block--summary-list">
+<ol class="col-nav__chapters">
+<li class="">
+<span class="roundIcon roundIcon--highlighted col-nav__completed js-tooltip" title="Bravo, vous avez terminé ce chapitre !">
+<i class="icon-check2 roundIcon__icon"></i>
+</span>
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/911847-les-variables">Les variables</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912046-les-conditions">Les conditions</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/912133-les-boucles">Les boucles</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4238931-les-tableaux">Les tableaux</a>
+</li>
+<li class="selected">
+<span class="col-nav__chapterTitle">Les fonctions</span>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4240011-au-secours-mon-script-plante">Au secours ! Mon script plante !</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239271-inclure-des-portions-de-page">Inclure des portions de page</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/4239346-codez-proprement">Codez proprement</a>
+</li>
+</ol>
+<div class="tocExercise"><ul class="tocExercise__list"><li class="tocExercise__item "><a class="tocExercise__link " href="/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/exercises/95"><i class="tocExercise__icon icon-test"></i><span class="tocExercise__text">Quiz : Découvrez les bases de PHP</span></a></li></ul></div> </div>
+</div>
+<div class="col-nav__block col-nav__block--button">
+<a href="/forum/categorie/php" class="button button--secondary">
+Accéder au forum
+</a>
+</div>
+<div class="col-nav__block col-nav__block--institution">
+<div class="col-nav__title">Créé par</div>
+<a href="/fr/partners/openclassrooms" target="_blank" rel="nofollow">
+<span data-image-cdn-attr-src="https://course.oc-static.com/partners/19/15433053814225_short-200x200.png" data-image-cdn-attr-alt="logo OpenClassrooms" data-image-cdn-width="165" data-image-cdn-attr-class="col-nav__institutionLogo"><img class="col-nav__institutionLogo" width="165" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /></span>
+<p class="col-nav__block--institutionDescription">
+OpenClassrooms, Leading <span class='nowrap'>E-Learning<span> Platform in Europe
+</p>
+</a>
+</div>
+<div class="socialNetwork col-nav__block">
+<ul class="socialButtons  js-socialButtons" data-options="
+                title: 'Les fonctions @OCFrance',
+        mailTitle: 'Cours &quot;Les fonctions&quot; sur OpenClassrooms',
+        mailContent: 'Découvrez le cours &quot;Les fonctions&quot; sur OpenClassrooms.'">
+<li>
+<a class="roundIcon  roundIcon--twitter addthis_button_twitter  js-socialButtons-btn" data-tooltip="Partagez sur Twitter">
+<i class="roundIcon__icon  icon-twitter"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--facebook  addthis_button_facebook  js-socialButtons-btn" data-tooltip="Partagez sur Facebook">
+<i class="roundIcon__icon  icon-facebook"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  addthis_button_email  js-socialButtons-btn  js-socialButtons-email" data-tooltip="Partagez par e-mail">
+<i class="roundIcon__icon  icon-letter"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</aside>
+</div>
+</div>
+</div>
+<footer id="course-footer" class="alt-section noMarginBottom">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content  courseFooter">
+<div class="courseFooter__authors course-bottom__category">
+<div class="course-bottom__title">
+Le professeur
+</div>
+<div>
+<div class="course-bottom__text-illustrated">
+<span data-author="Mathieu Nebra" data-image-cdn-background-image="https://user.oc-static.com/users/avatars/16010488280562_MathieuNebra_square.jpg" data-image-cdn-width="120"></span>
+<div class="course-bottom__subtitle" itemprop="name">Mathieu Nebra</div>
+<p itemprop="description">
+Entrepreneur à plein temps, auteur à plein temps et co-fondateur d&#039;OpenClassrooms :o)
+</p>
+</div>
+</div>
+</div>
+<div class="courseFooter__courseFormat course-bottom__category">
+<h2>Découvrez aussi ce cours en...</h2>
+<ul class="course-bottom__format">
+<li>
+<a href="http://www.eyrolles.com/Informatique/Livre/concevez-votre-site-web-avec-php-et-mysql-9791090085411?societe=openclassrooms" target="_blank" class="text-decoration-none">
+<div class="circle circle--x-small">
+<span class="circle__content"></span>
+<i class="icon-book"></i>
+</div>
+<div class="course-bottom__format-entitled">
+Livre
+</div>
+</a>
+</li>
+<li>
+<a href="/fr/old-courses-pdf" class="text-decoration-none">
+<div class="circle circle--x-small">
+<span class="circle__content"></span>
+<i class="icon-pdf"></i>
+</div>
+<div class="course-bottom__format-entitled">
+PDF
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</article>
+</main>
+</div>
+<div id="mainSearchLegacy" class="mainSearch"></div>
+<div id="footerWrapper">
+<footer id="footer" class="oc-footerSkeleton">
+<hr style="margin-bottom: 8px" />
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="oc-footerSkeleton__container">
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 80%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 70%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 85%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<div class="oc-footerSkeleton__itemTitle"><span class="skeleton" style="height: 20px; width: 75%"></span></div>
+<ul class="oc-footerSkeleton__linksList">
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 50%"></span></a></p>
+</li>
+<li class="oc-footerSkeleton__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footerSkeleton__item">
+<span class="skeleton" style="height: 25px; width: 65%"></span>
+<div class="oc-footerSkeleton__socialButtonWrapper">
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+</div>
+<div><span class="skeleton skeleton--width50" style="height: 40px;"></span></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div id="showDisclaimer" class="cookiesDisclaimer"></div>
+<script>
+  var isPrerender = !!navigator.userAgent.match(/github\.com\/prerender\/prerender/);
+  var preRenderBrowserFakeUa = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163 Safari/537.36";
+  var polyfillUrl = "https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=default,es6,IntersectionObserver,Object.values,Array.prototype.includes,Array.prototype.findIndex,Array.prototype.find,Array.from,Promise.prototype.finally,fetch,String.prototype.includes,Object.entries,Array.prototype.entries,Intl.~locale.fr";
+
+    if (isPrerender) {
+    polyfillUrl+= "&ua=" + encodeURIComponent(preRenderBrowserFakeUa);
+  }
+
+  App.translations = {};
+
+  App.scripts.push(polyfillUrl);
+
+  App.script = {
+    DASHBOARD: 'dashboard',
+    MENTORSHIP_STUDENT_DASHBOARD: 'mentorshipStudentdashboard',
+    SHOP: 'shop',
+    PAYMENT: 'payment',
+    PROJECTS: 'projects',
+    TEAM: 'team',
+    COURSE_EDIT: 'course_edit',
+    COURSE_VIEW: 'course_view',
+    ADMIN: 'admin',
+    ADMIN_STUDENT_CREDENTIAL_CREATE: 'adminStudentCredentialCreate',
+    POST_A_JOB: 'postAJob',
+    GIG_WORKERS: 'gigWorkers',
+    JOB_SURVEY: 'jobSurvey',
+    MCQ_EDIT: 'mcqEdit',
+    MCQ_VIEW: 'mcqView',
+    MENTOR_EDIT: 'mentorEdit',
+    MENTORSHIP_DASHBOARD: 'mentorshipDashboard',
+    MENTORSHIP_SESSION_CREATE: 'mentorshipSessionCreate',
+    MENTORSHIP_SESSION_NON_ASSESSOR_CREATE: 'mentorshipSessionNonAssessorCreate',
+    PATHS: 'paths',
+    PRIVATE_CONVERSATIONS: 'privateConversations',
+    USER_PROFILE: 'userProfile',
+    WELCOME: 'welcome',
+    APPRENTICESHIP: 'apprenticeship',
+    WEBAPP: 'webapp',
+    PROJECTS_ADMIN: 'projectsAdmin',
+    SECURITY: 'security',
+  };
+</script>
+<script>App.scripts.push("/js/runtime.04733354058e84bb044d.js");</script>
+<script>App.scripts.push("/js/vendors.163aded1682cb6d60485.js");</script>
+<script>App.scripts.push("/languages/fr.976759d0c638eb765c0f.js");</script>
+<script>App.scripts.push("/js/oc/packages/index.a2665b95db17f1992504.js");</script>
+<script type="text/javascript">
+        function getConsentedSegmentIntegrations() {
+            // getCookie from https://www.w3schools.com/js/js_cookies.asp
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) === ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) === 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            var consent = getCookie('cmapi_cookie_privacy');
+
+            function isCookieAllowedByConsent(consent, level) {
+              return !!consent && consent.search(level) !== -1;
+            }
+
+            var isFunctionalCookieAllowed = isCookieAllowedByConsent(consent, 2);
+            var isAdvertisingCookieAllowed = isCookieAllowedByConsent(consent, 3);
+
+            var isAppCuesPremiumUser = false;
+
+            var isOnPoleEmploiPage = !!window && window.location.pathname.indexOf('partners/pole-emploi/offers') >= 0;
+
+            return {
+                Amplitude: isFunctionalCookieAllowed,
+                'Bing Ads': isAdvertisingCookieAllowed,
+                'Google Ads': isAdvertisingCookieAllowed,
+                'Google Analytics': isFunctionalCookieAllowed,
+                'Zendesk': isFunctionalCookieAllowed,
+                Appcues: (isAppCuesPremiumUser || isOnPoleEmploiPage) && isFunctionalCookieAllowed,
+            };
+        }
+
+        var consentedSegmentIntegrations = getConsentedSegmentIntegrations();
+
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+            window.loadAnalytics = function () { window.analytics.load('mou95e6tdn', {integrations: consentedSegmentIntegrations}) };
+        }}();
+    </script>
+
+<script>App.scriptToLoad = App.script.COURSE_VIEW</script>
+
+<script>
+    (function () {
+        function loadScripts(cb) {
+            App.scripts.forEach(function (src, index) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false;
+                document.body.appendChild(script);
+
+                if (cb && index === App.scripts.length - 1) {
+                    script.onload = cb;
+                }
+            });
+        }
+
+        function boot() {
+            loadScripts(function () {
+                if (App.modules) {
+                    App.modules.startAll();
+                }
+            });
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener('load', boot, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', boot);
+        } else {
+            window.onload = boot;
+        }
+    }());
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.eu01.nr-data.net","licenseKey":"NRJS-5b58725ce0d442079d0","applicationID":"156815673","transactionName":"MhBSZQoZVhJWB0xfDAtac0QLDFcMGAtbaQAJFFlDHSdbDkIWS1M8FRRCRScIWRNDO05fBhI=","queueTime":0,"applicationTime":284,"atts":"HldRE0IDRRw=","errorBeacon":"bam.eu01.nr-data.net","agent":""}</script></body>
+</html>
