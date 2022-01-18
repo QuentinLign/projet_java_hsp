@@ -8,23 +8,25 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.dbconnexion.*;
 
+import appli.Admin_Menu;
+
 
 public class Manager_connexion extends Global
 {
 
-	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException
+	public boolean Connexion(String email, String mdp, Shell shell) throws SQLException
 	{
 
 		Database db = new Database();
 		Connection cnx = db.DbConnexion();
-		String requete = "Select * from utilisateur where identifiant = '"+identifiant+"' and mdp = '"+mdp+"'";
+		String requete = "Select * from utilisateurs where email = '"+email+"' and mdp = '"+mdp+"'";
 		String role = "role";
 		ResultSet resultat = db.Request(cnx, requete);
 		while(resultat.next())
 		{
-			Globidentifiant = resultat.getString("identifiant");
+			Globemail = resultat.getString("email");
 			Globnom = resultat.getString("nom");
-			if(resultat.getString(role).equals("Admin"))
+			if(resultat.getString(role).equals("ADMIN"))
 			{
 				Globadmin = true;
 				try
@@ -40,20 +42,28 @@ public class Manager_connexion extends Global
 				e.printStackTrace();
 			}
 		}
-		else
-		{ //Connexion en tant que professeur
-			try
-			{
-				shell.close();
-				Planning_prof window = new Planning_prof();
-				window.open();
-				return false;
+			else {
+				Globemail = resultat.getString("email");
+				Globnom = resultat.getString("nom");
+				if(resultat.getString(role).equals("GEST"))
+				{
+					Globadmin = true;
+					try
+					{ //Connexion en tant qu'Administrateur
+					shell.close();
+					Admin_Menu window_Admin = new Admin_Menu();
+					window_Admin.open();
+					return false;
+
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
 			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
+				
 			}
-		}
+
 
 	}
 	return true;

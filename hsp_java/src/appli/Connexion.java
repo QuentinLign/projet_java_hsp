@@ -29,8 +29,8 @@ public class Connexion
 		shell.setSize(494, 381);
 		shell.setText("Hôpital de Paris | Connexion");
 		//Identifiant
-		textIdentifiant = new Text(shell, SWT.BORDER);
-		textIdentifiant.setBounds(133, 94, 215, 35);
+		textEmail = new Text(shell, SWT.BORDER);
+		textEmail.setBounds(133, 94, 215, 35);
 	
 		textMotdePasse = new Text(shell, SWT.BORDER | SWT.PASSWORD);
 		textMotdePasse.setBounds(133, 177, 215, 34);
@@ -50,7 +50,7 @@ public class Connexion
 		Label lblErreur = new Label(shell, SWT.NONE);
 		lblErreur.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblErreur.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
-		lblErreur.setBounds(133, 243, 317, 25);
+		lblErreur.setBounds(128, 275, 317, 25);
 		lblErreur.setText("Erreur dans l'identifiant ou le mot de passe");
 		lblErreur.setVisible(false);
 		
@@ -90,7 +90,7 @@ public class Connexion
 				try
 				{
 					Manager_connexion connexion = new Manager_connexion();
-					boolean message = connexion.Connexion(textIdentifiant.getText(), textMotdePasse.getText(), shell);
+					boolean message = connexion.Connexion(textEmail.getText(), textMotdePasse.getText(), shell);
 	
 					lblErreur.setVisible(message);
 	
@@ -108,7 +108,7 @@ public class Connexion
 	}
 
 	protected Shell shell;
-	private Text textIdentifiant;
+	private Text textEmail;
 	private Text textMotdePasse;
 	private Text txtEspaceHpitalDe;
 	private Text txtApplication;
