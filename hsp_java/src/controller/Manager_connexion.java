@@ -8,10 +8,8 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.dbconnexion.*;
 
-import appli.Admin_Menu;
-import appli.Planning_prof;
 
-public class Controller_connexion extends Global
+public class Manager_connexion extends Global
 {
 
 	public boolean Connexion(String identifiant, String mdp, Shell shell) throws SQLException
