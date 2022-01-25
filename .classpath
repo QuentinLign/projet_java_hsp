@@ -6,8 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lycee_java/mysql-connector-java-8.0.22.jar"/>
-	<classpathentry exported="true" kind="lib" path="lycee_java/org.eclipse.swt.win32.win32.x86_64_3.115.100.v20201202-1103.jar"/>
-	<classpathentry kind="lib" path="C:/Users/NAKHIL_Am/.p2/pool/plugins/org.eclipse.jface_3.22.0.v20201106-0834.jar" sourcepath="C:/Users/NAKHIL_Am/.p2/pool/plugins/org.eclipse.jface_3.22.0.v20201106-0834.jar"/>
+	<classpathentry kind="lib" path="C:/wamp64/www/projet_java_hsp/hsp_java/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/wamp64/www/projet_java_hsp/hsp_java/swing2swt.jar"/>
+	<classpathentry kind="lib" path="C:/wamp64/www/projet_java_hsp/hsp_java/org.eclipse.swt.win32.win32.x86_64_3.115.100.v20201202-1103.jar" sourcepath="C:/Users/NAKHIL_Am/.p2/pool/plugins/org.eclipse.jface_3.22.0.v20201106-0834.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
