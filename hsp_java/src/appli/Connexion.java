@@ -20,7 +20,7 @@ public class Connexion
 {
 
 	/**
-	* fondation du contenu de la fenetre
+	* fondation du contenu de la fen"etre
 	*/
 	protected void createContents()
 	{

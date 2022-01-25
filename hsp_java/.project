@@ -14,16 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/appli/Admin_Menu.java</name>
-			<type>1</type>
-			<locationURI>PARENT-4-PROJECT_LOC/Users/qlign/OneDrive/Bureau/lycee_java-master/lycee_java/src/appli/Admin_Menu.java</locationURI>
-		</link>
-		<link>
-			<name>src/appli/Main.java</name>
-			<type>1</type>
-			<locationURI>PARENT-4-PROJECT_LOC/Users/qlign/OneDrive/Bureau/lycee_java-master/lycee_java/src/appli/Main.java</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
