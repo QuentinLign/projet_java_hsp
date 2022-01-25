@@ -95,7 +95,7 @@ public class Menu_Admin extends Global
 		});
 		btnDconnexion_1.setText("Utilisateurs");
 		btnDconnexion_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnDconnexion_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		btnDconnexion_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnDconnexion_1.setBounds(39, 66, 270, 35);
 		
 		Button btnDconnexion_1_1 = new Button(shlMenuAdmin, SWT.NONE);
@@ -106,7 +106,7 @@ public class Menu_Admin extends Global
 		});
 		btnDconnexion_1_1.setText("Comptes utilisateurs");
 		btnDconnexion_1_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnDconnexion_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		btnDconnexion_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnDconnexion_1_1.setBounds(39, 118, 270, 35);
 		
 		Button btnDconnexion_1_1_1 = new Button(shlMenuAdmin, SWT.NONE);
@@ -117,13 +117,13 @@ public class Menu_Admin extends Global
 		});
 		btnDconnexion_1_1_1.setText("Produits");
 		btnDconnexion_1_1_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnDconnexion_1_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		btnDconnexion_1_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnDconnexion_1_1_1.setBounds(39, 177, 270, 35);
 		
 		Button btnDconnexion_1_1_1_1 = new Button(shlMenuAdmin, SWT.NONE);
 		btnDconnexion_1_1_1_1.setText("Commande des stocks");
 		btnDconnexion_1_1_1_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnDconnexion_1_1_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		btnDconnexion_1_1_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnDconnexion_1_1_1_1.setBounds(39, 236, 270, 35);
 		
 
