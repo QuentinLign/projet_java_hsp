@@ -125,13 +125,43 @@ public class Menu_Admin extends Global
 		btnDconnexion_1_1_1_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		btnDconnexion_1_1_1_1.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.NORMAL));
 		btnDconnexion_1_1_1_1.setBounds(39, 236, 270, 35);
+		public void open()
+		{
+			Display display = Display.getDefault();
+			createContents();
+			shlMenuAdmin.open();
+			shlMenuAdmin.layout();
+			while (!shlMenuAdmin.isDisposed())
+			{
+				if (!display.readAndDispatch())
+				{
+					display.sleep();
+				}
+			}
+		}
 		
 		Button btnMonCompte = new Button(shlMenuAdmin, SWT.NONE);
-		btnMonCompte.setText("Mon compte");
 		btnMonCompte.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
 		btnMonCompte.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.ITALIC));
+		btnMonCompte.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				shlMenuAdmin.close();
+				try
+				{
+					Compte window = new Compte();
+					window.open();
+				}
+				catch (Exception e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnMonCompte.setBounds(39, 309, 116, 35);
-		
+		btnMonCompte.setText("Mon compte");
 
 	}
 }
